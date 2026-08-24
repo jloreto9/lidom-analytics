@@ -222,6 +222,32 @@ class TestLIDOMCore(unittest.TestCase):
         self.assertTrue(len(png_bytes) > 1000)
         self.assertTrue(png_bytes.startswith(b"\x89PNG\r\n\x1a\n"))
 
+    def test_lineup_engine(self):
+        """Valida el motor de lineups, cálculo de Base Runs y optimización de Tom Tango."""
+        from core.lineup_engine import LineupEngine
+        loader = LIDOMDataLoader()
+        pool = loader.get_versus_player_pool(season=2024, role="Bateadores")
+        self.assertFalse(pool.empty)
+
+        engine = LineupEngine(season=2024)
+
+        # Probar los 6 equipos
+        for team_code in ["LIC", "AGU", "ESC", "GIG", "EST", "TOR"]:
+            df_lineup = engine.get_preset_lineup(team_code, pool)
+            self.assertEqual(len(df_lineup), 9)
+            # Validar que los 9 jugadores sean distintos
+            self.assertEqual(df_lineup["Name"].nunique(), 9)
+
+            metrics = engine.calculate_expected_runs(df_lineup)
+            self.assertTrue(metrics["runs_per_game"] > 1.5)
+            self.assertTrue(metrics["runs_per_season"] > 75.0)
+            self.assertEqual(len(metrics["slot_contributions"]), 9)
+
+            df_opt, curr_m, opt_m = engine.optimize_lineup(df_lineup)
+            self.assertEqual(len(df_opt), 9)
+            self.assertEqual(list(df_opt["Slot"]), list(range(1, 10)))
+            self.assertTrue(opt_m["runs_per_game"] > 0)
+
 
 if __name__ == "__main__":
     unittest.main()

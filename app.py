@@ -15,6 +15,7 @@ from views.home import render_home_view
 from views.team_hub import render_team_hub_view
 from views.leaderboards import render_leaderboards_view
 from views.versus import render_versus_view
+from views.lineups import render_lineups_view
 from views.game_center import render_game_center_view
 from views.spray_charts import render_spray_charts_view
 
@@ -60,6 +61,7 @@ with st.sidebar:
             "🏟️ Team Hub (Franquicias)",
             "👑 Líderes Individuales",
             "⚔️ Matchup 360 (Versus)",
+            "📋 Laboratorio de Lineups",
             "⚡ Game Center & WPA",
             "🎯 Spray Charts (Dureza BIS)",
         ],
@@ -84,7 +86,7 @@ with st.sidebar:
         st.markdown("""
         <div style="font-size: 0.78rem; color: #94A3B8; line-height: 1.5;">
             • <b>MLB Stats API:</b> Play-by-play oficial, boxscores, rosters y tracking en vivo (LIDOM League ID: 131, Sport ID: 17).<br>
-            • <b>Tom Tango (The Book / RE24):</b> Matriz de expectativa de carreras (Run Expectancy) y modelos de Win Expectancy (WE) / WPA.<br>
+            • <b>Tom Tango (The Book / RE24):</b> Matriz de expectativa de carreras (Run Expectancy), optimización de lineups y modelos de WPA.<br>
             • <b>Baseball Info Solutions (BIS):</b> Calibración determinística de dureza de contacto (Batted Ball Hard/Med/Soft).<br>
             • <b>LIDOM:</b> Liga de Béisbol Profesional de la República Dominicana.
         </div>
@@ -107,6 +109,8 @@ elif menu == "👑 Líderes Individuales":
     render_leaderboards_view(season=season)
 elif menu == "⚔️ Matchup 360 (Versus)":
     render_versus_view(season=season)
+elif menu == "📋 Laboratorio de Lineups":
+    render_lineups_view(season=season)
 elif menu == "⚡ Game Center & WPA":
     render_game_center_view(season=season)
 elif menu == "🎯 Spray Charts (Dureza BIS)":
