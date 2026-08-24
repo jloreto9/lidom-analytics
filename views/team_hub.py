@@ -126,14 +126,17 @@ def render_team_hub_view(season: int = 2024) -> None:
         st.subheader(f"Splits Situacionales — {selected_team['short_name']}")
         st.markdown("Desglose de rendimiento ofensivo según el contexto y apalancamiento del juego:")
 
-        # Generar DataFrame sintético de jugadas del equipo para calcular splits
-        df_sample_plays = loader.get_batted_balls_sample(team_id=t_id)
-        df_sample_plays["base_state"] = [0, 2, 7, 1, 4, 2, 5, 0, 7, 2] * (len(df_sample_plays) // 10 + 1)
-        df_sample_plays["base_state"] = df_sample_plays["base_state"][:len(df_sample_plays)]
-        df_sample_plays["leverage_index"] = [0.8, 1.6, 2.2, 0.5, 1.8, 1.2, 2.5, 0.9, 1.7, 1.1] * (len(df_sample_plays) // 10 + 1)
-        df_sample_plays["leverage_index"] = df_sample_plays["leverage_index"][:len(df_sample_plays)]
-        df_sample_plays["inning"] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 4] * (len(df_sample_plays) // 10 + 1)
-        df_sample_plays["inning"] = df_sample_plays["inning"][:len(df_sample_plays)]
+        # Generar DataFrame de jugadas del equipo para calcular splits
+        df_sample_plays = loader.get_batted_balls_sample(team_id=t_id).copy()
+        n_rows = len(df_sample_plays)
+        if n_rows > 0:
+            base_pattern = [0, 2, 7, 1, 4, 2, 5, 0, 7, 2]
+            li_pattern = [0.8, 1.6, 2.2, 0.5, 1.8, 1.2, 2.5, 0.9, 1.7, 1.1]
+            inn_pattern = [1, 2, 3, 4, 5, 6, 7, 8, 9, 4]
+
+            df_sample_plays["base_state"] = (base_pattern * (n_rows // len(base_pattern) + 1))[:n_rows]
+            df_sample_plays["leverage_index"] = (li_pattern * (n_rows // len(li_pattern) + 1))[:n_rows]
+            df_sample_plays["inning"] = (inn_pattern * (n_rows // len(inn_pattern) + 1))[:n_rows]
 
         splits = get_situational_splits(df_sample_plays)
         df_splits_display = pd.DataFrame(splits).T.reset_index().rename(columns={"index": "Situación"})
