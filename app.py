@@ -20,13 +20,24 @@ from views.spray_charts import render_spray_charts_view
 # Aplicar estilos base globales
 apply_custom_css(accent_color="#0055B8")
 
+import os
+import base64
+
 # ----------------- SIDEBAR ----------------- #
 with st.sidebar:
-    st.markdown("""
+    logo_path = os.path.join(os.path.dirname(__file__), "assets", "lidom_logo.png")
+    if os.path.exists(logo_path):
+        with open(logo_path, "rb") as f:
+            logo_b64 = base64.b64encode(f.read()).decode("utf-8")
+        logo_img_tag = f'<img src="data:image/png;base64,{logo_b64}" style="width: 85px; height: 85px; object-fit: contain; margin-bottom: 12px; filter: drop-shadow(0px 4px 12px rgba(0,0,0,0.6));">'
+    else:
+        logo_img_tag = '<img src="https://midfield.mlbstatic.com/v1/league/131/spots/240" style="width: 85px; height: 85px; object-fit: contain; margin-bottom: 12px;">'
+
+    st.markdown(f"""
     <div style="text-align: center; padding: 10px 0 15px 0;">
-        <img src="https://midfield.mlbstatic.com/v1/league/131/spots/240" style="width: 75px; height: 75px; object-fit: contain; margin-bottom: 8px; filter: drop-shadow(0px 4px 10px rgba(0,0,0,0.5));">
-        <h2 style="margin: 0; color: #FFFFFF; font-size: 1.4rem;">LIDOM 360</h2>
-        <p style="margin: 0; color: #38BDF8; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.05em;">SABERMETRICS PLATFORM</p>
+        {logo_img_tag}
+        <h2 style="margin: 0; color: #FFFFFF; font-size: 1.45rem; font-weight: 800; letter-spacing: -0.01em;">LIDOM 360</h2>
+        <p style="margin: 2px 0 0 0; color: #38BDF8; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;">SABERMETRICS PLATFORM</p>
     </div>
     """, unsafe_allow_html=True)
 

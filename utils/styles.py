@@ -144,13 +144,31 @@ def apply_custom_css(accent_color: str = "#0055B8") -> None:
     st.markdown(custom_css, unsafe_allow_html=True)
 
 
+import os
+import base64
+
+
+def get_lidom_logo_src() -> str:
+    """Retorna la imagen base64 del logo oficial de LIDOM con fallback a MLB CDN."""
+    logo_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "assets", "lidom_logo.png")
+    if os.path.exists(logo_path):
+        try:
+            with open(logo_path, "rb") as f:
+                b64 = base64.b64encode(f.read()).decode("utf-8")
+            return f"data:image/png;base64,{b64}"
+        except Exception:
+            pass
+    return "https://midfield.mlbstatic.com/v1/league/131/spots/240"
+
+
 def render_header(title: str, subtitle: str, badge_text: str = "LIDOM 360", accent_color: str = "#0055B8", season: Optional[int] = None) -> None:
     """Renderiza una cabecera heroica con branding estilizado y el logo oficial de LIDOM."""
     season_text = f"{season}-{season+1}" if season else "LIDOM"
+    logo_src = get_lidom_logo_src()
     header_html = f"""
     <div class="hero-banner" style="border-left: 4px solid {accent_color};">
         <div style="display: flex; align-items: center; gap: 20px;">
-            <img src="https://midfield.mlbstatic.com/v1/league/131/spots/240" style="width: 55px; height: 55px; object-fit: contain; filter: drop-shadow(0px 2px 8px rgba(0,0,0,0.4));">
+            <img src="{logo_src}" style="width: 58px; height: 58px; object-fit: contain; filter: drop-shadow(0px 3px 10px rgba(0,0,0,0.5));">
             <div>
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 4px;">
                     <span class="badge-pill" style="background: {accent_color}; color: #FFFFFF;">{badge_text}</span>
