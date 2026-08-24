@@ -109,3 +109,27 @@ class MLBLIDOMApiClient:
             "leagueId": LIDOM_LEAGUE_ID,
         }
         return self._get(url, params=params)
+
+    def get_league_player_stats(self, season: int = 2024, group: str = "hitting", game_type: str = "R") -> List[Dict[str, Any]]:
+        """
+        Obtiene las estadísticas completas oficiales de todos los jugadores de LIDOM para una temporada.
+        group: 'hitting' o 'pitching'
+        """
+        url = f"{BASE_URL_V1}/stats"
+        params = {
+            "stats": "season",
+            "group": group,
+            "gameType": game_type,
+            "season": season,
+            "sportId": LIDOM_SPORT_ID,
+            "leagueId": LIDOM_LEAGUE_ID,
+            "playerPool": "ALL",
+            "limit": 1000,
+        }
+        data = self._get(url, params=params)
+        if not data or "stats" not in data:
+            return []
+        stats_list = data.get("stats", [])
+        if not stats_list:
+            return []
+        return stats_list[0].get("splits", [])

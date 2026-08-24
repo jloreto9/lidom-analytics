@@ -38,7 +38,25 @@ def refresh_season_data(season: int = 2024) -> None:
             json.dump(schedule, f, ensure_ascii=False, indent=2)
         logger.info(f"Calendario ({len(schedule)} juegos) guardado en {path}")
 
-    # 3. Rosters por Equipo
+    # 3. Estadísticas Oficiales de Bateo
+    logger.info("Descargando estadísticas oficiales de bateo...")
+    hitting_splits = client.get_league_player_stats(season=season, group="hitting")
+    if hitting_splits:
+        path = os.path.join(DATA_DIR, f"hitting_stats_{season}.json")
+        with open(path, "w", encoding="utf-8") as f:
+            json.dump(hitting_splits, f, ensure_ascii=False, indent=2)
+        logger.info(f"Estadísticas de bateo ({len(hitting_splits)} jugadores) guardadas en {path}")
+
+    # 4. Estadísticas Oficiales de Pitcheo
+    logger.info("Descargando estadísticas oficiales de pitcheo...")
+    pitching_splits = client.get_league_player_stats(season=season, group="pitching")
+    if pitching_splits:
+        path = os.path.join(DATA_DIR, f"pitching_stats_{season}.json")
+        with open(path, "w", encoding="utf-8") as f:
+            json.dump(pitching_splits, f, ensure_ascii=False, indent=2)
+        logger.info(f"Estadísticas de pitcheo ({len(pitching_splits)} lanzadores) guardadas en {path}")
+
+    # 5. Rosters por Equipo
     for team_id, team_meta in TEAMS.items():
         logger.info(f"Descargando roster de {team_meta['name']} ({team_meta['abbrev']})...")
         roster = client.get_team_roster(team_id=team_id, season=season)
@@ -47,7 +65,7 @@ def refresh_season_data(season: int = 2024) -> None:
             with open(path, "w", encoding="utf-8") as f:
                 json.dump(roster, f, ensure_ascii=False, indent=2)
 
-    logger.info("¡Ingesta de datos de LIDOM completada con éxito!")
+    logger.info(f"¡Ingesta de datos de LIDOM {season} completada con éxito!")
 
 
 if __name__ == "__main__":
