@@ -185,6 +185,36 @@ class TestLIDOMCore(unittest.TestCase):
         is_conn = is_supabase_connected()
         self.assertIsInstance(is_conn, bool)
 
+    def test_versus_pool_and_h2h(self):
+        """Valida la generación del pool de jugadores, percentiles y tabla H2H para Matchup 360."""
+        from views.versus import build_h2h_table, RADAR_METRICS_BAT, RADAR_METRICS_PIT, determine_winner
+        loader = LIDOMDataLoader()
+
+        # Bateadores
+        df_bat = loader.get_versus_player_pool(season=2024, role="Bateadores")
+        self.assertFalse(df_bat.empty)
+        self.assertIn("P_wOBA", df_bat.columns)
+        self.assertIn("P_wRC+", df_bat.columns)
+        self.assertIn("Headshot", df_bat.columns)
+
+        p1_bat = df_bat.iloc[0]
+        p2_bat = df_bat.iloc[1] if len(df_bat) > 1 else df_bat.iloc[0]
+        h2h_bat = build_h2h_table(p1_bat, p2_bat, is_batter=True)
+        self.assertFalse(h2h_bat.empty)
+        self.assertIn("Ventaja / Ganador", h2h_bat.columns)
+
+        # Lanzadores
+        df_pit = loader.get_versus_player_pool(season=2024, role="Lanzadores")
+        self.assertFalse(df_pit.empty)
+        self.assertIn("P_ERA", df_pit.columns)
+        self.assertIn("P_FIP", df_pit.columns)
+
+        p1_pit = df_pit.iloc[0]
+        p2_pit = df_pit.iloc[1] if len(df_pit) > 1 else df_pit.iloc[0]
+        h2h_pit = build_h2h_table(p1_pit, p2_pit, is_batter=False)
+        self.assertFalse(h2h_pit.empty)
+        self.assertIn("Ventaja / Ganador", h2h_pit.columns)
+
 
 if __name__ == "__main__":
     unittest.main()

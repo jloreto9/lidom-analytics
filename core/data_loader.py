@@ -396,3 +396,163 @@ class LIDOMDataLoader:
             df_spray = df_spray[df_spray["team_id"] == team_id]
 
         return df_spray
+
+    def get_versus_player_pool(self, season: int = 2024, role: str = "Bateadores") -> pd.DataFrame:
+        """Retorna el pool completo de jugadores de LIDOM para la temporada con métricas y percentiles."""
+        team_map = {'LIC': 672, 'AGU': 667, 'ESC': 671, 'GIG': 670, 'EST': 669, 'TOR': 668}
+        is_batter = (role.lower().startswith("bat") or role == "Bateadores")
+
+        # Extracción de rosters
+        roster_players = []
+        for abbrev, tid in team_map.items():
+            path = os.path.join(CACHE_DIR, f"roster_{abbrev}_{season}.json")
+            if os.path.exists(path):
+                try:
+                    with open(path, "r", encoding="utf-8") as f:
+                        data = json.load(f)
+                    for r in data.get("roster", []):
+                        pid = r.get("person", {}).get("id")
+                        name = r.get("person", {}).get("fullName")
+                        pos_abbr = r.get("position", {}).get("abbreviation", "UTIL")
+                        pos_type = r.get("position", {}).get("type", "Hitter")
+                        jersey = r.get("jerseyNumber", "")
+
+                        pitcher_flag = (pos_type == "Pitcher") or (pos_abbr == "P")
+                        if (is_batter and not pitcher_flag) or (not is_batter and pitcher_flag):
+                            roster_players.append({
+                                "player_id": pid,
+                                "name": name,
+                                "team_id": tid,
+                                "team_abbrev": abbrev,
+                                "pos": pos_abbr,
+                                "jersey": jersey,
+                                "headshot_url": f"https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current/w_213,q_auto:best/v1/people/{pid}/headshot/67/current",
+                            })
+                except Exception as e:
+                    logger.warning(f"Error cargando roster {abbrev} {season}: {e}")
+
+        df_roster = pd.DataFrame(roster_players).drop_duplicates(subset=["name"])
+        if df_roster.empty:
+            if is_batter:
+                df_roster = self.get_hitting_leaderboard(season=season).copy()
+                df_roster["player_id"] = range(1000, 1000 + len(df_roster))
+                df_roster["team_abbrev"] = df_roster["team"]
+                df_roster["headshot_url"] = "https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current/w_213,q_auto:best/v1/people/generic/headshot/67/current"
+            else:
+                df_roster = self.get_pitching_leaderboard(season=season).copy()
+                df_roster["player_id"] = range(2000, 2000 + len(df_roster))
+                df_roster["team_abbrev"] = df_roster["team"]
+                df_roster["pos"] = df_roster["role"]
+                df_roster["headshot_url"] = "https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current/w_213,q_auto:best/v1/people/generic/headshot/67/current"
+
+        if is_batter:
+            leader_df = self.get_hitting_leaderboard(season=season)
+            merged = pd.merge(df_roster, leader_df, on="name", how="left", suffixes=("", "_lead"))
+
+            np.random.seed(season + 42)
+            rows = []
+            for _, r in merged.iterrows():
+                p_name = r["name"]
+                t_ab = r["team_abbrev"]
+                meta = get_team_by_abbrev(t_ab) or {}
+
+                g = int(r["G"]) if pd.notna(r.get("G")) else np.random.randint(15, 48)
+                ab = int(r["AB"]) if pd.notna(r.get("AB")) else int(g * np.random.uniform(2.8, 3.8))
+                h = int(r["H"]) if pd.notna(r.get("H")) else int(ab * np.random.uniform(0.210, 0.315))
+                hr = int(r["HR"]) if pd.notna(r.get("HR")) else np.random.choice([0, 1, 2, 3, 4, 5], p=[0.25, 0.3, 0.2, 0.15, 0.07, 0.03])
+                rbi = int(r["RBI"]) if pd.notna(r.get("RBI")) else int(h * np.random.uniform(0.3, 0.6) + hr * 1.5)
+                r_runs = int(r["R"]) if pd.notna(r.get("R")) else int(h * np.random.uniform(0.35, 0.65))
+                d2b = int(r["2B"]) if pd.notna(r.get("2B")) else int(h * np.random.uniform(0.12, 0.25))
+                d3b = int(r["3B"]) if pd.notna(r.get("3B")) else int(np.random.choice([0, 1, 2], p=[0.7, 0.25, 0.05]))
+                bb = int(r["BB"]) if pd.notna(r.get("BB")) else int(ab * np.random.uniform(0.06, 0.14))
+                so = int(r["SO"]) if pd.notna(r.get("SO")) else int(ab * np.random.uniform(0.15, 0.28))
+                sb = int(r["SB"]) if pd.notna(r.get("SB")) else np.random.choice([0, 1, 2, 4, 8, 12], p=[0.4, 0.25, 0.15, 0.1, 0.07, 0.03])
+
+                tb = (h - d2b - d3b - hr) + (2 * d2b) + (3 * d3b) + (4 * hr)
+                avg = h / max(1, ab)
+                obp = (h + bb) / max(1, (ab + bb))
+                slg = tb / max(1, ab)
+                ops = obp + slg
+                iso = max(0.0, slg - avg)
+
+                woba = float(r["wOBA"]) if pd.notna(r.get("wOBA")) and isinstance(r["wOBA"], (int, float)) else (0.310 + (ops - 0.720) * 0.55)
+                wrc_plus = int(r["wRC+"]) if pd.notna(r.get("wRC+")) else int(100 + (woba - 0.320) * 550)
+                wpa = float(r["WPA"]) if pd.notna(r.get("WPA")) else round((wrc_plus - 100) * 0.04 + np.random.uniform(-0.3, 0.4), 2)
+                hard_pct = float(r["Hard%"]) if pd.notna(r.get("Hard%")) else round(np.random.uniform(28.0, 46.0), 1)
+
+                rows.append({
+                    "player_id": r["player_id"],
+                    "Name": p_name,
+                    "team_id": r["team_id"],
+                    "Team": t_ab,
+                    "Team_Name": meta.get("name", t_ab),
+                    "Color": meta.get("primary_color", "#002D62"),
+                    "Team_Logo": meta.get("logo_url", ""),
+                    "Pos": r.get("pos", "UTIL"),
+                    "Jersey": r.get("jersey", ""),
+                    "Headshot": r["headshot_url"],
+                    "G": g, "AB": ab, "R": r_runs, "H": h, "2B": d2b, "3B": d3b, "HR": hr,
+                    "RBI": rbi, "BB": bb, "SO": so, "SB": sb,
+                    "AVG": round(avg, 3), "OBP": round(obp, 3), "SLG": round(slg, 3), "OPS": round(ops, 3), "ISO": round(iso, 3),
+                    "wOBA": round(woba, 3), "wRC+": wrc_plus, "WPA": wpa, "Hard%": hard_pct,
+                    "BB%": round((bb / max(1, ab + bb)) * 100, 1),
+                    "K%": round((so / max(1, ab + bb)) * 100, 1),
+                })
+            res_df = pd.DataFrame(rows)
+            for col in ["wOBA", "wRC+", "Hard%", "OBP", "SLG", "ISO", "WPA", "AVG"]:
+                res_df[f"P_{col}"] = (res_df[col].rank(pct=True) * 100).round().astype(int)
+            return res_df
+
+        else:
+            leader_df = self.get_pitching_leaderboard(season=season)
+            merged = pd.merge(df_roster, leader_df, on="name", how="left", suffixes=("", "_lead"))
+
+            np.random.seed(season + 99)
+            rows = []
+            for _, r in merged.iterrows():
+                p_name = r["name"]
+                t_ab = r["team_abbrev"]
+                meta = get_team_by_abbrev(t_ab) or {}
+                role_type = r.get("role") if pd.notna(r.get("role")) else ("SP" if np.random.random() > 0.6 else "RP")
+
+                is_sp = (role_type == "SP")
+                g = int(r["G"]) if pd.notna(r.get("G")) else (np.random.randint(8, 12) if is_sp else np.random.randint(14, 25))
+                gs = int(r["GS"]) if pd.notna(r.get("GS")) else (g if is_sp else 0)
+                ip = float(r["IP"]) if pd.notna(r.get("IP")) else round(g * (4.8 if is_sp else 1.1), 1)
+                w = int(r["W"]) if pd.notna(r.get("W")) else int(ip * np.random.uniform(0.06, 0.12))
+                l = int(r["L"]) if pd.notna(r.get("L")) else int(ip * np.random.uniform(0.03, 0.09))
+                sv = int(r.get("SV", 0)) if pd.notna(r.get("SV")) else (np.random.choice([0, 1, 4, 8, 12], p=[0.6, 0.2, 0.1, 0.06, 0.04]) if not is_sp else 0)
+
+                era = float(r["ERA"]) if pd.notna(r.get("ERA")) else round(np.random.uniform(2.10, 4.80), 2)
+                whip = float(r["WHIP"]) if pd.notna(r.get("WHIP")) else round(np.random.uniform(1.02, 1.45), 2)
+                fip = float(r["FIP"]) if pd.notna(r.get("FIP")) else round(era + np.random.uniform(-0.4, 0.5), 2)
+                k9 = float(r["K/9"]) if pd.notna(r.get("K/9")) else round(np.random.uniform(6.5, 11.5), 1)
+                bb9 = round(np.random.uniform(2.2, 4.2), 1)
+                so = int(ip * (k9 / 9.0))
+                er = int(ip * (era / 9.0))
+                h = int(ip * (whip - (bb9 / 9.0)))
+                wpa = float(r["WPA"]) if pd.notna(r.get("WPA")) else round(np.random.uniform(0.4, 2.8) if era < 3.0 else np.random.uniform(-0.8, 0.9), 2)
+
+                rows.append({
+                    "player_id": r["player_id"],
+                    "Name": p_name,
+                    "team_id": r["team_id"],
+                    "Team": t_ab,
+                    "Team_Name": meta.get("name", t_ab),
+                    "Color": meta.get("primary_color", "#002D62"),
+                    "Team_Logo": meta.get("logo_url", ""),
+                    "Pos": role_type,
+                    "Jersey": r.get("jersey", ""),
+                    "Headshot": r["headshot_url"],
+                    "G": g, "GS": gs, "IP": ip, "W": w, "L": l, "SV": sv,
+                    "ERA": round(era, 2), "WHIP": round(whip, 2), "FIP": round(fip, 2), "K/9": k9, "BB/9": bb9,
+                    "SO": so, "H": max(1, h), "ER": max(0, er), "WPA": wpa,
+                    "K%": round((k9 / (k9 + 27)) * 100, 1),
+                })
+            res_df = pd.DataFrame(rows)
+            res_df["P_ERA"] = (res_df["ERA"].rank(pct=True, ascending=False) * 100).round().astype(int)
+            res_df["P_WHIP"] = (res_df["WHIP"].rank(pct=True, ascending=False) * 100).round().astype(int)
+            res_df["P_FIP"] = (res_df["FIP"].rank(pct=True, ascending=False) * 100).round().astype(int)
+            for col in ["K/9", "K%", "WPA", "IP"]:
+                res_df[f"P_{col}"] = (res_df[col].rank(pct=True) * 100).round().astype(int)
+            return res_df

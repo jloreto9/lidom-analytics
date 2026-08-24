@@ -14,6 +14,7 @@ from core.teams import get_all_teams
 from views.home import render_home_view
 from views.team_hub import render_team_hub_view
 from views.leaderboards import render_leaderboards_view
+from views.versus import render_versus_view
 from views.game_center import render_game_center_view
 from views.spray_charts import render_spray_charts_view
 
@@ -58,6 +59,7 @@ with st.sidebar:
             "🏠 Standings & Proyecciones",
             "🏟️ Team Hub (Franquicias)",
             "👑 Líderes Individuales",
+            "⚔️ Matchup 360 (Versus)",
             "⚡ Game Center & WPA",
             "🎯 Spray Charts (Dureza BIS)",
         ],
@@ -92,6 +94,8 @@ elif menu == "🏟️ Team Hub (Franquicias)":
     render_team_hub_view(season=season)
 elif menu == "👑 Líderes Individuales":
     render_leaderboards_view(season=season)
+elif menu == "⚔️ Matchup 360 (Versus)":
+    render_versus_view(season=season)
 elif menu == "⚡ Game Center & WPA":
     render_game_center_view(season=season)
 elif menu == "🎯 Spray Charts (Dureza BIS)":
