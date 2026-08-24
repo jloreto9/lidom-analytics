@@ -1,6 +1,12 @@
 # 🇩🇴 LIDOM 360 — Plataforma Sabermétrica & Analítica Integral
 
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://lidom-analytics.streamlit.app/)
+[![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
+[![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-Daily_Refresh_4AM_AST-2088FF?logo=githubactions&logoColor=white)](https://github.com/jloreto9/lidom-analytics/actions)
+
 Plataforma analítica avanzada en **Streamlit** diseñada para la **Liga Dominicana de Béisbol Profesional (LIDOM)**, con cobertura exhaustiva para los 6 equipos de la pelota invernal dominicana.
+
+🔗 **Aplicación en Vivo:** [https://lidom-analytics.streamlit.app/](https://lidom-analytics.streamlit.app/)
 
 ---
 
