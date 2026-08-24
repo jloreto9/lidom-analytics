@@ -16,6 +16,7 @@ def render_spray_charts_view(season: int = 2024) -> None:
         title="Spray Charts & Calidad de Contacto (BIS)",
         subtitle="Dispersión espacial de batazos en diamante interactivo con filtros de dureza (Hard, Medium, Soft)",
         badge_text="LIDOM SPRAY",
+        season=season,
     )
 
     loader = LIDOMDataLoader()

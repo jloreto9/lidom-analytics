@@ -15,6 +15,7 @@ def render_leaderboards_view(season: int = 2024) -> None:
         title="Líderes de Bateo y Pitcheo",
         subtitle="Rankings oficiales y métricas sabermétricas avanzadas (wOBA, wRC+, WPA, FIP, WHIP)",
         badge_text="LÍDERES LIDOM",
+        season=season,
     )
 
     loader = LIDOMDataLoader()

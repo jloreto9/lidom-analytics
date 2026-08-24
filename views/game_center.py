@@ -15,6 +15,7 @@ def render_game_center_view(season: int = 2024) -> None:
         title="Game Center & Win Expectancy",
         subtitle="Boxscores interactivos, curvas de probabilidad de victoria y jugadas de alto apalancamiento",
         badge_text="LIDOM MATCHUP",
+        season=season,
     )
 
     loader = LIDOMDataLoader()

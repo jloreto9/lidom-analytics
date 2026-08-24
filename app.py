@@ -24,7 +24,7 @@ apply_custom_css(accent_color="#0055B8")
 with st.sidebar:
     st.markdown("""
     <div style="text-align: center; padding: 10px 0 15px 0;">
-        <div style="font-size: 2.2rem; margin-bottom: 2px;">🇩🇴 ⚾</div>
+        <img src="https://midfield.mlbstatic.com/v1/league/131/spots/240" style="width: 75px; height: 75px; object-fit: contain; margin-bottom: 8px; filter: drop-shadow(0px 4px 10px rgba(0,0,0,0.5));">
         <h2 style="margin: 0; color: #FFFFFF; font-size: 1.4rem;">LIDOM 360</h2>
         <p style="margin: 0; color: #38BDF8; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.05em;">SABERMETRICS PLATFORM</p>
     </div>

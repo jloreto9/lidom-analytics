@@ -17,6 +17,7 @@ def render_home_view(season: int = 2024) -> None:
         title="LIDOM 360 Analytics",
         subtitle="Analítica avanzada, Power Rankings ELO y Modelos Predictivos para la pelota invernal dominicana",
         badge_text="LIDOM REGULAR",
+        season=season,
     )
 
     loader = LIDOMDataLoader()

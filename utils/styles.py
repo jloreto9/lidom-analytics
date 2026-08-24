@@ -144,22 +144,26 @@ def apply_custom_css(accent_color: str = "#0055B8") -> None:
     st.markdown(custom_css, unsafe_allow_html=True)
 
 
-def render_header(title: str, subtitle: str, badge_text: str = "LIDOM 360", accent_color: str = "#0055B8") -> None:
-    """Renderiza una cabecera heroica con branding estilizado."""
+def render_header(title: str, subtitle: str, badge_text: str = "LIDOM 360", accent_color: str = "#0055B8", season: Optional[int] = None) -> None:
+    """Renderiza una cabecera heroica con branding estilizado y el logo oficial de LIDOM."""
+    season_text = f"{season}-{season+1}" if season else "LIDOM"
     header_html = f"""
     <div class="hero-banner" style="border-left: 4px solid {accent_color};">
-        <div>
-            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-                <span class="badge-pill" style="background: {accent_color}; color: #FFFFFF;">{badge_text}</span>
-                <span style="color: #64748B; font-size: 0.8rem; font-weight: 600;">SABERMETRICS PLATFORM</span>
+        <div style="display: flex; align-items: center; gap: 20px;">
+            <img src="https://midfield.mlbstatic.com/v1/league/131/spots/240" style="width: 55px; height: 55px; object-fit: contain; filter: drop-shadow(0px 2px 8px rgba(0,0,0,0.4));">
+            <div>
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 4px;">
+                    <span class="badge-pill" style="background: {accent_color}; color: #FFFFFF;">{badge_text}</span>
+                    <span style="color: #64748B; font-size: 0.8rem; font-weight: 600;">SABERMETRICS PLATFORM</span>
+                </div>
+                <h1 style="margin: 0; font-size: 1.85rem; color: #FFFFFF;">{title}</h1>
+                <p style="margin: 2px 0 0 0; color: #94A3B8; font-size: 0.9rem;">{subtitle}</p>
             </div>
-            <h1 style="margin: 0; font-size: 2rem; color: #FFFFFF;">{title}</h1>
-            <p style="margin: 4px 0 0 0; color: #94A3B8; font-size: 0.95rem;">{subtitle}</p>
         </div>
         <div style="text-align: right; display: flex; align-items: center; gap: 12px;">
             <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 8px 14px;">
                 <div style="font-size: 0.7rem; color: #64748B; font-weight: 700; text-transform: uppercase;">Temporada</div>
-                <div style="font-size: 1.1rem; font-weight: 800; color: #FFFFFF;">2024-2025</div>
+                <div style="font-size: 1.1rem; font-weight: 800; color: #FFFFFF;">{season_text}</div>
             </div>
         </div>
     </div>
