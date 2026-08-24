@@ -48,11 +48,28 @@ def render_home_view(season: int = 2024) -> None:
 
     with col_left:
         st.subheader("📊 Tabla de Posiciones (Standings)")
-        display_cols = ["Equipo", "G", "W", "L", "PCT", "GB", "CA", "CP", "DIFF", "Racha"]
+        display_cols = ["Logo", "Equipo", "G", "W", "L", "PCT", "GB", "CA", "CP", "DIFF", "Racha"]
         st.dataframe(
             df_standings[display_cols],
             use_container_width=True,
             hide_index=True,
+            column_config={
+                "Logo": st.column_config.ImageColumn(
+                    "Logo",
+                    help="Logo oficial de la franquicia",
+                    width="small",
+                ),
+                "Equipo": st.column_config.TextColumn("Equipo", width="medium"),
+                "G": st.column_config.NumberColumn("G", help="Juegos Jugados", format="%d"),
+                "W": st.column_config.NumberColumn("W", help="Victorias", format="%d"),
+                "L": st.column_config.NumberColumn("L", help="Derrotas", format="%d"),
+                "PCT": st.column_config.TextColumn("PCT", help="Porcentaje de Victoria"),
+                "GB": st.column_config.TextColumn("GB", help="Juegos de Ventaja"),
+                "CA": st.column_config.NumberColumn("CA", help="Carreras Anotadas", format="%d"),
+                "CP": st.column_config.NumberColumn("CP", help="Carreras Permitidas", format="%d"),
+                "DIFF": st.column_config.TextColumn("DIFF", help="Diferencial de Carreras"),
+                "Racha": st.column_config.TextColumn("Racha", help="Racha Actual"),
+            },
         )
 
         st.caption("ℹ️ *Top 4 clasifican al Round Robin (Todos contra Todos). DIFF = Diferencial de Carreras.*")
