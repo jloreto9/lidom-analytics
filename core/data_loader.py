@@ -493,14 +493,21 @@ class LIDOMDataLoader:
                     "Headshot": r["headshot_url"],
                     "G": g, "AB": ab, "R": r_runs, "H": h, "2B": d2b, "3B": d3b, "HR": hr,
                     "RBI": rbi, "BB": bb, "SO": so, "SB": sb,
-                    "AVG": round(avg, 3), "OBP": round(obp, 3), "SLG": round(slg, 3), "OPS": round(ops, 3), "ISO": round(iso, 3),
-                    "wOBA": round(woba, 3), "wRC+": wrc_plus, "WPA": wpa, "Hard%": hard_pct,
+                    "AVG": f"{avg:.3f}".lstrip("0") if avg < 1.0 else f"{avg:.3f}",
+                    "OBP": f"{obp:.3f}".lstrip("0") if obp < 1.0 else f"{obp:.3f}",
+                    "SLG": f"{slg:.3f}".lstrip("0") if slg < 1.0 else f"{slg:.3f}",
+                    "OPS": f"{ops:.3f}".lstrip("0") if ops < 1.0 else f"{ops:.3f}",
+                    "ISO": f"{iso:.3f}".lstrip("0") if iso < 1.0 else f"{iso:.3f}",
+                    "wOBA": f"{woba:.3f}".lstrip("0") if woba < 1.0 else f"{woba:.3f}",
+                    "wRC+": wrc_plus, "WPA": wpa, "Hard%": hard_pct,
                     "BB%": round((bb / max(1, ab + bb)) * 100, 1),
                     "K%": round((so / max(1, ab + bb)) * 100, 1),
+                    "_avg_num": avg, "_obp_num": obp, "_slg_num": slg, "_ops_num": ops, "_woba_num": woba, "_iso_num": iso,
                 })
             res_df = pd.DataFrame(rows)
             for col in ["wOBA", "wRC+", "Hard%", "OBP", "SLG", "ISO", "WPA", "AVG"]:
-                res_df[f"P_{col}"] = (res_df[col].rank(pct=True) * 100).round().astype(int)
+                num_col = f"_{col.lower()}_num" if f"_{col.lower()}_num" in res_df.columns else col
+                res_df[f"P_{col}"] = (res_df[num_col].rank(pct=True) * 100).round().astype(int)
             return res_df
 
         else:

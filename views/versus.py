@@ -49,8 +49,8 @@ def build_polar_radar(p1: pd.Series, p2: pd.Series, metrics: List[Dict[str, Any]
     p2_vals_closed = p2_vals + [p2_vals[0]]
 
     # Tooltips enriquecidos
-    p1_hover = [f"{m['label']}: <b>{p1[m['col']]}</b> (Pct: {p1[m['p_col']]})" for m in metrics] + [f"{metrics[0]['label']}: <b>{p1[metrics[0]['col']]}</b>"]
-    p2_hover = [f"{m['label']}: <b>{p2[m['col']]}</b> (Pct: {p2[m['p_col']]})" for m in metrics] + [f"{metrics[0]['label']}: <b>{p2[metrics[0]['col']]}</b>"]
+    p1_hover = [f"{m['label']}: <b>{format_slash_val(p1[m['col']])}</b> (Pct: {p1[m['p_col']]})" for m in metrics] + [f"{metrics[0]['label']}: <b>{format_slash_val(p1[metrics[0]['col']])}</b>"]
+    p2_hover = [f"{m['label']}: <b>{format_slash_val(p2[m['col']])}</b> (Pct: {p2[m['p_col']]})" for m in metrics] + [f"{metrics[0]['label']}: <b>{format_slash_val(p2[metrics[0]['col']])}</b>"]
 
     name1 = p1["Name"]
     team1 = p1["Team"]
@@ -123,11 +123,29 @@ def build_polar_radar(p1: pd.Series, p2: pd.Series, metrics: List[Dict[str, Any]
     return fig
 
 
+def format_slash_val(val: Any) -> str:
+    """Asegura formato sabermétrico sin el 0 inicial para AVG, OBP, SLG, OPS, wOBA, ISO (ej. .315)."""
+    if val is None or pd.isna(val):
+        return "—"
+    try:
+        s = str(val).strip()
+        f = float(s.replace("%", ""))
+        if 0.0 <= f < 1.0:
+            return f"{f:.3f}".lstrip("0")
+        elif f >= 1.0:
+            return f"{f:.3f}" if ("." in s or isinstance(val, float)) else s
+        return s
+    except Exception:
+        return str(val)
+
+
 def determine_winner(val1: Any, val2: Any, higher_is_better: bool, name1: str, team1: str, name2: str, team2: str) -> str:
     """Calcula el ganador para una fila de la tabla comparativa."""
     try:
-        f1 = float(val1)
-        f2 = float(val2)
+        s1 = str(val1).replace("%", "").strip()
+        s2 = str(val2).replace("%", "").strip()
+        f1 = float(s1)
+        f2 = float(s2)
         if abs(f1 - f2) < 1e-4:
             return "⚖️ Igual"
         if higher_is_better:
@@ -161,7 +179,9 @@ def build_h2h_table(p1: pd.Series, p2: pd.Series, is_batter: bool) -> pd.DataFra
         for key, lbl, hib in saber_stats:
             v1, v2 = p1[key], p2[key]
             w = determine_winner(v1, v2, hib, name1, team1, name2, team2)
-            rows.append({"Categoría": "⚡ Sabermetría & Valor", "Métrica": lbl, f"{name1} ({team1})": str(v1), f"{name2} ({team2})": str(v2), "Ventaja / Ganador": w})
+            v1_str = format_slash_val(v1) if key in ["wOBA", "ISO"] else str(v1)
+            v2_str = format_slash_val(v2) if key in ["wOBA", "ISO"] else str(v2)
+            rows.append({"Categoría": "⚡ Sabermetría & Valor", "Métrica": lbl, f"{name1} ({team1})": v1_str, f"{name2} ({team2})": v2_str, "Ventaja / Ganador": w})
 
         # Métricas Tradicionales de Rate
         rate_stats = [
@@ -173,7 +193,7 @@ def build_h2h_table(p1: pd.Series, p2: pd.Series, is_batter: bool) -> pd.DataFra
         for key, lbl, hib in rate_stats:
             v1, v2 = p1[key], p2[key]
             w = determine_winner(v1, v2, hib, name1, team1, name2, team2)
-            rows.append({"Categoría": "📊 Estadísticas de Rate", "Métrica": lbl, f"{name1} ({team1})": str(v1), f"{name2} ({team2})": str(v2), "Ventaja / Ganador": w})
+            rows.append({"Categoría": "📊 Estadísticas de Rate", "Métrica": lbl, f"{name1} ({team1})": format_slash_val(v1), f"{name2} ({team2})": format_slash_val(v2), "Ventaja / Ganador": w})
 
         # Estadísticas de Conteo
         count_stats = [
@@ -402,6 +422,9 @@ def build_matchup_image(p1: pd.Series, p2: pd.Series, is_batter: bool, df_h2h: p
         stat_label = str(row["Métrica"]).split("(")[0].strip()
         v1_str = str(row.get(p1_col_name, "—"))
         v2_str = str(row.get(p2_col_name, "—"))
+        if stat_label in ["AVG", "OBP", "SLG", "OPS", "wOBA", "ISO"]:
+            v1_str = format_slash_val(v1_str)
+            v2_str = format_slash_val(v2_str)
         winner_str = str(row.get("Ventaja / Ganador", ""))
 
         is_p1_win = f"🔴 {name1}" in winner_str or f"({team1})" in winner_str
@@ -508,7 +531,7 @@ def render_versus_view(season: int = 2024) -> None:
                 </div>
                 <h2 style="margin: 0; font-size: 1.5rem; color: #FFFFFF;">{p1['Name']}</h2>
                 <div style="margin-top: 6px; color: #CBD5E1; font-size: 0.85rem;">
-                    {"<b>wOBA:</b> " + str(p1['wOBA']) + " &nbsp;|&nbsp; <b>wRC+:</b> " + str(p1['wRC+']) + " &nbsp;|&nbsp; <b>WPA:</b> " + str(p1['WPA']) if is_batter else "<b>ERA:</b> " + str(p1['ERA']) + " &nbsp;|&nbsp; <b>WHIP:</b> " + str(p1['WHIP']) + " &nbsp;|&nbsp; <b>WPA:</b> " + str(p1['WPA'])}
+                    {"<b>wOBA:</b> " + format_slash_val(p1['wOBA']) + " &nbsp;|&nbsp; <b>wRC+:</b> " + str(p1['wRC+']) + " &nbsp;|&nbsp; <b>WPA:</b> " + str(p1['WPA']) if is_batter else "<b>ERA:</b> " + str(p1['ERA']) + " &nbsp;|&nbsp; <b>WHIP:</b> " + str(p1['WHIP']) + " &nbsp;|&nbsp; <b>WPA:</b> " + str(p1['WPA'])}
                 </div>
             </div>
         </div>
@@ -534,7 +557,7 @@ def render_versus_view(season: int = 2024) -> None:
                 </div>
                 <h2 style="margin: 0; font-size: 1.5rem; color: #FFFFFF;">{p2['Name']}</h2>
                 <div style="margin-top: 6px; color: #CBD5E1; font-size: 0.85rem;">
-                    {"<b>wOBA:</b> " + str(p2['wOBA']) + " &nbsp;|&nbsp; <b>wRC+:</b> " + str(p2['wRC+']) + " &nbsp;|&nbsp; <b>WPA:</b> " + str(p2['WPA']) if is_batter else "<b>ERA:</b> " + str(p2['ERA']) + " &nbsp;|&nbsp; <b>WHIP:</b> " + str(p2['WHIP']) + " &nbsp;|&nbsp; <b>WPA:</b> " + str(p2['WPA'])}
+                    {"<b>wOBA:</b> " + format_slash_val(p2['wOBA']) + " &nbsp;|&nbsp; <b>wRC+:</b> " + str(p2['wRC+']) + " &nbsp;|&nbsp; <b>WPA:</b> " + str(p2['WPA']) if is_batter else "<b>ERA:</b> " + str(p2['ERA']) + " &nbsp;|&nbsp; <b>WHIP:</b> " + str(p2['WHIP']) + " &nbsp;|&nbsp; <b>WPA:</b> " + str(p2['WPA'])}
                 </div>
             </div>
         </div>
@@ -564,8 +587,8 @@ def render_versus_view(season: int = 2024) -> None:
 
             st.metric(
                 label=f"Diferencial wOBA ({p1['Name']} vs {p2['Name']})",
-                value=f"{p1['wOBA']} vs {p2['wOBA']}",
-                delta=f"{diff_woba:+.3f}",
+                value=f"{format_slash_val(p1['wOBA'])} vs {format_slash_val(p2['wOBA'])}",
+                delta=f"{diff_woba:+.3f}".lstrip("0") if 0 < abs(diff_woba) < 1.0 else f"{diff_woba:+.3f}",
             )
             st.metric(
                 label=f"Diferencial wRC+ (Aporte Ofensivo %)",
