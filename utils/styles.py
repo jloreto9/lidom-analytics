@@ -149,17 +149,16 @@ import base64
 
 
 def get_lidom_logo_src() -> str:
-    """Retorna el data URI en Base64 del logo vectorial oficial de LIDOM con fallback a SVG CDN."""
-    svg_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "assets", "lidom_logo.svg")
-    if os.path.exists(svg_path):
+    """Retorna el data URI en Base64 del logo oficial de LIDOM con fallback a MLB CDN."""
+    png_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "assets", "lidom_logo.png")
+    if os.path.exists(png_path):
         try:
-            with open(svg_path, "r", encoding="utf-8") as f:
-                svg_content = f.read()
-            svg_b64 = base64.b64encode(svg_content.encode("utf-8")).decode("utf-8")
-            return f"data:image/svg+xml;base64,{svg_b64}"
+            with open(png_path, "rb") as f:
+                b64 = base64.b64encode(f.read()).decode("utf-8")
+            return f"data:image/png;base64,{b64}"
         except Exception:
             pass
-    return "https://cdn.worldvectorlogo.com/logos/lidom.svg"
+    return "https://img.mlbstatic.com/mlb-images/image/private/t_16x9/t_w1024/mlb/j79k5ddwnz4hgweev3x2.jpg"
 
 
 def render_header(title: str, subtitle: str, badge_text: str = "LIDOM 360", accent_color: str = "#0055B8", season: Optional[int] = None) -> None:

@@ -25,14 +25,13 @@ import base64
 
 # ----------------- SIDEBAR ----------------- #
 with st.sidebar:
-    svg_path = os.path.join(os.path.dirname(__file__), "assets", "lidom_logo.svg")
-    if os.path.exists(svg_path):
-        with open(svg_path, "r", encoding="utf-8") as f:
-            svg_content = f.read()
-        svg_b64 = base64.b64encode(svg_content.encode("utf-8")).decode("utf-8")
-        logo_img_tag = f'<img src="data:image/svg+xml;base64,{svg_b64}" style="width: 85px; height: 85px; object-fit: contain; margin-bottom: 12px; filter: drop-shadow(0px 4px 14px rgba(0,0,0,0.6));">'
+    png_path = os.path.join(os.path.dirname(__file__), "assets", "lidom_logo.png")
+    if os.path.exists(png_path):
+        with open(png_path, "rb") as f:
+            png_b64 = base64.b64encode(f.read()).decode("utf-8")
+        logo_img_tag = f'<img src="data:image/png;base64,{png_b64}" style="width: 85px; height: auto; max-height: 100px; object-fit: contain; margin-bottom: 12px; filter: drop-shadow(0px 4px 14px rgba(0,0,0,0.6));">'
     else:
-        logo_img_tag = '<img src="https://cdn.worldvectorlogo.com/logos/lidom.svg" style="width: 85px; height: 85px; object-fit: contain; margin-bottom: 12px;">'
+        logo_img_tag = '<img src="https://img.mlbstatic.com/mlb-images/image/private/t_16x9/t_w1024/mlb/j79k5ddwnz4hgweev3x2.jpg" style="width: 85px; height: auto; object-fit: contain; margin-bottom: 12px;">'
 
     st.markdown(f"""
     <div style="text-align: center; padding: 10px 0 15px 0;">
