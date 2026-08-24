@@ -1,10 +1,12 @@
-"""Módulo de Comparación Head-to-Head (Versus 360) para jugadores de LIDOM."""
-
+import io
+import os
+import urllib.request
 import streamlit as st
 import pandas as pd
 import numpy as np
 import plotly.graph_objects as go
 from typing import Dict, Any, List, Tuple
+from PIL import Image, ImageDraw, ImageFont
 
 from core.data_loader import LIDOMDataLoader
 from core.teams import get_all_teams, get_team_by_id, get_team_by_abbrev
@@ -234,6 +236,202 @@ def build_h2h_table(p1: pd.Series, p2: pd.Series, is_batter: bool) -> pd.DataFra
     return pd.DataFrame(rows)
 
 
+# ── Renderizado de Tarjeta Gráfica Matchup (PNG) ───────────────────────────────
+
+def _fetch_circular_image(url: str, size: Tuple[int, int] = (64, 64), border_color: Tuple[int, int, int] = (255, 59, 86)) -> Image.Image | None:
+    """Descarga y recorta en formato circular el headshot oficial del jugador con borde coloreado."""
+    if not url:
+        return None
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"})
+        with urllib.request.urlopen(req, timeout=3.0) as resp:
+            data = resp.read()
+        raw_img = Image.open(io.BytesIO(data)).convert("RGBA")
+        raw_img = raw_img.resize(size, Image.Resampling.LANCZOS)
+
+        mask = Image.new("L", size, 0)
+        draw = ImageDraw.Draw(mask)
+        draw.ellipse((0, 0) + size, fill=255)
+
+        circ = Image.new("RGBA", size, (0, 0, 0, 0))
+        circ.paste(raw_img, (0, 0), mask=mask)
+
+        # Dibujar borde decorativo
+        border_draw = ImageDraw.Draw(circ)
+        border_draw.ellipse((0, 0, size[0] - 1, size[1] - 1), outline=border_color + (255,), width=3)
+        return circ
+    except Exception:
+        return None
+
+
+def _fetch_team_logo(url: str, size: Tuple[int, int] = (26, 26)) -> Image.Image | None:
+    """Descarga y redimensiona el logo oficial de la franquicia."""
+    if not url:
+        return None
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"})
+        with urllib.request.urlopen(req, timeout=3.0) as resp:
+            data = resp.read()
+        raw_img = Image.open(io.BytesIO(data)).convert("RGBA")
+        return raw_img.resize(size, Image.Resampling.LANCZOS)
+    except Exception:
+        return None
+
+
+def _load_font(size: int, bold: bool = False) -> ImageFont.ImageFont:
+    """Carga fuentes multiplataforma con fallback seguro."""
+    suffix = "-Bold" if bold else ""
+    paths = [
+        f"/usr/share/fonts/truetype/dejavu/DejaVuSans{suffix}.ttf",
+        f"/usr/share/fonts/truetype/liberation/LiberationSans{'-Bold' if bold else '-Regular'}.ttf",
+        f"C:/Windows/Fonts/{'arialbd' if bold else 'arial'}.ttf",
+        f"C:/Windows/Fonts/{'segoeuib' if bold else 'segoeui'}.ttf",
+    ]
+    for p in paths:
+        if os.path.exists(p):
+            try:
+                return ImageFont.truetype(p, size)
+            except Exception:
+                continue
+    try:
+        return ImageFont.load_default(size=size)
+    except TypeError:
+        return ImageFont.load_default()
+
+
+def build_matchup_image(p1: pd.Series, p2: pd.Series, is_batter: bool, df_h2h: pd.DataFrame, season: int) -> bytes:
+    """Genera una tarjeta PNG descargable de alta definición con diseño Dark Navy Glass."""
+    name1, team1 = p1["Name"], p1["Team"]
+    name2, team2 = p2["Name"], p2["Team"]
+
+    COL1, COL2, COL3 = 230, 180, 230
+    W = COL1 + COL2 + COL3
+    ROW_H, HDR_H, FOOT_H = 28, 100, 52
+
+    # Filtrar solo métricas clave para la tarjeta gráfica (max 18 filas)
+    df_rows = df_h2h[df_h2h["Categoría"].isin(["⚡ Sabermetría & Valor", "⚡ Sabermetría & Dominio", "📊 Estadísticas de Rate", "🔢 Estadísticas de Volumen"])].copy()
+    if len(df_rows) > 18:
+        df_rows = df_rows.iloc[:18]
+
+    n = len(df_rows)
+    H = HDR_H + n * ROW_H + FOOT_H
+
+    BG_DARK   = (7, 11, 25)
+    CARD_BG   = (13, 21, 43)
+    ALT_BG    = (10, 16, 34)
+    BORDER_C  = (30, 41, 69)
+    RED_CLR   = (255, 59, 86)
+    BLUE_CLR  = (56, 189, 248)
+    WHITE     = (255, 255, 255)
+    GRAY_TEXT = (148, 163, 184)
+    GOLD_CLR  = (241, 225, 62)
+
+    fb = _load_font(12, bold=True)
+    fn = _load_font(11)
+    fs = _load_font(9)
+    f_large = _load_font(14, bold=True)
+    f_title = _load_font(13, bold=True)
+
+    img = Image.new("RGBA", (W, H), BG_DARK + (255,))
+    draw = ImageDraw.Draw(img)
+
+    def _tc(cx, cy, text, font, color):
+        try:
+            bb = draw.textbbox((0, 0), str(text), font=font)
+            tw, th = bb[2] - bb[0], bb[3] - bb[1]
+        except AttributeError:
+            tw, th = draw.textsize(str(text), font=font)
+        draw.text((cx - tw // 2, cy - th // 2), str(text), font=font, fill=color)
+
+    # 1. Header Cards
+    # Header Left (Player 1)
+    draw.rectangle([0, 0, COL1 - 1, HDR_H - 1], fill=(26, 15, 30))
+    draw.rectangle([0, 0, 4, HDR_H - 1], fill=RED_CLR)
+
+    # Header Center (VS Badge)
+    draw.rectangle([COL1, 0, COL1 + COL2 - 1, HDR_H - 1], fill=(13, 21, 43))
+
+    # Header Right (Player 2)
+    draw.rectangle([COL1 + COL2, 0, W - 1, HDR_H - 1], fill=(10, 25, 45))
+    draw.rectangle([W - 5, 0, W - 1, HDR_H - 1], fill=BLUE_CLR)
+
+    # Pegar Headshots y Logos
+    hs1 = _fetch_circular_image(p1.get("Headshot"), size=(64, 64), border_color=RED_CLR)
+    if hs1:
+        img.paste(hs1, (14, (HDR_H - 64) // 2), mask=hs1)
+        _tc(COL1 // 2 + 25, 32, name1, f_title, WHITE)
+        _tc(COL1 // 2 + 25, 52, f"{p1.get('Team_Name', team1)} · {p1.get('Pos', 'P')} #{p1.get('Jersey', '')}", fs, (255, 180, 190))
+    else:
+        _tc(COL1 // 2, 32, name1, f_title, WHITE)
+        _tc(COL1 // 2, 52, f"{p1.get('Team_Name', team1)} · {p1.get('Pos', 'P')} #{p1.get('Jersey', '')}", fs, (255, 180, 190))
+
+    tlogo1 = _fetch_team_logo(p1.get("Team_Logo"), size=(24, 24))
+    if tlogo1:
+        img.paste(tlogo1, (COL1 - 32, 10), mask=tlogo1)
+
+    # Center VS & Season
+    _tc(COL1 + COL2 // 2, 32, "LIDOM 360", f_large, GOLD_CLR)
+    _tc(COL1 + COL2 // 2, 52, "MATCHUP VERSUS", fs, GRAY_TEXT)
+    _tc(COL1 + COL2 // 2, 70, f"Temporada {season}-{season+1}", fs, (180, 200, 220))
+
+    hs2 = _fetch_circular_image(p2.get("Headshot"), size=(64, 64), border_color=BLUE_CLR)
+    if hs2:
+        img.paste(hs2, (COL1 + COL2 + 14, (HDR_H - 64) // 2), mask=hs2)
+        _tc(COL1 + COL2 + COL3 // 2 + 25, 32, name2, f_title, WHITE)
+        _tc(COL1 + COL2 + COL3 // 2 + 25, 52, f"{p2.get('Team_Name', team2)} · {p2.get('Pos', 'P')} #{p2.get('Jersey', '')}", fs, (180, 220, 255))
+    else:
+        _tc(COL1 + COL2 + COL3 // 2, 32, name2, f_title, WHITE)
+        _tc(COL1 + COL2 + COL3 // 2, 52, f"{p2.get('Team_Name', team2)} · {p2.get('Pos', 'P')} #{p2.get('Jersey', '')}", fs, (180, 220, 255))
+
+    tlogo2 = _fetch_team_logo(p2.get("Team_Logo"), size=(24, 24))
+    if tlogo2:
+        img.paste(tlogo2, (W - 32, 10), mask=tlogo2)
+
+    # Header Divider Line
+    draw.line([(0, HDR_H), (W, HDR_H)], fill=BORDER_C, width=1)
+
+    # 2. Filas de Comparación
+    p1_col_name = f"{name1} ({team1})"
+    p2_col_name = f"{name2} ({team2})"
+
+    y = HDR_H
+    for idx, (_, row) in enumerate(df_rows.iterrows()):
+        row_bg = CARD_BG if idx % 2 == 0 else ALT_BG
+        draw.rectangle([0, y, W - 1, y + ROW_H - 1], fill=row_bg)
+
+        stat_label = str(row["Métrica"]).split("(")[0].strip()
+        v1_str = str(row.get(p1_col_name, "—"))
+        v2_str = str(row.get(p2_col_name, "—"))
+        winner_str = str(row.get("Ventaja / Ganador", ""))
+
+        is_p1_win = f"🔴 {name1}" in winner_str or f"({team1})" in winner_str
+        is_p2_win = f"🔵 {name2}" in winner_str or f"({team2})" in winner_str
+
+        # Color de los números
+        c1 = RED_CLR if is_p1_win else WHITE
+        c2 = BLUE_CLR if is_p2_win else WHITE
+        f1 = fb if is_p1_win else fn
+        f2 = fb if is_p2_win else fn
+
+        # Dibujar valores
+        _tc(COL1 // 2, y + ROW_H // 2, v1_str, f1, c1)
+        _tc(COL1 + COL2 // 2, y + ROW_H // 2, stat_label, fb, (220, 225, 235))
+        _tc(COL1 + COL2 + COL3 // 2, y + ROW_H // 2, v2_str, f2, c2)
+
+        # Línea divisoria sutil
+        draw.line([(0, y + ROW_H), (W, y + ROW_H)], fill=BORDER_C, width=1)
+        y += ROW_H
+
+    # 3. Footer Branding
+    draw.rectangle([0, y, W - 1, H - 1], fill=(7, 11, 25))
+    _tc(W // 2, y + 18, "LIDOM 360 — Plataforma Sabermétrica & Analítica Integral", fb, GOLD_CLR)
+    _tc(W // 2, y + 36, "Desarrollado por Jorge Leonardo Loreto · AI Data Scientist & Baseball Sabermetrician", fs, GRAY_TEXT)
+
+    buf = io.BytesIO()
+    img.save(buf, format="PNG", optimize=True)
+    return buf.getvalue()
+
+
 def render_versus_view(season: int = 2024) -> None:
     """Renderiza el módulo Matchup 360 (Comparador Cara a Cara de Jugadores de LIDOM)."""
     render_header(
@@ -458,3 +656,26 @@ def render_versus_view(season: int = 2024) -> None:
             {verdict_pit}
         </div>
         """, unsafe_allow_html=True)
+
+    # 7. Descarga de Tarjeta Matchup PNG
+    st.markdown("---")
+    st.markdown("### 📥 Exportar Tarjeta Gráfica Matchup 360 (PNG)")
+    st.caption("Genera y descarga una tarjeta gráfica con fotos oficiales, escudos, métricas clave y diseño Dark Navy Glass lista para compartir:")
+
+    with st.spinner("Generando tarjeta gráfica Matchup 360..."):
+        card_png_bytes = build_matchup_image(p1, p2, is_batter=is_batter, df_h2h=df_h2h, season=season)
+
+    col_btn, col_preview = st.columns([1, 1])
+    with col_btn:
+        safe_p1 = "".join(c for c in str(p1['Name']) if c.isalnum() or c in (' ', '_')).replace(' ', '_')
+        safe_p2 = "".join(c for c in str(p2['Name']) if c.isalnum() or c in (' ', '_')).replace(' ', '_')
+        st.download_button(
+            label=f"📥 Descargar Tarjeta Matchup ({p1['Name']} vs {p2['Name']})",
+            data=card_png_bytes,
+            file_name=f"LIDOM360_Matchup_{safe_p1}_vs_{safe_p2}_{season}.png",
+            mime="image/png",
+            use_container_width=True,
+        )
+    with col_preview:
+        with st.expander("🖼️ Vista Previa de la Tarjeta Gráfica"):
+            st.image(card_png_bytes, use_container_width=True, caption=f"Tarjeta Matchup: {p1['Name']} vs {p2['Name']} · LIDOM {season}")

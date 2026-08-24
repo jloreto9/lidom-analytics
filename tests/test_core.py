@@ -215,6 +215,13 @@ class TestLIDOMCore(unittest.TestCase):
         self.assertFalse(h2h_pit.empty)
         self.assertIn("Ventaja / Ganador", h2h_pit.columns)
 
+        # Generación de Imagen PNG
+        from views.versus import build_matchup_image
+        png_bytes = build_matchup_image(p1_bat, p2_bat, is_batter=True, df_h2h=h2h_bat, season=2024)
+        self.assertIsInstance(png_bytes, bytes)
+        self.assertTrue(len(png_bytes) > 1000)
+        self.assertTrue(png_bytes.startswith(b"\x89PNG\r\n\x1a\n"))
+
 
 if __name__ == "__main__":
     unittest.main()
