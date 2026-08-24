@@ -47,6 +47,11 @@ Plataforma analítica avanzada en **Streamlit** diseñada para la **Liga Dominic
 7. **Spray Charts con Calibración BIS**:
    - Dispersión espacial de batazos sobre diamante interactivo en Plotly.
    - Filtros de calidad de contacto **BIS** (*Hard*, *Medium*, *Soft*).
+8. **📋 Laboratorio de Lineups & Optimización Sabermétrica**:
+   - Modelado de expectativas de carreras por juego ($R/G$) y por temporada de 50 juegos utilizando **Base Runs** y pesos ponderados de turnos al bate por slot (Slot 1: ~233 PA $\rightarrow$ Slot 9: ~181 PA).
+   - **Optimizador de Tom Tango (*The Book*)**: Reordenamiento algorítmico 1 al 9 para maximizar apalancamiento de embasado (#1 OBP, #2 Mejor Bateador Integral, #4 Cleanup Power ISO/SLG, #9 Segundo Leadoff).
+   - Diagnóstico de **Balance de Platoon (Z/D/A)** para evitar vulnerabilidades ante relevistas situacionales.
+   - **Matchup H2H de Alineaciones**: Curvas de trayectoria acumulativa de carreras esperadas slot por slot entre franquicias rivales.
 
 ---
 
