@@ -1,0 +1,102 @@
+# 🇩🇴 LIDOM 360 — Plataforma Sabermétrica & Analítica Integral
+
+Plataforma analítica avanzada en **Streamlit** diseñada para la **Liga Dominicana de Béisbol Profesional (LIDOM)**, con cobertura exhaustiva para los 6 equipos de la pelota invernal dominicana.
+
+---
+
+## ⚾ Las 6 Franquicias LIDOM
+
+| Franquicia | Team ID | Abreviatura | Colores | Sede / Estadio | Campeonatos |
+|---|---|---|---|---|---|
+| **Tigres del Licey** | `672` | `LIC` | `#002D62` / Blanco | Santo Domingo (Quisqueya Juan Marichal) | 24 |
+| **Águilas Cibaeñas** | `667` | `AGU` | `#FFCC00` / Negro | Santiago (Estadio Cibao) | 22 |
+| **Leones del Escogido** | `671` | `ESC` | `#CC0000` / Blanco | Santo Domingo (Quisqueya Juan Marichal) | 16 |
+| **Gigantes del Cibao** | `670` | `GIG` | `#5B1E31` / Oro | San Francisco de Macorís (Julián Javier) | 2 |
+| **Estrellas Orientales** | `669` | `EST` | `#005A36` / Oro | San Pedro de Macorís (Tetelo Vargas) | 3 |
+| **Toros del Este** | `668` | `TOR` | `#EA5B0C` / Negro | La Romana (Francisco Micheli) | 3 |
+
+---
+
+## 🚀 Características Principales
+
+1. **Tabla de Posiciones y Power Rankings ELO**:
+   - Standings oficiales con diferencial de carreras, % de victoria y racha.
+   - Power Rankings basados en algoritmo ELO calibrado con ventaja de localía ($+24$ pts) y multiplicador de margen de victoria.
+2. **Simulaciones Monte Carlo (5,000 iteraciones)**:
+   - Proyección estocástica de avance al **Round Robin** (Top 4), clasificación a la **Serie Final** y probabilidades de **Campeonato**.
+3. **Team Hub Dinámico con Theming Contextual**:
+   - Adaptación dinámica de los acentos visuales y CSS según la franquicia seleccionada.
+   - Roster, estadísticas colectivas, rotación de abridores y métricas de **Bullpen e Inherited Runners (IR / IRS / IRS%)**.
+4. **Líderes Individuales Sabermétricos (Leaderboards)**:
+   - Métricas avanzadas: `wOBA`, `wRC+`, `WPA`, `FIP`, `WHIP`, `K/9`, `Hard Contact %`.
+   - Gráfico de cuadrantes y dispersión de impacto ofensivo (`wOBA vs WPA`).
+5. **Game Center & Win Expectancy en Vivo**:
+   - Boxscores interactivos y curva de **Win Expectancy (WE)** jugada por jugada.
+   - Matriz **RE24 Tango** y cálculo de **Leverage Index (LI)** para detectar jugadas clave de alto apalancamiento (*Clutch*).
+6. **Spray Charts con Calibración BIS**:
+   - Dispersión espacial de batazos sobre diamante interactivo en Plotly.
+   - Filtros de calidad de contacto **BIS** (*Hard*, *Medium*, *Soft*).
+
+---
+
+## 🛠️ Estructura del Proyecto
+
+```
+lidom-analytics/
+├── .streamlit/
+│   └── config.toml             # Tema Dark Navy (#070B19) y variables de interfaz
+├── core/
+│   ├── api_client.py           # Ingesta resiliente de MLB Stats API (sportId=17, leagueId=131)
+│   ├── data_loader.py          # Agregador de datos con caché y fallback histórico
+│   ├── wpa_engine.py           # Matriz RE24, cálculo de Win Expectancy y WPA por jugada
+│   ├── elo_engine.py           # Algoritmo ELO y simulación Monte Carlo (5,000 runs)
+│   ├── situational.py          # Splits situacionales (Clutch, RISP, Bases Llenas, Por Inning)
+│   ├── bullpen.py              # Rendimiento de relevistas, corredores heredados (IR/IRS) y gmLI
+│   ├── bis_hardness.py         # Modelo determinístico de dureza de contacto (Batted Ball)
+│   └── teams.py                # Metadatos, colores y logos oficiales de los 6 equipos
+├── views/
+│   ├── home.py                 # Standings, ELO y simulación Monte Carlo
+│   ├── team_hub.py             # Dashboard por franquicia con theming dinámico
+│   ├── leaderboards.py         # Tabla de líderes de bateo y pitcheo
+│   ├── game_center.py          # Matchups H2H y curva de Win Expectancy
+│   └── spray_charts.py         # Dispersión de batazos en diamante Plotly
+├── utils/
+│   └── styles.py               # Inyección CSS Glassmorphism y badges
+├── tests/
+│   └── test_core.py            # Suite de pruebas unitarias
+├── app.py                      # Punto de entrada principal en Streamlit
+├── refresh_data.py             # Script CLI de ingesta y precarga de datos
+└── requirements.txt            # Dependencias del proyecto
+```
+
+---
+
+## 📦 Instalación y Ejecución
+
+```bash
+# 1. Clonar o navegar al directorio
+cd lidom-analytics
+
+# 2. Instalar dependencias
+pip install -r requirements.txt
+
+# 3. Ejecutar la aplicación en Streamlit
+streamlit run app.py
+```
+
+### Ejecutar Pruebas Unitarias
+```bash
+python -m unittest tests/test_core.py
+```
+
+### Ingesta de Datos CLI
+```bash
+python refresh_data.py --season 2024
+```
+
+---
+
+## 👤 Autor
+**Jorge Leonardo Loreto**  
+*AI Data Scientist & Baseball Sabermetrician*  
+Santo Domingo, República Dominicana

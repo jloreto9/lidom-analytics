@@ -1,0 +1,1318 @@
+{
+  "copyright": "Copyright 2026 MLB Advanced Media, L.P.  Use of any content on this page acknowledges agreement to the terms posted here http://gdx.mlb.com/components/copyright.txt",
+  "records": [
+    {
+      "standingsType": "regularSeason",
+      "league": {
+        "id": 131,
+        "link": "/api/v1/league/131"
+      },
+      "sport": {
+        "id": 17,
+        "link": "/api/v1/sports/17"
+      },
+      "roundRobin": {
+        "status": "false"
+      },
+      "lastUpdated": "2025-05-28T19:52:27.540Z",
+      "teamRecords": [
+        {
+          "team": {
+            "allStarStatus": "N",
+            "id": 669,
+            "name": "Estrellas Orientales",
+            "link": "/api/v1/teams/669",
+            "season": 2024,
+            "venue": {
+              "id": 3054,
+              "name": "Estadio Tetelo Vargas",
+              "link": "/api/v1/venues/3054"
+            },
+            "teamCode": "est",
+            "fileCode": "t669",
+            "abbreviation": "EST",
+            "teamName": "Estrellas",
+            "locationName": "San Pedro de Macoris",
+            "firstYearOfPlay": "2004",
+            "league": {
+              "id": 131,
+              "name": "Liga de Beisbol Dominicano",
+              "link": "/api/v1/league/131"
+            },
+            "sport": {
+              "id": 17,
+              "link": "/api/v1/sports/17",
+              "name": "Winter Leagues"
+            },
+            "shortName": "Estrellas",
+            "parentOrgName": "Office of the Commissioner",
+            "parentOrgId": 11,
+            "franchiseName": "Estrellas",
+            "clubName": "Estrellas",
+            "active": true
+          },
+          "season": "2024",
+          "streak": {
+            "streakCode": "W3",
+            "streakType": "wins",
+            "streakNumber": 3
+          },
+          "leagueRank": "1",
+          "wildCardRank": "1",
+          "sportRank": "5",
+          "gamesPlayed": 50,
+          "gamesBack": "-5.5",
+          "wildCardGamesBack": "-",
+          "leagueGamesBack": "-",
+          "springLeagueGamesBack": "-",
+          "sportGamesBack": "-",
+          "divisionGamesBack": "-",
+          "conferenceGamesBack": "-",
+          "leagueRecord": {
+            "wins": 30,
+            "losses": 20,
+            "ties": 0,
+            "pct": ".600"
+          },
+          "lastUpdated": "2025-03-18T18:25:25Z",
+          "records": {
+            "splitRecords": [
+              {
+                "wins": 16,
+                "losses": 9,
+                "type": "home",
+                "pct": ".640"
+              },
+              {
+                "wins": 14,
+                "losses": 11,
+                "type": "away",
+                "pct": ".560"
+              },
+              {
+                "wins": 10,
+                "losses": 4,
+                "type": "left",
+                "pct": ".714"
+              },
+              {
+                "wins": 6,
+                "losses": 1,
+                "type": "leftHome",
+                "pct": ".857"
+              },
+              {
+                "wins": 4,
+                "losses": 3,
+                "type": "leftAway",
+                "pct": ".571"
+              },
+              {
+                "wins": 10,
+                "losses": 8,
+                "type": "rightHome",
+                "pct": ".556"
+              },
+              {
+                "wins": 10,
+                "losses": 8,
+                "type": "rightAway",
+                "pct": ".556"
+              },
+              {
+                "wins": 20,
+                "losses": 16,
+                "type": "right",
+                "pct": ".556"
+              },
+              {
+                "wins": 6,
+                "losses": 4,
+                "type": "lastTen",
+                "pct": ".600"
+              },
+              {
+                "wins": 6,
+                "losses": 3,
+                "type": "extraInning",
+                "pct": ".667"
+              },
+              {
+                "wins": 9,
+                "losses": 8,
+                "type": "oneRun",
+                "pct": ".529"
+              },
+              {
+                "wins": 9,
+                "losses": 11,
+                "type": "winners",
+                "pct": ".450"
+              },
+              {
+                "wins": 11,
+                "losses": 5,
+                "type": "day",
+                "pct": ".688"
+              },
+              {
+                "wins": 19,
+                "losses": 15,
+                "type": "night",
+                "pct": ".559"
+              },
+              {
+                "wins": 30,
+                "losses": 20,
+                "type": "grass",
+                "pct": ".600"
+              },
+              {
+                "wins": 0,
+                "losses": 0,
+                "type": "turf",
+                "pct": ".000"
+              }
+            ],
+            "overallRecords": [
+              {
+                "wins": 16,
+                "losses": 9,
+                "type": "home",
+                "pct": ".640"
+              },
+              {
+                "wins": 14,
+                "losses": 11,
+                "type": "away",
+                "pct": ".560"
+              }
+            ],
+            "leagueRecords": [
+              {
+                "wins": 30,
+                "losses": 20,
+                "pct": ".600",
+                "league": {
+                  "id": 131,
+                  "name": "Liga de Beisbol Dominicano",
+                  "link": "/api/v1/league/131"
+                }
+              }
+            ],
+            "expectedRecords": [
+              {
+                "wins": 29,
+                "losses": 21,
+                "type": "xWinLoss",
+                "pct": ".580"
+              },
+              {
+                "wins": 29,
+                "losses": 21,
+                "type": "xWinLossSeason",
+                "pct": ".580"
+              }
+            ]
+          },
+          "runsAllowed": 189,
+          "runsScored": 229,
+          "divisionChamp": false,
+          "divisionLeader": false,
+          "hasWildcard": false,
+          "clinched": false,
+          "eliminationNumber": "-",
+          "eliminationNumberSport": "-",
+          "eliminationNumberLeague": "-",
+          "eliminationNumberDivision": "-",
+          "eliminationNumberConference": "-",
+          "wildCardEliminationNumber": "-",
+          "wins": 30,
+          "losses": 20,
+          "runDifferential": 40,
+          "winningPercentage": ".600"
+        },
+        {
+          "team": {
+            "allStarStatus": "N",
+            "id": 667,
+            "name": "Aguilas Cibaenas",
+            "link": "/api/v1/teams/667",
+            "season": 2024,
+            "venue": {
+              "id": 3051,
+              "name": "Estadio Cibao",
+              "link": "/api/v1/venues/3051"
+            },
+            "teamCode": "agu",
+            "fileCode": "t667",
+            "abbreviation": "AGU",
+            "teamName": "Aguilas",
+            "locationName": "Santiago",
+            "firstYearOfPlay": "2004",
+            "league": {
+              "id": 131,
+              "name": "Liga de Beisbol Dominicano",
+              "link": "/api/v1/league/131"
+            },
+            "sport": {
+              "id": 17,
+              "link": "/api/v1/sports/17",
+              "name": "Winter Leagues"
+            },
+            "shortName": "Aguilas",
+            "parentOrgName": "Office of the Commissioner",
+            "parentOrgId": 11,
+            "franchiseName": "Aguilas",
+            "clubName": "Aguilas",
+            "active": true
+          },
+          "season": "2024",
+          "streak": {
+            "streakCode": "L2",
+            "streakType": "losses",
+            "streakNumber": 2
+          },
+          "leagueRank": "2",
+          "wildCardRank": "2",
+          "sportRank": "9",
+          "gamesPlayed": 50,
+          "gamesBack": "-3.5",
+          "wildCardGamesBack": "-",
+          "leagueGamesBack": "2.0",
+          "springLeagueGamesBack": "-",
+          "sportGamesBack": "2.0",
+          "divisionGamesBack": "-",
+          "conferenceGamesBack": "-",
+          "leagueRecord": {
+            "wins": 28,
+            "losses": 22,
+            "ties": 0,
+            "pct": ".560"
+          },
+          "lastUpdated": "2025-03-18T18:22:25Z",
+          "records": {
+            "splitRecords": [
+              {
+                "wins": 14,
+                "losses": 11,
+                "type": "home",
+                "pct": ".560"
+              },
+              {
+                "wins": 14,
+                "losses": 11,
+                "type": "away",
+                "pct": ".560"
+              },
+              {
+                "wins": 6,
+                "losses": 7,
+                "type": "left",
+                "pct": ".462"
+              },
+              {
+                "wins": 4,
+                "losses": 4,
+                "type": "leftHome",
+                "pct": ".500"
+              },
+              {
+                "wins": 2,
+                "losses": 3,
+                "type": "leftAway",
+                "pct": ".400"
+              },
+              {
+                "wins": 10,
+                "losses": 7,
+                "type": "rightHome",
+                "pct": ".588"
+              },
+              {
+                "wins": 12,
+                "losses": 8,
+                "type": "rightAway",
+                "pct": ".600"
+              },
+              {
+                "wins": 22,
+                "losses": 15,
+                "type": "right",
+                "pct": ".595"
+              },
+              {
+                "wins": 6,
+                "losses": 4,
+                "type": "lastTen",
+                "pct": ".600"
+              },
+              {
+                "wins": 2,
+                "losses": 1,
+                "type": "extraInning",
+                "pct": ".667"
+              },
+              {
+                "wins": 7,
+                "losses": 7,
+                "type": "oneRun",
+                "pct": ".500"
+              },
+              {
+                "wins": 13,
+                "losses": 7,
+                "type": "winners",
+                "pct": ".650"
+              },
+              {
+                "wins": 4,
+                "losses": 6,
+                "type": "day",
+                "pct": ".400"
+              },
+              {
+                "wins": 24,
+                "losses": 16,
+                "type": "night",
+                "pct": ".600"
+              },
+              {
+                "wins": 28,
+                "losses": 22,
+                "type": "grass",
+                "pct": ".560"
+              },
+              {
+                "wins": 0,
+                "losses": 0,
+                "type": "turf",
+                "pct": ".000"
+              }
+            ],
+            "overallRecords": [
+              {
+                "wins": 14,
+                "losses": 11,
+                "type": "home",
+                "pct": ".560"
+              },
+              {
+                "wins": 14,
+                "losses": 11,
+                "type": "away",
+                "pct": ".560"
+              }
+            ],
+            "leagueRecords": [
+              {
+                "wins": 28,
+                "losses": 22,
+                "pct": ".560",
+                "league": {
+                  "id": 131,
+                  "name": "Liga de Beisbol Dominicano",
+                  "link": "/api/v1/league/131"
+                }
+              }
+            ],
+            "expectedRecords": [
+              {
+                "wins": 26,
+                "losses": 24,
+                "type": "xWinLoss",
+                "pct": ".520"
+              },
+              {
+                "wins": 26,
+                "losses": 24,
+                "type": "xWinLossSeason",
+                "pct": ".520"
+              }
+            ]
+          },
+          "runsAllowed": 235,
+          "runsScored": 244,
+          "divisionChamp": false,
+          "divisionLeader": false,
+          "hasWildcard": false,
+          "clinched": false,
+          "eliminationNumber": "-",
+          "eliminationNumberSport": "-",
+          "eliminationNumberLeague": "-",
+          "eliminationNumberDivision": "-",
+          "eliminationNumberConference": "-",
+          "wildCardEliminationNumber": "-",
+          "wins": 28,
+          "losses": 22,
+          "runDifferential": 9,
+          "winningPercentage": ".560"
+        },
+        {
+          "team": {
+            "allStarStatus": "N",
+            "id": 672,
+            "name": "Tigres del Licey",
+            "link": "/api/v1/teams/672",
+            "season": 2024,
+            "venue": {
+              "id": 3049,
+              "name": "Estadio Quisqueya Juan Marichal",
+              "link": "/api/v1/venues/3049"
+            },
+            "teamCode": "lic",
+            "fileCode": "t672",
+            "abbreviation": "LIC",
+            "teamName": "Tigres",
+            "locationName": "Santo Domingo",
+            "firstYearOfPlay": "2004",
+            "league": {
+              "id": 131,
+              "name": "Liga de Beisbol Dominicano",
+              "link": "/api/v1/league/131"
+            },
+            "sport": {
+              "id": 17,
+              "link": "/api/v1/sports/17",
+              "name": "Winter Leagues"
+            },
+            "shortName": "Licey",
+            "parentOrgName": "Office of the Commissioner",
+            "parentOrgId": 11,
+            "franchiseName": "Licey",
+            "clubName": "Tigres",
+            "active": true
+          },
+          "season": "2024",
+          "streak": {
+            "streakCode": "L1",
+            "streakType": "losses",
+            "streakNumber": 1
+          },
+          "leagueRank": "3",
+          "wildCardRank": "3",
+          "sportRank": "11",
+          "gamesPlayed": 49,
+          "gamesBack": "-3.0",
+          "wildCardGamesBack": "-",
+          "leagueGamesBack": "2.5",
+          "springLeagueGamesBack": "-",
+          "sportGamesBack": "2.5",
+          "divisionGamesBack": "-",
+          "conferenceGamesBack": "-",
+          "leagueRecord": {
+            "wins": 27,
+            "losses": 22,
+            "ties": 0,
+            "pct": ".551"
+          },
+          "lastUpdated": "2025-05-28T19:52:25Z",
+          "records": {
+            "splitRecords": [
+              {
+                "wins": 13,
+                "losses": 12,
+                "type": "home",
+                "pct": ".520"
+              },
+              {
+                "wins": 14,
+                "losses": 10,
+                "type": "away",
+                "pct": ".583"
+              },
+              {
+                "wins": 6,
+                "losses": 9,
+                "type": "left",
+                "pct": ".400"
+              },
+              {
+                "wins": 3,
+                "losses": 5,
+                "type": "leftHome",
+                "pct": ".375"
+              },
+              {
+                "wins": 3,
+                "losses": 4,
+                "type": "leftAway",
+                "pct": ".429"
+              },
+              {
+                "wins": 10,
+                "losses": 7,
+                "type": "rightHome",
+                "pct": ".588"
+              },
+              {
+                "wins": 11,
+                "losses": 6,
+                "type": "rightAway",
+                "pct": ".647"
+              },
+              {
+                "wins": 21,
+                "losses": 13,
+                "type": "right",
+                "pct": ".618"
+              },
+              {
+                "wins": 6,
+                "losses": 4,
+                "type": "lastTen",
+                "pct": ".600"
+              },
+              {
+                "wins": 1,
+                "losses": 2,
+                "type": "extraInning",
+                "pct": ".333"
+              },
+              {
+                "wins": 9,
+                "losses": 8,
+                "type": "oneRun",
+                "pct": ".529"
+              },
+              {
+                "wins": 8,
+                "losses": 12,
+                "type": "winners",
+                "pct": ".400"
+              },
+              {
+                "wins": 5,
+                "losses": 5,
+                "type": "day",
+                "pct": ".500"
+              },
+              {
+                "wins": 22,
+                "losses": 17,
+                "type": "night",
+                "pct": ".564"
+              },
+              {
+                "wins": 27,
+                "losses": 22,
+                "type": "grass",
+                "pct": ".551"
+              },
+              {
+                "wins": 0,
+                "losses": 0,
+                "type": "turf",
+                "pct": ".000"
+              }
+            ],
+            "overallRecords": [
+              {
+                "wins": 13,
+                "losses": 12,
+                "type": "home",
+                "pct": ".520"
+              },
+              {
+                "wins": 14,
+                "losses": 10,
+                "type": "away",
+                "pct": ".583"
+              }
+            ],
+            "leagueRecords": [
+              {
+                "wins": 27,
+                "losses": 22,
+                "pct": ".551",
+                "league": {
+                  "id": 131,
+                  "name": "Liga de Beisbol Dominicano",
+                  "link": "/api/v1/league/131"
+                }
+              }
+            ],
+            "expectedRecords": [
+              {
+                "wins": 30,
+                "losses": 19,
+                "type": "xWinLoss",
+                "pct": ".612"
+              },
+              {
+                "wins": 31,
+                "losses": 19,
+                "type": "xWinLossSeason",
+                "pct": ".620"
+              }
+            ]
+          },
+          "runsAllowed": 165,
+          "runsScored": 211,
+          "divisionChamp": false,
+          "divisionLeader": false,
+          "hasWildcard": false,
+          "clinched": false,
+          "eliminationNumber": "-",
+          "eliminationNumberSport": "-",
+          "eliminationNumberLeague": "-",
+          "eliminationNumberDivision": "-",
+          "eliminationNumberConference": "-",
+          "wildCardEliminationNumber": "-",
+          "wins": 27,
+          "losses": 22,
+          "runDifferential": 46,
+          "winningPercentage": ".551"
+        },
+        {
+          "team": {
+            "allStarStatus": "N",
+            "id": 671,
+            "name": "Leones del Escogido",
+            "link": "/api/v1/teams/671",
+            "season": 2024,
+            "venue": {
+              "id": 3049,
+              "name": "Estadio Quisqueya Juan Marichal",
+              "link": "/api/v1/venues/3049"
+            },
+            "teamCode": "esc",
+            "fileCode": "t671",
+            "abbreviation": "ESC",
+            "teamName": "Leones",
+            "locationName": "Santo Domingo",
+            "firstYearOfPlay": "2004",
+            "league": {
+              "id": 131,
+              "name": "Liga de Beisbol Dominicano",
+              "link": "/api/v1/league/131"
+            },
+            "sport": {
+              "id": 17,
+              "link": "/api/v1/sports/17",
+              "name": "Winter Leagues"
+            },
+            "shortName": "Escogido",
+            "parentOrgName": "Office of the Commissioner",
+            "parentOrgId": 11,
+            "franchiseName": "Escogido",
+            "clubName": "Leones",
+            "active": true
+          },
+          "season": "2024",
+          "streak": {
+            "streakCode": "W3",
+            "streakType": "wins",
+            "streakNumber": 3
+          },
+          "leagueRank": "4",
+          "wildCardRank": "4",
+          "sportRank": "24",
+          "gamesPlayed": 49,
+          "gamesBack": "-",
+          "wildCardGamesBack": "-",
+          "leagueGamesBack": "5.5",
+          "springLeagueGamesBack": "-",
+          "sportGamesBack": "5.5",
+          "divisionGamesBack": "-",
+          "conferenceGamesBack": "-",
+          "leagueRecord": {
+            "wins": 24,
+            "losses": 25,
+            "ties": 0,
+            "pct": ".490"
+          },
+          "lastUpdated": "2025-05-28T19:52:27Z",
+          "records": {
+            "splitRecords": [
+              {
+                "wins": 12,
+                "losses": 12,
+                "type": "home",
+                "pct": ".500"
+              },
+              {
+                "wins": 12,
+                "losses": 13,
+                "type": "away",
+                "pct": ".480"
+              },
+              {
+                "wins": 2,
+                "losses": 7,
+                "type": "left",
+                "pct": ".222"
+              },
+              {
+                "wins": 1,
+                "losses": 4,
+                "type": "leftHome",
+                "pct": ".200"
+              },
+              {
+                "wins": 1,
+                "losses": 3,
+                "type": "leftAway",
+                "pct": ".250"
+              },
+              {
+                "wins": 11,
+                "losses": 8,
+                "type": "rightHome",
+                "pct": ".579"
+              },
+              {
+                "wins": 11,
+                "losses": 10,
+                "type": "rightAway",
+                "pct": ".524"
+              },
+              {
+                "wins": 22,
+                "losses": 18,
+                "type": "right",
+                "pct": ".550"
+              },
+              {
+                "wins": 3,
+                "losses": 7,
+                "type": "lastTen",
+                "pct": ".300"
+              },
+              {
+                "wins": 1,
+                "losses": 1,
+                "type": "extraInning",
+                "pct": ".500"
+              },
+              {
+                "wins": 7,
+                "losses": 6,
+                "type": "oneRun",
+                "pct": ".538"
+              },
+              {
+                "wins": 11,
+                "losses": 18,
+                "type": "winners",
+                "pct": ".379"
+              },
+              {
+                "wins": 9,
+                "losses": 9,
+                "type": "day",
+                "pct": ".500"
+              },
+              {
+                "wins": 15,
+                "losses": 16,
+                "type": "night",
+                "pct": ".484"
+              },
+              {
+                "wins": 24,
+                "losses": 25,
+                "type": "grass",
+                "pct": ".490"
+              },
+              {
+                "wins": 0,
+                "losses": 0,
+                "type": "turf",
+                "pct": ".000"
+              }
+            ],
+            "overallRecords": [
+              {
+                "wins": 12,
+                "losses": 12,
+                "type": "home",
+                "pct": ".500"
+              },
+              {
+                "wins": 12,
+                "losses": 13,
+                "type": "away",
+                "pct": ".480"
+              }
+            ],
+            "leagueRecords": [
+              {
+                "wins": 24,
+                "losses": 25,
+                "pct": ".490",
+                "league": {
+                  "id": 131,
+                  "name": "Liga de Beisbol Dominicano",
+                  "link": "/api/v1/league/131"
+                }
+              }
+            ],
+            "expectedRecords": [
+              {
+                "wins": 23,
+                "losses": 26,
+                "type": "xWinLoss",
+                "pct": ".469"
+              },
+              {
+                "wins": 23,
+                "losses": 27,
+                "type": "xWinLossSeason",
+                "pct": ".460"
+              }
+            ]
+          },
+          "runsAllowed": 238,
+          "runsScored": 220,
+          "divisionChamp": false,
+          "divisionLeader": false,
+          "hasWildcard": false,
+          "clinched": false,
+          "eliminationNumber": "-",
+          "eliminationNumberSport": "-",
+          "eliminationNumberLeague": "-",
+          "eliminationNumberDivision": "-",
+          "eliminationNumberConference": "-",
+          "wildCardEliminationNumber": "-",
+          "wins": 24,
+          "losses": 25,
+          "runDifferential": -18,
+          "winningPercentage": ".490"
+        },
+        {
+          "team": {
+            "allStarStatus": "N",
+            "id": 670,
+            "name": "Gigantes del Cibao",
+            "link": "/api/v1/teams/670",
+            "season": 2024,
+            "venue": {
+              "id": 3057,
+              "name": "Estadio Julian Javier",
+              "link": "/api/v1/venues/3057"
+            },
+            "teamCode": "gig",
+            "fileCode": "t670",
+            "abbreviation": "GIG",
+            "teamName": "Gigantes",
+            "locationName": "San Francisco de Macoris",
+            "firstYearOfPlay": "2004",
+            "league": {
+              "id": 131,
+              "name": "Liga de Beisbol Dominicano",
+              "link": "/api/v1/league/131"
+            },
+            "sport": {
+              "id": 17,
+              "link": "/api/v1/sports/17",
+              "name": "Winter Leagues"
+            },
+            "shortName": "Gigantes",
+            "parentOrgName": "Office of the Commissioner",
+            "parentOrgId": 11,
+            "franchiseName": "Gigantes",
+            "clubName": "Gigantes",
+            "active": true
+          },
+          "season": "2024",
+          "streak": {
+            "streakCode": "L2",
+            "streakType": "losses",
+            "streakNumber": 2
+          },
+          "leagueRank": "5",
+          "wildCardRank": "5",
+          "sportRank": "32",
+          "gamesPlayed": 49,
+          "gamesBack": "2.0",
+          "wildCardGamesBack": "-",
+          "leagueGamesBack": "7.5",
+          "springLeagueGamesBack": "-",
+          "sportGamesBack": "7.5",
+          "divisionGamesBack": "-",
+          "conferenceGamesBack": "-",
+          "leagueRecord": {
+            "wins": 22,
+            "losses": 27,
+            "ties": 0,
+            "pct": ".449"
+          },
+          "lastUpdated": "2025-03-18T18:22:27Z",
+          "records": {
+            "splitRecords": [
+              {
+                "wins": 11,
+                "losses": 14,
+                "type": "home",
+                "pct": ".440"
+              },
+              {
+                "wins": 11,
+                "losses": 13,
+                "type": "away",
+                "pct": ".458"
+              },
+              {
+                "wins": 5,
+                "losses": 6,
+                "type": "left",
+                "pct": ".455"
+              },
+              {
+                "wins": 2,
+                "losses": 3,
+                "type": "leftHome",
+                "pct": ".400"
+              },
+              {
+                "wins": 3,
+                "losses": 3,
+                "type": "leftAway",
+                "pct": ".500"
+              },
+              {
+                "wins": 9,
+                "losses": 11,
+                "type": "rightHome",
+                "pct": ".450"
+              },
+              {
+                "wins": 8,
+                "losses": 10,
+                "type": "rightAway",
+                "pct": ".444"
+              },
+              {
+                "wins": 17,
+                "losses": 21,
+                "type": "right",
+                "pct": ".447"
+              },
+              {
+                "wins": 6,
+                "losses": 4,
+                "type": "lastTen",
+                "pct": ".600"
+              },
+              {
+                "wins": 1,
+                "losses": 1,
+                "type": "extraInning",
+                "pct": ".500"
+              },
+              {
+                "wins": 5,
+                "losses": 5,
+                "type": "oneRun",
+                "pct": ".500"
+              },
+              {
+                "wins": 15,
+                "losses": 15,
+                "type": "winners",
+                "pct": ".500"
+              },
+              {
+                "wins": 8,
+                "losses": 5,
+                "type": "day",
+                "pct": ".615"
+              },
+              {
+                "wins": 14,
+                "losses": 22,
+                "type": "night",
+                "pct": ".389"
+              },
+              {
+                "wins": 22,
+                "losses": 27,
+                "type": "grass",
+                "pct": ".449"
+              },
+              {
+                "wins": 0,
+                "losses": 0,
+                "type": "turf",
+                "pct": ".000"
+              }
+            ],
+            "overallRecords": [
+              {
+                "wins": 11,
+                "losses": 14,
+                "type": "home",
+                "pct": ".440"
+              },
+              {
+                "wins": 11,
+                "losses": 13,
+                "type": "away",
+                "pct": ".458"
+              }
+            ],
+            "leagueRecords": [
+              {
+                "wins": 22,
+                "losses": 27,
+                "pct": ".449",
+                "league": {
+                  "id": 131,
+                  "name": "Liga de Beisbol Dominicano",
+                  "link": "/api/v1/league/131"
+                }
+              }
+            ],
+            "expectedRecords": [
+              {
+                "wins": 23,
+                "losses": 26,
+                "type": "xWinLoss",
+                "pct": ".469"
+              },
+              {
+                "wins": 24,
+                "losses": 26,
+                "type": "xWinLossSeason",
+                "pct": ".480"
+              }
+            ]
+          },
+          "runsAllowed": 237,
+          "runsScored": 226,
+          "divisionChamp": false,
+          "divisionLeader": false,
+          "hasWildcard": false,
+          "clinched": false,
+          "eliminationNumber": "E",
+          "eliminationNumberSport": "E",
+          "eliminationNumberLeague": "E",
+          "eliminationNumberDivision": "E",
+          "eliminationNumberConference": "E",
+          "wildCardEliminationNumber": "-",
+          "wins": 22,
+          "losses": 27,
+          "runDifferential": -11,
+          "winningPercentage": ".449"
+        },
+        {
+          "team": {
+            "allStarStatus": "N",
+            "id": 668,
+            "name": "Toros del Este",
+            "link": "/api/v1/teams/668",
+            "season": 2024,
+            "venue": {
+              "id": 3055,
+              "name": "Estadio Francisco Micheli",
+              "link": "/api/v1/venues/3055"
+            },
+            "teamCode": "tde",
+            "fileCode": "t668",
+            "abbreviation": "TOR",
+            "teamName": "Toros",
+            "locationName": "La Romana",
+            "firstYearOfPlay": "2004",
+            "league": {
+              "id": 131,
+              "name": "Liga de Beisbol Dominicano",
+              "link": "/api/v1/league/131"
+            },
+            "sport": {
+              "id": 17,
+              "link": "/api/v1/sports/17",
+              "name": "Winter Leagues"
+            },
+            "shortName": "Toros",
+            "parentOrgName": "Office of the Commissioner",
+            "parentOrgId": 11,
+            "franchiseName": "Toros",
+            "clubName": "Toros",
+            "active": true
+          },
+          "season": "2024",
+          "streak": {
+            "streakCode": "L8",
+            "streakType": "losses",
+            "streakNumber": 8
+          },
+          "leagueRank": "6",
+          "wildCardRank": "6",
+          "sportRank": "41",
+          "gamesPlayed": 49,
+          "gamesBack": "7.0",
+          "wildCardGamesBack": "-",
+          "leagueGamesBack": "12.5",
+          "springLeagueGamesBack": "-",
+          "sportGamesBack": "12.5",
+          "divisionGamesBack": "-",
+          "conferenceGamesBack": "-",
+          "leagueRecord": {
+            "wins": 17,
+            "losses": 32,
+            "ties": 0,
+            "pct": ".347"
+          },
+          "lastUpdated": "2025-03-18T18:25:26Z",
+          "records": {
+            "splitRecords": [
+              {
+                "wins": 7,
+                "losses": 17,
+                "type": "home",
+                "pct": ".292"
+              },
+              {
+                "wins": 10,
+                "losses": 15,
+                "type": "away",
+                "pct": ".400"
+              },
+              {
+                "wins": 6,
+                "losses": 15,
+                "type": "left",
+                "pct": ".286"
+              },
+              {
+                "wins": 1,
+                "losses": 10,
+                "type": "leftHome",
+                "pct": ".091"
+              },
+              {
+                "wins": 5,
+                "losses": 5,
+                "type": "leftAway",
+                "pct": ".500"
+              },
+              {
+                "wins": 6,
+                "losses": 7,
+                "type": "rightHome",
+                "pct": ".462"
+              },
+              {
+                "wins": 5,
+                "losses": 10,
+                "type": "rightAway",
+                "pct": ".333"
+              },
+              {
+                "wins": 11,
+                "losses": 17,
+                "type": "right",
+                "pct": ".393"
+              },
+              {
+                "wins": 1,
+                "losses": 9,
+                "type": "lastTen",
+                "pct": ".100"
+              },
+              {
+                "wins": 2,
+                "losses": 5,
+                "type": "extraInning",
+                "pct": ".286"
+              },
+              {
+                "wins": 8,
+                "losses": 11,
+                "type": "oneRun",
+                "pct": ".421"
+              },
+              {
+                "wins": 8,
+                "losses": 22,
+                "type": "winners",
+                "pct": ".267"
+              },
+              {
+                "wins": 4,
+                "losses": 12,
+                "type": "day",
+                "pct": ".250"
+              },
+              {
+                "wins": 13,
+                "losses": 20,
+                "type": "night",
+                "pct": ".394"
+              },
+              {
+                "wins": 17,
+                "losses": 32,
+                "type": "grass",
+                "pct": ".347"
+              },
+              {
+                "wins": 0,
+                "losses": 0,
+                "type": "turf",
+                "pct": ".000"
+              }
+            ],
+            "overallRecords": [
+              {
+                "wins": 7,
+                "losses": 17,
+                "type": "home",
+                "pct": ".292"
+              },
+              {
+                "wins": 10,
+                "losses": 15,
+                "type": "away",
+                "pct": ".400"
+              }
+            ],
+            "leagueRecords": [
+              {
+                "wins": 17,
+                "losses": 32,
+                "pct": ".347",
+                "league": {
+                  "id": 131,
+                  "name": "Liga de Beisbol Dominicano",
+                  "link": "/api/v1/league/131"
+                }
+              }
+            ],
+            "expectedRecords": [
+              {
+                "wins": 18,
+                "losses": 31,
+                "type": "xWinLoss",
+                "pct": ".367"
+              },
+              {
+                "wins": 18,
+                "losses": 32,
+                "type": "xWinLossSeason",
+                "pct": ".360"
+              }
+            ]
+          },
+          "runsAllowed": 249,
+          "runsScored": 183,
+          "divisionChamp": false,
+          "divisionLeader": false,
+          "hasWildcard": false,
+          "clinched": false,
+          "eliminationNumber": "E",
+          "eliminationNumberSport": "E",
+          "eliminationNumberLeague": "E",
+          "eliminationNumberDivision": "E",
+          "eliminationNumberConference": "E",
+          "wildCardEliminationNumber": "-",
+          "wins": 17,
+          "losses": 32,
+          "runDifferential": -66,
+          "winningPercentage": ".347"
+        }
+      ]
+    }
+  ]
+}

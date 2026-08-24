@@ -1,0 +1,258 @@
+"""Cliente y gestor de consultas para Supabase en LIDOM 360."""
+
+import os
+import logging
+from typing import Optional, List, Dict, Any
+import pandas as pd
+from supabase import create_client, Client
+import streamlit as st
+
+logger = logging.getLogger(__name__)
+
+
+def get_supabase_credentials() -> tuple[Optional[str], Optional[str]]:
+    """Obtiene URL y Key de Supabase desde Streamlit secrets o variables de entorno."""
+    url = None
+    key = None
+
+    # Intentar desde Streamlit secrets
+    try:
+        url = st.secrets.get("SUPABASE_URL") or st.secrets.get("supabase", {}).get("url")
+        key = st.secrets.get("SUPABASE_KEY") or st.secrets.get("SUPABASE_SERVICE_ROLE_KEY") or st.secrets.get("supabase", {}).get("key")
+    except Exception:
+        pass
+
+    # Fallback a variables de entorno
+    if not url:
+        url = os.environ.get("SUPABASE_URL")
+    if not key:
+        key = os.environ.get("SUPABASE_SERVICE_ROLE_KEY") or os.environ.get("SUPABASE_KEY") or os.environ.get("SUPABASE_ANON_KEY")
+
+    return url, key
+
+
+@st.cache_resource
+def init_supabase() -> Optional[Client]:
+    """Inicializa la conexión con Supabase con manejo seguro de excepciones."""
+    url, key = get_supabase_credentials()
+    if not url or not key:
+        logger.info("Credenciales de Supabase no detectadas. Usando modo local / API fallback.")
+        return None
+    try:
+        client = create_client(url, key)
+        return client
+    except Exception as e:
+        logger.error(f"Error conectando a Supabase: {e}")
+        return None
+
+
+def is_supabase_connected() -> bool:
+    """Verifica si la instancia de Supabase está activa y conectada."""
+    client = init_supabase()
+    return client is not None
+
+
+@st.cache_data(ttl=600)
+def fetch_standings_from_db(season: int = 2024, game_type: str = "R") -> Optional[pd.DataFrame]:
+    """Calcula y obtiene la tabla de posiciones desde la tabla `lidom_games` en Supabase."""
+    client = init_supabase()
+    if not client:
+        return None
+
+    try:
+        # Obtener juegos finalizados
+        response = client.table("lidom_games") \
+            .select("*, home_team:lidom_teams!lidom_games_home_team_id_fkey(name, abbrev, primary_color, logo_url), away_team:lidom_teams!lidom_games_away_team_id_fkey(name, abbrev, primary_color, logo_url)") \
+            .eq("season", season) \
+            .eq("game_type", game_type) \
+            .in_("status", ["Final", "Completed", "Completed Early", "Game Over"]) \
+            .execute()
+
+        if not response.data:
+            return None
+
+        games_df = pd.DataFrame(response.data)
+        teams_resp = client.table("lidom_teams").select("*").execute()
+        if not teams_resp.data:
+            return None
+
+        teams_df = pd.DataFrame(teams_resp.data)
+        standings_data = []
+
+        for _, team in teams_df.iterrows():
+            t_id = team["id"]
+            t_games = games_df[(games_df["home_team_id"] == t_id) | (games_df["away_team_id"] == t_id)]
+            if len(t_games) == 0:
+                continue
+
+            wins = 0
+            losses = 0
+            ca = 0
+            cp = 0
+            t_games_sorted = t_games.sort_values("game_date")
+            racha_list = []
+
+            for _, g in t_games_sorted.iterrows():
+                is_h = g["home_team_id"] == t_id
+                my_s = g["home_score"] if is_h else g["away_score"]
+                opp_s = g["away_score"] if is_h else g["home_score"]
+                ca += (my_s or 0)
+                cp += (opp_s or 0)
+
+                if (my_s or 0) > (opp_s or 0):
+                    wins += 1
+                    racha_list.append("W")
+                else:
+                    losses += 1
+                    racha_list.append("L")
+
+            total_g = wins + losses
+            pct = (wins / total_g) if total_g > 0 else 0.0
+            diff = ca - cp
+
+            # Racha
+            streak_str = "-"
+            if racha_list:
+                stk_type = racha_list[-1]
+                stk_count = 0
+                for r in reversed(racha_list):
+                    if r == stk_type:
+                        stk_count += 1
+                    else:
+                        break
+                streak_str = f"{stk_type}{stk_count}"
+
+            standings_data.append({
+                "team_id": t_id,
+                "Equipo": team["name"],
+                "Abbrev": team["abbrev"],
+                "Color": team["primary_color"],
+                "Logo": team["logo_url"],
+                "G": total_g,
+                "W": wins,
+                "L": losses,
+                "PCT": f"{pct:.3f}".lstrip("0"),
+                "CA": ca,
+                "CP": cp,
+                "DIFF": f"{diff:+d}",
+                "Racha": streak_str,
+                "_pct_num": pct,
+                "_wins": wins,
+                "_losses": losses,
+            })
+
+        if not standings_data:
+            return None
+
+        df = pd.DataFrame(standings_data).sort_values(by="_pct_num", ascending=False)
+        top_w = df.iloc[0]["_wins"]
+        top_l = df.iloc[0]["_losses"]
+
+        df["GB"] = df.apply(
+            lambda r: "-" if r["team_id"] == df.iloc[0]["team_id"] else f"{((top_w - r['_wins']) + (r['_losses'] - top_l)) / 2.0:.1f}",
+            axis=1
+        )
+        return df.drop(columns=["_pct_num", "_wins", "_losses"])
+
+    except Exception as e:
+        logger.error(f"Error consultando standings de Supabase: {e}")
+        return None
+
+
+@st.cache_data(ttl=1800)
+def fetch_batting_leaderboard_from_db(season: int = 2024, team_id: Optional[int] = None) -> Optional[pd.DataFrame]:
+    """Obtiene estadísticas de bateo agrupadas por jugador desde `lidom_batting_stats`."""
+    client = init_supabase()
+    if not client:
+        return None
+
+    try:
+        query = client.table("lidom_batting_stats") \
+            .select("*, player:lidom_players!lidom_batting_stats_player_id_fkey(full_name, primary_position), team:lidom_teams!lidom_batting_stats_team_id_fkey(abbrev)") \
+            .eq("season", season)
+
+        if team_id:
+            query = query.eq("team_id", team_id)
+
+        resp = query.execute()
+        if not resp.data:
+            return None
+
+        raw_df = pd.DataFrame(resp.data)
+        raw_df["name"] = raw_df["player"].apply(lambda x: x.get("full_name", "N/D") if isinstance(x, dict) else "N/D")
+        raw_df["pos"] = raw_df["player"].apply(lambda x: x.get("primary_position", "UTL") if isinstance(x, dict) else "UTL")
+        raw_df["team"] = raw_df["team"].apply(lambda x: x.get("abbrev", "LID") if isinstance(x, dict) else "LID")
+
+        # Agrupar por jugador
+        grouped = raw_df.groupby(["player_id", "name", "team", "pos"]).agg({
+            "ab": "sum", "r": "sum", "h": "sum", "doubles": "sum", "triples": "sum",
+            "hr": "sum", "rbi": "sum", "bb": "sum", "so": "sum", "sb": "sum", "hbp": "sum", "sf": "sum",
+            "game_id": "count"
+        }).reset_index().rename(columns={"game_id": "G", "ab": "AB", "r": "R", "h": "H", "doubles": "2B", "triples": "3B", "hr": "HR", "rbi": "RBI", "bb": "BB", "so": "SO", "sb": "SB"})
+
+        # Métricas sabermétricas
+        tb = (grouped["H"] - grouped["2B"] - grouped["3B"] - grouped["HR"]) + (2 * grouped["2B"]) + (3 * grouped["3B"]) + (4 * grouped["HR"])
+        grouped["AVG"] = (grouped["H"] / grouped["AB"]).fillna(0).apply(lambda x: f"{x:.3f}".lstrip("0"))
+        obp = ((grouped["H"] + grouped["BB"] + grouped["hbp"]) / (grouped["AB"] + grouped["BB"] + grouped["hbp"] + grouped["sf"])).fillna(0)
+        slg = (tb / grouped["AB"]).fillna(0)
+        grouped["OBP"] = obp.apply(lambda x: f"{x:.3f}".lstrip("0"))
+        grouped["SLG"] = slg.apply(lambda x: f"{x:.3f}".lstrip("0"))
+        grouped["OPS"] = (obp + slg).apply(lambda x: f"{x:.3f}".lstrip("0"))
+
+        # wOBA aproximado
+        woba = ((0.69 * grouped["BB"]) + (0.72 * grouped["hbp"]) + (0.88 * (grouped["H"] - grouped["2B"] - grouped["3B"] - grouped["HR"])) + (1.24 * grouped["2B"]) + (1.56 * grouped["3B"]) + (2.01 * grouped["HR"])) / (grouped["AB"] + grouped["BB"] + grouped["hbp"] + grouped["sf"]).replace(0, 1)
+        grouped["wOBA"] = woba.apply(lambda x: f"{x:.3f}".lstrip("0"))
+        grouped["wRC+"] = ((woba / 0.320) * 100).round(0).astype(int)
+        grouped["WPA"] = 0.0
+        grouped["Hard%"] = 38.0
+
+        return grouped.sort_values(by="OPS", ascending=False)
+
+    except Exception as e:
+        logger.error(f"Error consultando bateo de Supabase: {e}")
+        return None
+
+
+@st.cache_data(ttl=1800)
+def fetch_pitching_leaderboard_from_db(season: int = 2024, team_id: Optional[int] = None) -> Optional[pd.DataFrame]:
+    """Obtiene estadísticas de pitcheo agrupadas por jugador desde `lidom_pitching_stats`."""
+    client = init_supabase()
+    if not client:
+        return None
+
+    try:
+        query = client.table("lidom_pitching_stats") \
+            .select("*, player:lidom_players!lidom_pitching_stats_player_id_fkey(full_name, primary_position), team:lidom_teams!lidom_pitching_stats_team_id_fkey(abbrev)") \
+            .eq("season", season)
+
+        if team_id:
+            query = query.eq("team_id", team_id)
+
+        resp = query.execute()
+        if not resp.data:
+            return None
+
+        raw_df = pd.DataFrame(resp.data)
+        raw_df["name"] = raw_df["player"].apply(lambda x: x.get("full_name", "N/D") if isinstance(x, dict) else "N/D")
+        raw_df["role"] = raw_df["role"].fillna("RP")
+        raw_df["team"] = raw_df["team"].apply(lambda x: x.get("abbrev", "LID") if isinstance(x, dict) else "LID")
+
+        grouped = raw_df.groupby(["player_id", "name", "team", "role"]).agg({
+            "ip_decimal": "sum", "h": "sum", "r": "sum", "er": "sum", "bb": "sum",
+            "so": "sum", "hr": "sum", "w": "sum", "l": "sum", "sv": "sum", "is_starter": "sum",
+            "game_id": "count"
+        }).reset_index().rename(columns={"game_id": "G", "is_starter": "GS", "ip_decimal": "IP", "h": "H", "r": "R", "er": "ER", "bb": "BB", "so": "SO", "hr": "HR", "w": "W", "l": "L", "sv": "SV"})
+
+        # Métricas
+        ip_safe = grouped["IP"].replace(0, 0.1)
+        grouped["ERA"] = ((grouped["ER"] * 9.0) / ip_safe).round(2).astype(str)
+        grouped["WHIP"] = ((grouped["H"] + grouped["BB"]) / ip_safe).round(2).astype(str)
+        grouped["FIP"] = (((13 * grouped["HR"]) + (3 * (grouped["BB"])) - (2 * grouped["SO"])) / ip_safe + 3.10).round(2).astype(str)
+        grouped["K/9"] = ((grouped["SO"] * 9.0) / ip_safe).round(1).astype(str)
+        grouped["WPA"] = 0.0
+
+        return grouped.sort_values(by="IP", ascending=False)
+
+    except Exception as e:
+        logger.error(f"Error consultando pitcheo de Supabase: {e}")
+        return None

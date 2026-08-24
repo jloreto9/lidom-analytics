@@ -1,0 +1,1466 @@
+{
+  "copyright": "Copyright 2026 MLB Advanced Media, L.P.  Use of any content on this page acknowledges agreement to the terms posted here http://gdx.mlb.com/components/copyright.txt",
+  "roster": [
+    {
+      "person": {
+        "id": 593643,
+        "fullName": "Hanser Alberto",
+        "link": "/api/v1/people/593643"
+      },
+      "jerseyNumber": "3",
+      "position": {
+        "code": "5",
+        "name": "Third Base",
+        "type": "Infielder",
+        "abbreviation": "3B"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    },
+    {
+      "person": {
+        "id": 663603,
+        "fullName": "Solomon Bates",
+        "link": "/api/v1/people/663603"
+      },
+      "jerseyNumber": "32",
+      "position": {
+        "code": "1",
+        "name": "Pitcher",
+        "type": "Pitcher",
+        "abbreviation": "P"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    },
+    {
+      "person": {
+        "id": 593528,
+        "fullName": "Jorge Bonifacio",
+        "link": "/api/v1/people/593528"
+      },
+      "jerseyNumber": "15",
+      "position": {
+        "code": "O",
+        "name": "Outfield",
+        "type": "Outfielder",
+        "abbreviation": "OF"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    },
+    {
+      "person": {
+        "id": 623211,
+        "fullName": "Huascar Brazobán",
+        "link": "/api/v1/people/623211"
+      },
+      "jerseyNumber": "45",
+      "position": {
+        "code": "1",
+        "name": "Pitcher",
+        "type": "Pitcher",
+        "abbreviation": "P"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    },
+    {
+      "person": {
+        "id": 679734,
+        "fullName": "Julio Carreras",
+        "link": "/api/v1/people/679734"
+      },
+      "jerseyNumber": "42",
+      "position": {
+        "code": "5",
+        "name": "Third Base",
+        "type": "Infielder",
+        "abbreviation": "3B"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    },
+    {
+      "person": {
+        "id": 666802,
+        "fullName": "Joel Cesar",
+        "link": "/api/v1/people/666802"
+      },
+      "jerseyNumber": "47",
+      "position": {
+        "code": "1",
+        "name": "Pitcher",
+        "type": "Pitcher",
+        "abbreviation": "P"
+      },
+      "status": {
+        "code": "ASG",
+        "description": "Assigned to New Team/Level"
+      }
+    },
+    {
+      "person": {
+        "id": 683409,
+        "fullName": "Angel Chivilli",
+        "link": "/api/v1/people/683409"
+      },
+      "jerseyNumber": "74",
+      "position": {
+        "code": "1",
+        "name": "Pitcher",
+        "type": "Pitcher",
+        "abbreviation": "P"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    },
+    {
+      "person": {
+        "id": 681085,
+        "fullName": "Calvin Coker",
+        "link": "/api/v1/people/681085"
+      },
+      "jerseyNumber": "44",
+      "position": {
+        "code": "1",
+        "name": "Pitcher",
+        "type": "Pitcher",
+        "abbreviation": "P"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    },
+    {
+      "person": {
+        "id": 622503,
+        "fullName": "Nabil Crismatt",
+        "link": "/api/v1/people/622503"
+      },
+      "jerseyNumber": "63",
+      "position": {
+        "code": "1",
+        "name": "Pitcher",
+        "type": "Pitcher",
+        "abbreviation": "P"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    },
+    {
+      "person": {
+        "id": 674444,
+        "fullName": "Steven Cruz",
+        "link": "/api/v1/people/674444"
+      },
+      "jerseyNumber": "64",
+      "position": {
+        "code": "1",
+        "name": "Pitcher",
+        "type": "Pitcher",
+        "abbreviation": "P"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    },
+    {
+      "person": {
+        "id": 641501,
+        "fullName": "Tyler Danish",
+        "link": "/api/v1/people/641501"
+      },
+      "jerseyNumber": "71",
+      "position": {
+        "code": "1",
+        "name": "Pitcher",
+        "type": "Pitcher",
+        "abbreviation": "P"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    },
+    {
+      "person": {
+        "id": 663657,
+        "fullName": "Garrett Davila",
+        "link": "/api/v1/people/663657"
+      },
+      "jerseyNumber": "76",
+      "position": {
+        "code": "1",
+        "name": "Pitcher",
+        "type": "Pitcher",
+        "abbreviation": "P"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    },
+    {
+      "person": {
+        "id": 691277,
+        "fullName": "Deyvison De Los Santos",
+        "link": "/api/v1/people/691277"
+      },
+      "jerseyNumber": "33",
+      "position": {
+        "code": "5",
+        "name": "Third Base",
+        "type": "Infielder",
+        "abbreviation": "3B"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    },
+    {
+      "person": {
+        "id": 684519,
+        "fullName": "Omar De Los Santos",
+        "link": "/api/v1/people/684519"
+      },
+      "jerseyNumber": "76",
+      "position": {
+        "code": "O",
+        "name": "Outfield",
+        "type": "Outfielder",
+        "abbreviation": "OF"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    },
+    {
+      "person": {
+        "id": 660787,
+        "fullName": "Yerry De los Santos",
+        "link": "/api/v1/people/660787"
+      },
+      "jerseyNumber": "32",
+      "position": {
+        "code": "1",
+        "name": "Pitcher",
+        "type": "Pitcher",
+        "abbreviation": "P"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    },
+    {
+      "person": {
+        "id": 679052,
+        "fullName": "Joelvis Del Rosario",
+        "link": "/api/v1/people/679052"
+      },
+      "jerseyNumber": "30",
+      "position": {
+        "code": "1",
+        "name": "Pitcher",
+        "type": "Pitcher",
+        "abbreviation": "P"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    },
+    {
+      "person": {
+        "id": 673145,
+        "fullName": "Geraldi Diaz",
+        "link": "/api/v1/people/673145"
+      },
+      "jerseyNumber": "6",
+      "position": {
+        "code": "2",
+        "name": "Catcher",
+        "type": "Catcher",
+        "abbreviation": "C"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    },
+    {
+      "person": {
+        "id": 594694,
+        "fullName": "Wilmer Difo",
+        "link": "/api/v1/people/594694"
+      },
+      "jerseyNumber": "12",
+      "position": {
+        "code": "6",
+        "name": "Shortstop",
+        "type": "Infielder",
+        "abbreviation": "SS"
+      },
+      "status": {
+        "code": "ASG",
+        "description": "Assigned to New Team/Level"
+      }
+    },
+    {
+      "person": {
+        "id": 694298,
+        "fullName": "Nick Dombkowski",
+        "link": "/api/v1/people/694298"
+      },
+      "jerseyNumber": "61",
+      "position": {
+        "code": "1",
+        "name": "Pitcher",
+        "type": "Pitcher",
+        "abbreviation": "P"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    },
+    {
+      "person": {
+        "id": 667339,
+        "fullName": "Johan Dominguez",
+        "link": "/api/v1/people/667339"
+      },
+      "jerseyNumber": "36",
+      "position": {
+        "code": "1",
+        "name": "Pitcher",
+        "type": "Pitcher",
+        "abbreviation": "P"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    },
+    {
+      "person": {
+        "id": 666808,
+        "fullName": "Camilo Doval",
+        "link": "/api/v1/people/666808"
+      },
+      "jerseyNumber": "65",
+      "position": {
+        "code": "1",
+        "name": "Pitcher",
+        "type": "Pitcher",
+        "abbreviation": "P"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    },
+    {
+      "person": {
+        "id": 686554,
+        "fullName": "Oliver Dunn",
+        "link": "/api/v1/people/686554"
+      },
+      "jerseyNumber": "61",
+      "position": {
+        "code": "5",
+        "name": "Third Base",
+        "type": "Infielder",
+        "abbreviation": "3B"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    },
+    {
+      "person": {
+        "id": 606340,
+        "fullName": "Edwin Espinal",
+        "link": "/api/v1/people/606340"
+      },
+      "jerseyNumber": "53",
+      "position": {
+        "code": "3",
+        "name": "First Base",
+        "type": "Infielder",
+        "abbreviation": "1B"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    },
+    {
+      "person": {
+        "id": 679938,
+        "fullName": "Yoyner Fajardo",
+        "link": "/api/v1/people/679938"
+      },
+      "jerseyNumber": "16",
+      "position": {
+        "code": "O",
+        "name": "Outfield",
+        "type": "Outfielder",
+        "abbreviation": "OF"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    },
+    {
+      "person": {
+        "id": 665877,
+        "fullName": "José Fermín",
+        "link": "/api/v1/people/665877"
+      },
+      "jerseyNumber": "6",
+      "position": {
+        "code": "4",
+        "name": "Second Base",
+        "type": "Infielder",
+        "abbreviation": "2B"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    },
+    {
+      "person": {
+        "id": 622464,
+        "fullName": "Wendell Floranus",
+        "link": "/api/v1/people/622464"
+      },
+      "jerseyNumber": "95",
+      "position": {
+        "code": "1",
+        "name": "Pitcher",
+        "type": "Pitcher",
+        "abbreviation": "P"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    },
+    {
+      "person": {
+        "id": 554238,
+        "fullName": "Carlos Franco",
+        "link": "/api/v1/people/554238"
+      },
+      "jerseyNumber": "20",
+      "position": {
+        "code": "5",
+        "name": "Third Base",
+        "type": "Infielder",
+        "abbreviation": "3B"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    },
+    {
+      "person": {
+        "id": 571057,
+        "fullName": "Frank Garces",
+        "link": "/api/v1/people/571057"
+      },
+      "jerseyNumber": "82",
+      "position": {
+        "code": "1",
+        "name": "Pitcher",
+        "type": "Pitcher",
+        "abbreviation": "P"
+      },
+      "status": {
+        "code": "ASG",
+        "description": "Assigned to New Team/Level"
+      }
+    },
+    {
+      "person": {
+        "id": 671277,
+        "fullName": "Luis García Jr.",
+        "link": "/api/v1/people/671277"
+      },
+      "jerseyNumber": "2",
+      "position": {
+        "code": "4",
+        "name": "Second Base",
+        "type": "Infielder",
+        "abbreviation": "2B"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    },
+    {
+      "person": {
+        "id": 658305,
+        "fullName": "Edgar García",
+        "link": "/api/v1/people/658305"
+      },
+      "jerseyNumber": "5",
+      "position": {
+        "code": "1",
+        "name": "Pitcher",
+        "type": "Pitcher",
+        "abbreviation": "P"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    },
+    {
+      "person": {
+        "id": 544725,
+        "fullName": "Leury García",
+        "link": "/api/v1/people/544725"
+      },
+      "jerseyNumber": "1",
+      "position": {
+        "code": "O",
+        "name": "Outfield",
+        "type": "Outfielder",
+        "abbreviation": "OF"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    },
+    {
+      "person": {
+        "id": 620453,
+        "fullName": "Deivy Grullón",
+        "link": "/api/v1/people/620453"
+      },
+      "jerseyNumber": "50",
+      "position": {
+        "code": "2",
+        "name": "Catcher",
+        "type": "Catcher",
+        "abbreviation": "C"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    },
+    {
+      "person": {
+        "id": 594056,
+        "fullName": "Reymin Guduan",
+        "link": "/api/v1/people/594056"
+      },
+      "jerseyNumber": "89",
+      "position": {
+        "code": "1",
+        "name": "Pitcher",
+        "type": "Pitcher",
+        "abbreviation": "P"
+      },
+      "status": {
+        "code": "ASG",
+        "description": "Assigned to New Team/Level"
+      }
+    },
+    {
+      "person": {
+        "id": 642721,
+        "fullName": "Kelvin Gutiérrez",
+        "link": "/api/v1/people/642721"
+      },
+      "jerseyNumber": "39",
+      "position": {
+        "code": "5",
+        "name": "Third Base",
+        "type": "Infielder",
+        "abbreviation": "3B"
+      },
+      "status": {
+        "code": "ASG",
+        "description": "Assigned to New Team/Level"
+      }
+    },
+    {
+      "person": {
+        "id": 608597,
+        "fullName": "Ronald Guzmán",
+        "link": "/api/v1/people/608597"
+      },
+      "jerseyNumber": "71",
+      "position": {
+        "code": "3",
+        "name": "First Base",
+        "type": "Infielder",
+        "abbreviation": "1B"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    },
+    {
+      "person": {
+        "id": 699712,
+        "fullName": "Raylin Heredia",
+        "link": "/api/v1/people/699712"
+      },
+      "jerseyNumber": "31",
+      "position": {
+        "code": "O",
+        "name": "Outfield",
+        "type": "Outfielder",
+        "abbreviation": "OF"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    },
+    {
+      "person": {
+        "id": 678746,
+        "fullName": "Diego Hernandez",
+        "link": "/api/v1/people/678746"
+      },
+      "jerseyNumber": "8",
+      "position": {
+        "code": "O",
+        "name": "Outfield",
+        "type": "Outfielder",
+        "abbreviation": "OF"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    },
+    {
+      "person": {
+        "id": 665789,
+        "fullName": "Kenny Hernandez",
+        "link": "/api/v1/people/665789"
+      },
+      "jerseyNumber": "32",
+      "position": {
+        "code": "1",
+        "name": "Pitcher",
+        "type": "Pitcher",
+        "abbreviation": "P"
+      },
+      "status": {
+        "code": "ASG",
+        "description": "Assigned to New Team/Level"
+      }
+    },
+    {
+      "person": {
+        "id": 593523,
+        "fullName": "Marco Hernández",
+        "link": "/api/v1/people/593523"
+      },
+      "jerseyNumber": "29",
+      "position": {
+        "code": "4",
+        "name": "Second Base",
+        "type": "Infielder",
+        "abbreviation": "2B"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    },
+    {
+      "person": {
+        "id": 694851,
+        "fullName": "Andrew Hoffmann",
+        "link": "/api/v1/people/694851"
+      },
+      "jerseyNumber": "56",
+      "position": {
+        "code": "1",
+        "name": "Pitcher",
+        "type": "Pitcher",
+        "abbreviation": "P"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    },
+    {
+      "person": {
+        "id": 621529,
+        "fullName": "Joe Hudson",
+        "link": "/api/v1/people/621529"
+      },
+      "jerseyNumber": "9",
+      "position": {
+        "code": "2",
+        "name": "Catcher",
+        "type": "Catcher",
+        "abbreviation": "C"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    },
+    {
+      "person": {
+        "id": 672380,
+        "fullName": "Marco Jimenez",
+        "link": "/api/v1/people/672380"
+      },
+      "jerseyNumber": "27",
+      "position": {
+        "code": "1",
+        "name": "Pitcher",
+        "type": "Pitcher",
+        "abbreviation": "P"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    },
+    {
+      "person": {
+        "id": 668800,
+        "fullName": "Andrew Knizner",
+        "link": "/api/v1/people/668800"
+      },
+      "jerseyNumber": "14",
+      "position": {
+        "code": "2",
+        "name": "Catcher",
+        "type": "Catcher",
+        "abbreviation": "C"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    },
+    {
+      "person": {
+        "id": 571871,
+        "fullName": "Ian Krol",
+        "link": "/api/v1/people/571871"
+      },
+      "jerseyNumber": "91",
+      "position": {
+        "code": "1",
+        "name": "Pitcher",
+        "type": "Pitcher",
+        "abbreviation": "P"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    },
+    {
+      "person": {
+        "id": 685734,
+        "fullName": "Victor Lopez",
+        "link": "/api/v1/people/685734"
+      },
+      "jerseyNumber": "78",
+      "position": {
+        "code": "1",
+        "name": "Pitcher",
+        "type": "Pitcher",
+        "abbreviation": "P"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    },
+    {
+      "person": {
+        "id": 682622,
+        "fullName": "Noelvi Marte",
+        "link": "/api/v1/people/682622"
+      },
+      "jerseyNumber": "4",
+      "position": {
+        "code": "5",
+        "name": "Third Base",
+        "type": "Infielder",
+        "abbreviation": "3B"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    },
+    {
+      "person": {
+        "id": 493337,
+        "fullName": "Yunesky Maya",
+        "link": "/api/v1/people/493337"
+      },
+      "jerseyNumber": "97",
+      "position": {
+        "code": "1",
+        "name": "Pitcher",
+        "type": "Pitcher",
+        "abbreviation": "P"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    },
+    {
+      "person": {
+        "id": 684871,
+        "fullName": "Enmanuel Mejia",
+        "link": "/api/v1/people/684871"
+      },
+      "jerseyNumber": "31",
+      "position": {
+        "code": "1",
+        "name": "Pitcher",
+        "type": "Pitcher",
+        "abbreviation": "P"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    },
+    {
+      "person": {
+        "id": 621034,
+        "fullName": "Melvin Mercedes",
+        "link": "/api/v1/people/621034"
+      },
+      "jerseyNumber": "67",
+      "position": {
+        "code": "4",
+        "name": "Second Base",
+        "type": "Infielder",
+        "abbreviation": "2B"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    },
+    {
+      "person": {
+        "id": 606213,
+        "fullName": "Yermín Mercedes",
+        "link": "/api/v1/people/606213"
+      },
+      "jerseyNumber": "73",
+      "position": {
+        "code": "3",
+        "name": "First Base",
+        "type": "Infielder",
+        "abbreviation": "1B"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    },
+    {
+      "person": {
+        "id": 801216,
+        "fullName": "Christian Montes De Oca",
+        "link": "/api/v1/people/801216"
+      },
+      "jerseyNumber": "44",
+      "position": {
+        "code": "1",
+        "name": "Pitcher",
+        "type": "Pitcher",
+        "abbreviation": "P"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    },
+    {
+      "person": {
+        "id": 667472,
+        "fullName": "Dane Myers",
+        "link": "/api/v1/people/667472"
+      },
+      "jerseyNumber": "61",
+      "position": {
+        "code": "O",
+        "name": "Outfield",
+        "type": "Outfielder",
+        "abbreviation": "OF"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    },
+    {
+      "person": {
+        "id": 642344,
+        "fullName": "Jhon Nuñez",
+        "link": "/api/v1/people/642344"
+      },
+      "jerseyNumber": "10",
+      "position": {
+        "code": "2",
+        "name": "Catcher",
+        "type": "Catcher",
+        "abbreviation": "C"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    },
+    {
+      "person": {
+        "id": 664573,
+        "fullName": "Oddy Nunez",
+        "link": "/api/v1/people/664573"
+      },
+      "jerseyNumber": "19",
+      "position": {
+        "code": "1",
+        "name": "Pitcher",
+        "type": "Pitcher",
+        "abbreviation": "P"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    },
+    {
+      "person": {
+        "id": 699212,
+        "fullName": "Ivan Oviedo",
+        "link": "/api/v1/people/699212"
+      },
+      "jerseyNumber": "32",
+      "position": {
+        "code": "1",
+        "name": "Pitcher",
+        "type": "Pitcher",
+        "abbreviation": "P"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    },
+    {
+      "person": {
+        "id": 451713,
+        "fullName": "Carlos Peguero",
+        "link": "/api/v1/people/451713"
+      },
+      "jerseyNumber": "24",
+      "position": {
+        "code": "O",
+        "name": "Outfield",
+        "type": "Outfielder",
+        "abbreviation": "OF"
+      },
+      "status": {
+        "code": "ASG",
+        "description": "Assigned to New Team/Level"
+      }
+    },
+    {
+      "person": {
+        "id": 593974,
+        "fullName": "Wandy Peralta",
+        "link": "/api/v1/people/593974"
+      },
+      "jerseyNumber": "58",
+      "position": {
+        "code": "1",
+        "name": "Pitcher",
+        "type": "Pitcher",
+        "abbreviation": "P"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    },
+    {
+      "person": {
+        "id": 503449,
+        "fullName": "Wily Peralta",
+        "link": "/api/v1/people/503449"
+      },
+      "jerseyNumber": "48",
+      "position": {
+        "code": "1",
+        "name": "Pitcher",
+        "type": "Pitcher",
+        "abbreviation": "P"
+      },
+      "status": {
+        "code": "ASG",
+        "description": "Assigned to New Team/Level"
+      }
+    },
+    {
+      "person": {
+        "id": 682775,
+        "fullName": "Kervin Pichardo",
+        "link": "/api/v1/people/682775"
+      },
+      "jerseyNumber": "17",
+      "position": {
+        "code": "6",
+        "name": "Shortstop",
+        "type": "Infielder",
+        "abbreviation": "SS"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    },
+    {
+      "person": {
+        "id": 666768,
+        "fullName": "Anderson Pilar",
+        "link": "/api/v1/people/666768"
+      },
+      "jerseyNumber": "72",
+      "position": {
+        "code": "1",
+        "name": "Pitcher",
+        "type": "Pitcher",
+        "abbreviation": "P"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    },
+    {
+      "person": {
+        "id": 594965,
+        "fullName": "Daniel Ponce de Leon",
+        "link": "/api/v1/people/594965"
+      },
+      "jerseyNumber": "17",
+      "position": {
+        "code": "1",
+        "name": "Pitcher",
+        "type": "Pitcher",
+        "abbreviation": "P"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    },
+    {
+      "person": {
+        "id": 678576,
+        "fullName": "Wilkin Ramos",
+        "link": "/api/v1/people/678576"
+      },
+      "jerseyNumber": "93",
+      "position": {
+        "code": "1",
+        "name": "Pitcher",
+        "type": "Pitcher",
+        "abbreviation": "P"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    },
+    {
+      "person": {
+        "id": 686762,
+        "fullName": "Austin Roberts",
+        "link": "/api/v1/people/686762"
+      },
+      "jerseyNumber": "87",
+      "position": {
+        "code": "1",
+        "name": "Pitcher",
+        "type": "Pitcher",
+        "abbreviation": "P"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    },
+    {
+      "person": {
+        "id": 678840,
+        "fullName": "Benony Robles",
+        "link": "/api/v1/people/678840"
+      },
+      "jerseyNumber": "54",
+      "position": {
+        "code": "1",
+        "name": "Pitcher",
+        "type": "Pitcher",
+        "abbreviation": "P"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    },
+    {
+      "person": {
+        "id": 570257,
+        "fullName": "Joely Rodríguez",
+        "link": "/api/v1/people/570257"
+      },
+      "jerseyNumber": "30",
+      "position": {
+        "code": "1",
+        "name": "Pitcher",
+        "type": "Pitcher",
+        "abbreviation": "P"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    },
+    {
+      "person": {
+        "id": 666720,
+        "fullName": "Yerry Rodríguez",
+        "link": "/api/v1/people/666720"
+      },
+      "jerseyNumber": "9",
+      "position": {
+        "code": "1",
+        "name": "Pitcher",
+        "type": "Pitcher",
+        "abbreviation": "P"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    },
+    {
+      "person": {
+        "id": 679032,
+        "fullName": "Johan Rojas",
+        "link": "/api/v1/people/679032"
+      },
+      "jerseyNumber": "8",
+      "position": {
+        "code": "O",
+        "name": "Outfield",
+        "type": "Outfielder",
+        "abbreviation": "OF"
+      },
+      "status": {
+        "code": "ASG",
+        "description": "Assigned to New Team/Level"
+      }
+    },
+    {
+      "person": {
+        "id": 517593,
+        "fullName": "Danny Salazar",
+        "link": "/api/v1/people/517593"
+      },
+      "jerseyNumber": "14",
+      "position": {
+        "code": "1",
+        "name": "Pitcher",
+        "type": "Pitcher",
+        "abbreviation": "P"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    },
+    {
+      "person": {
+        "id": 650828,
+        "fullName": "Edgar Santana",
+        "link": "/api/v1/people/650828"
+      },
+      "jerseyNumber": "37",
+      "position": {
+        "code": "1",
+        "name": "Pitcher",
+        "type": "Pitcher",
+        "abbreviation": "P"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    },
+    {
+      "person": {
+        "id": 665733,
+        "fullName": "Antonio Santos",
+        "link": "/api/v1/people/665733"
+      },
+      "jerseyNumber": "43",
+      "position": {
+        "code": "1",
+        "name": "Pitcher",
+        "type": "Pitcher",
+        "abbreviation": "P"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    },
+    {
+      "person": {
+        "id": 642350,
+        "fullName": "Jose Siri",
+        "link": "/api/v1/people/642350"
+      },
+      "jerseyNumber": "22",
+      "position": {
+        "code": "O",
+        "name": "Outfield",
+        "type": "Outfielder",
+        "abbreviation": "OF"
+      },
+      "status": {
+        "code": "ASG",
+        "description": "Assigned to New Team/Level"
+      }
+    },
+    {
+      "person": {
+        "id": 686475,
+        "fullName": "Tyler Tolbert",
+        "link": "/api/v1/people/686475"
+      },
+      "jerseyNumber": "5",
+      "position": {
+        "code": "6",
+        "name": "Shortstop",
+        "type": "Infielder",
+        "abbreviation": "SS"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    },
+    {
+      "person": {
+        "id": 666672,
+        "fullName": "Jojanse Torres",
+        "link": "/api/v1/people/666672"
+      },
+      "jerseyNumber": "87",
+      "position": {
+        "code": "1",
+        "name": "Pitcher",
+        "type": "Pitcher",
+        "abbreviation": "P"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    },
+    {
+      "person": {
+        "id": 620446,
+        "fullName": "Richard Urena",
+        "link": "/api/v1/people/620446"
+      },
+      "jerseyNumber": "26",
+      "position": {
+        "code": "6",
+        "name": "Shortstop",
+        "type": "Infielder",
+        "abbreviation": "SS"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    },
+    {
+      "person": {
+        "id": 625329,
+        "fullName": "Henry Urrutia",
+        "link": "/api/v1/people/625329"
+      },
+      "jerseyNumber": "51",
+      "position": {
+        "code": "3",
+        "name": "First Base",
+        "type": "Infielder",
+        "abbreviation": "1B"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    },
+    {
+      "person": {
+        "id": 642496,
+        "fullName": "Emilio Vargas",
+        "link": "/api/v1/people/642496"
+      },
+      "jerseyNumber": "92",
+      "position": {
+        "code": "1",
+        "name": "Pitcher",
+        "type": "Pitcher",
+        "abbreviation": "P"
+      },
+      "status": {
+        "code": "ASG",
+        "description": "Assigned to New Team/Level"
+      }
+    },
+    {
+      "person": {
+        "id": 686433,
+        "fullName": "Luis Velasquez",
+        "link": "/api/v1/people/686433"
+      },
+      "jerseyNumber": "91",
+      "position": {
+        "code": "1",
+        "name": "Pitcher",
+        "type": "Pitcher",
+        "abbreviation": "P"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    },
+    {
+      "person": {
+        "id": 683094,
+        "fullName": "Jordany Ventura",
+        "link": "/api/v1/people/683094"
+      },
+      "jerseyNumber": "80",
+      "position": {
+        "code": "1",
+        "name": "Pitcher",
+        "type": "Pitcher",
+        "abbreviation": "P"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    },
+    {
+      "person": {
+        "id": 669476,
+        "fullName": "Jake Walters",
+        "link": "/api/v1/people/669476"
+      },
+      "jerseyNumber": "92",
+      "position": {
+        "code": "1",
+        "name": "Pitcher",
+        "type": "Pitcher",
+        "abbreviation": "P"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    },
+    {
+      "person": {
+        "id": 694360,
+        "fullName": "Beck Way",
+        "link": "/api/v1/people/694360"
+      },
+      "jerseyNumber": "92",
+      "position": {
+        "code": "1",
+        "name": "Pitcher",
+        "type": "Pitcher",
+        "abbreviation": "P"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    },
+    {
+      "person": {
+        "id": 676620,
+        "fullName": "Blake Weiman",
+        "link": "/api/v1/people/676620"
+      },
+      "jerseyNumber": "33",
+      "position": {
+        "code": "1",
+        "name": "Pitcher",
+        "type": "Pitcher",
+        "abbreviation": "P"
+      },
+      "status": {
+        "code": "A",
+        "description": "Active"
+      }
+    }
+  ],
+  "link": "/api/v1/teams/670/roster",
+  "teamId": 670,
+  "rosterType": "fullSeason"
+}
