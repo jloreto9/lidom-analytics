@@ -306,7 +306,7 @@ def build_matchup_image(p1: pd.Series, p2: pd.Series, is_batter: bool, df_h2h: p
 
     COL1, COL2, COL3 = 230, 180, 230
     W = COL1 + COL2 + COL3
-    ROW_H, HDR_H, FOOT_H = 28, 100, 52
+    ROW_H, HDR_H, FOOT_H = 28, 100, 76
 
     # Filtrar solo métricas clave para la tarjeta gráfica (max 18 filas)
     df_rows = df_h2h[df_h2h["Categoría"].isin(["⚡ Sabermetría & Valor", "⚡ Sabermetría & Dominio", "📊 Estadísticas de Rate", "🔢 Estadísticas de Volumen"])].copy()
@@ -422,10 +422,12 @@ def build_matchup_image(p1: pd.Series, p2: pd.Series, is_batter: bool, df_h2h: p
         draw.line([(0, y + ROW_H), (W, y + ROW_H)], fill=BORDER_C, width=1)
         y += ROW_H
 
-    # 3. Footer Branding
+    # 3. Footer Branding & Fuentes de Datos
     draw.rectangle([0, y, W - 1, H - 1], fill=(7, 11, 25))
-    _tc(W // 2, y + 18, "LIDOM 360 — Plataforma Sabermétrica & Analítica Integral", fb, GOLD_CLR)
-    _tc(W // 2, y + 36, "Desarrollado por Jorge Leonardo Loreto · AI Data Scientist & Baseball Sabermetrician", fs, GRAY_TEXT)
+    draw.line([(0, y), (W, y)], fill=BORDER_C, width=1)
+    _tc(W // 2, y + 16, "LIDOM 360 — Plataforma Sabermétrica & Analítica Integral", fb, GOLD_CLR)
+    _tc(W // 2, y + 36, "Fuentes: MLB Stats API (ID 131) · Tom Tango (RE24 / WPA) · Baseball Info Solutions (BIS)", fs, (148, 163, 184))
+    _tc(W // 2, y + 56, "Desarrollado por Jorge Leonardo Loreto · AI Data Scientist & Baseball Sabermetrician", fs, (100, 116, 139))
 
     buf = io.BytesIO()
     img.save(buf, format="PNG", optimize=True)
