@@ -52,7 +52,9 @@ def refresh_season_data(season: int = 2024) -> None:
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Actualizar datos de LIDOM desde MLB Stats API.")
-    parser.add_argument("--season", type=int, default=2024, help="Temporada LIDOM (ej: 2024)")
+    parser.add_argument("--season", type=int, default=None, help="Temporada específica de LIDOM (ej: 2024 o 2025). Por defecto actualiza 2024 y 2025.")
     args = parser.parse_args()
 
-    refresh_season_data(season=args.season)
+    seasons = [args.season] if args.season else [2024, 2025]
+    for s in seasons:
+        refresh_season_data(season=s)
