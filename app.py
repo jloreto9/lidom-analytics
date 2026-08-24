@@ -79,8 +79,19 @@ with st.sidebar:
         """, unsafe_allow_html=True)
 
     st.markdown("---")
+
+    with st.expander("📚 Fuentes de Datos & Créditos"):
+        st.markdown("""
+        <div style="font-size: 0.78rem; color: #94A3B8; line-height: 1.5;">
+            • <b>MLB Stats API:</b> Play-by-play oficial, boxscores, rosters y tracking en vivo (LIDOM League ID: 131, Sport ID: 17).<br>
+            • <b>Tom Tango (The Book / RE24):</b> Matriz de expectativa de carreras (Run Expectancy) y modelos de Win Expectancy (WE) / WPA.<br>
+            • <b>Baseball Info Solutions (BIS):</b> Calibración determinística de dureza de contacto (Batted Ball Hard/Med/Soft).<br>
+            • <b>LIDOM:</b> Liga de Béisbol Profesional de la República Dominicana.
+        </div>
+        """, unsafe_allow_html=True)
+
     st.markdown("""
-    <div style="text-align: center; color: #64748B; font-size: 0.75rem;">
+    <div style="text-align: center; color: #64748B; font-size: 0.75rem; margin-top: 10px;">
         Desarrollado por <b>Jorge Leonardo Loreto</b><br>
         AI Data Scientist & Baseball Sabermetrician<br>
         <i>MLB Stats API &copy; 2026</i>
