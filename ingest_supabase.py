@@ -251,6 +251,26 @@ class LIDOMSupabaseIngester:
                     bat_team = h_id if is_bot else a_id
                     field_team = a_id if is_bot else h_id
 
+                    # Registrar jugadores que aparezcan en jugadas para asegurar su insercion en lidom_players
+                    if bat_id:
+                        players_records.append({
+                            "id": bat_id,
+                            "full_name": bat_name or "Bateador",
+                            "team_id": bat_team,
+                            "primary_position": "UTL",
+                            "jersey_number": "",
+                            "headshot_url": f"https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_213,q_auto:best/v1/people/{bat_id}/headshot/67/current",
+                        })
+                    if pit_id:
+                        players_records.append({
+                            "id": pit_id,
+                            "full_name": pit_name or "Lanzador",
+                            "team_id": field_team,
+                            "primary_position": "P",
+                            "jersey_number": "",
+                            "headshot_url": f"https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_213,q_auto:best/v1/people/{pit_id}/headshot/67/current",
+                        })
+
                     plays_records.append({
                         "game_id": game_pk,
                         "play_id": str(p.get("atBatIndex", "")),
@@ -365,9 +385,10 @@ class LIDOMSupabaseIngester:
         for i in range(0, total, batch_size):
             chunk = records[i:i + batch_size]
             try:
-                query = self.client.table(table_name).upsert(chunk)
                 if on_conflict:
-                    query = query.on_conflict(on_conflict)
+                    query = self.client.table(table_name).upsert(chunk, on_conflict=on_conflict)
+                else:
+                    query = self.client.table(table_name).upsert(chunk)
                 query.execute()
             except Exception as e:
                 logger.error(f"Error guardando lote {i//batch_size + 1} en {table_name}: {e}")

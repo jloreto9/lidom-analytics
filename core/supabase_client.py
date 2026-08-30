@@ -119,45 +119,43 @@ def fetch_standings_from_db(season: int = 2024, game_type: str = "R") -> Optiona
         for _, team in teams_df.iterrows():
             t_id = team["id"]
             t_games = games_df[(games_df["home_team_id"] == t_id) | (games_df["away_team_id"] == t_id)]
-            if len(t_games) == 0:
-                continue
-
             wins = 0
             losses = 0
             ca = 0
             cp = 0
-            t_games_sorted = t_games.sort_values("game_date")
-            racha_list = []
+            streak_str = "-"
 
-            for _, g in t_games_sorted.iterrows():
-                is_h = g["home_team_id"] == t_id
-                my_s = g["home_score"] if is_h else g["away_score"]
-                opp_s = g["away_score"] if is_h else g["home_score"]
-                ca += (my_s or 0)
-                cp += (opp_s or 0)
+            if len(t_games) > 0:
+                t_games_sorted = t_games.sort_values("game_date")
+                racha_list = []
 
-                if (my_s or 0) > (opp_s or 0):
-                    wins += 1
-                    racha_list.append("W")
-                else:
-                    losses += 1
-                    racha_list.append("L")
+                for _, g in t_games_sorted.iterrows():
+                    is_h = g["home_team_id"] == t_id
+                    my_s = g["home_score"] if is_h else g["away_score"]
+                    opp_s = g["away_score"] if is_h else g["home_score"]
+                    ca += (my_s or 0)
+                    cp += (opp_s or 0)
+
+                    if (my_s or 0) > (opp_s or 0):
+                        wins += 1
+                        racha_list.append("W")
+                    else:
+                        losses += 1
+                        racha_list.append("L")
+
+                if racha_list:
+                    stk_type = racha_list[-1]
+                    stk_count = 0
+                    for r in reversed(racha_list):
+                        if r == stk_type:
+                            stk_count += 1
+                        else:
+                            break
+                    streak_str = f"{stk_type}{stk_count}"
 
             total_g = wins + losses
             pct = (wins / total_g) if total_g > 0 else 0.0
             diff = ca - cp
-
-            # Racha
-            streak_str = "-"
-            if racha_list:
-                stk_type = racha_list[-1]
-                stk_count = 0
-                for r in reversed(racha_list):
-                    if r == stk_type:
-                        stk_count += 1
-                    else:
-                        break
-                streak_str = f"{stk_type}{stk_count}"
 
             standings_data.append({
                 "team_id": t_id,
@@ -168,7 +166,7 @@ def fetch_standings_from_db(season: int = 2024, game_type: str = "R") -> Optiona
                 "G": total_g,
                 "W": wins,
                 "L": losses,
-                "PCT": f"{pct:.3f}".lstrip("0"),
+                "PCT": f"{pct:.3f}".lstrip("0") if pct > 0 else ".000",
                 "CA": ca,
                 "CP": cp,
                 "DIFF": f"{diff:+d}",
@@ -229,19 +227,34 @@ def fetch_batting_leaderboard_from_db(season: int = 2024, team_id: Optional[int]
 
         # Métricas sabermétricas
         tb = (grouped["H"] - grouped["2B"] - grouped["3B"] - grouped["HR"]) + (2 * grouped["2B"]) + (3 * grouped["3B"]) + (4 * grouped["HR"])
-        grouped["AVG"] = (grouped["H"] / grouped["AB"]).fillna(0).apply(lambda x: f"{x:.3f}".lstrip("0"))
-        obp = ((grouped["H"] + grouped["BB"] + grouped["hbp"]) / (grouped["AB"] + grouped["BB"] + grouped["hbp"] + grouped["sf"])).fillna(0)
-        slg = (tb / grouped["AB"]).fillna(0)
-        grouped["OBP"] = obp.apply(lambda x: f"{x:.3f}".lstrip("0"))
-        grouped["SLG"] = slg.apply(lambda x: f"{x:.3f}".lstrip("0"))
-        grouped["OPS"] = (obp + slg).apply(lambda x: f"{x:.3f}".lstrip("0"))
+        pa = grouped["AB"] + grouped["BB"] + grouped["hbp"] + grouped["sf"]
+        avg_num = (grouped["H"] / grouped["AB"].replace(0, 1)).fillna(0)
+        obp_num = ((grouped["H"] + grouped["BB"] + grouped["hbp"]) / pa.replace(0, 1)).fillna(0)
+        slg_num = (tb / grouped["AB"].replace(0, 1)).fillna(0)
+        ops_num = obp_num + slg_num
+        iso_num = (slg_num - avg_num).clip(lower=0)
 
         # wOBA aproximado
-        woba = ((0.69 * grouped["BB"]) + (0.72 * grouped["hbp"]) + (0.88 * (grouped["H"] - grouped["2B"] - grouped["3B"] - grouped["HR"])) + (1.24 * grouped["2B"]) + (1.56 * grouped["3B"]) + (2.01 * grouped["HR"])) / (grouped["AB"] + grouped["BB"] + grouped["hbp"] + grouped["sf"]).replace(0, 1)
-        grouped["wOBA"] = woba.apply(lambda x: f"{x:.3f}".lstrip("0"))
-        grouped["wRC+"] = ((woba / 0.320) * 100).round(0).astype(int)
+        woba_num = ((0.69 * grouped["BB"]) + (0.72 * grouped["hbp"]) + (0.88 * (grouped["H"] - grouped["2B"] - grouped["3B"] - grouped["HR"])) + (1.24 * grouped["2B"]) + (1.56 * grouped["3B"]) + (2.01 * grouped["HR"])) / pa.replace(0, 1)
+
+        grouped["AVG"] = avg_num.apply(lambda x: f"{x:.3f}".lstrip("0") if x < 1.0 else f"{x:.3f}")
+        grouped["OBP"] = obp_num.apply(lambda x: f"{x:.3f}".lstrip("0") if x < 1.0 else f"{x:.3f}")
+        grouped["SLG"] = slg_num.apply(lambda x: f"{x:.3f}".lstrip("0") if x < 1.0 else f"{x:.3f}")
+        grouped["OPS"] = ops_num.apply(lambda x: f"{x:.3f}".lstrip("0") if x < 1.0 else f"{x:.3f}")
+        grouped["ISO"] = iso_num.apply(lambda x: f"{x:.3f}".lstrip("0") if x < 1.0 else f"{x:.3f}")
+        grouped["wOBA"] = woba_num.apply(lambda x: f"{x:.3f}".lstrip("0") if x < 1.0 else f"{x:.3f}")
+        grouped["wRC+"] = ((woba_num / 0.320) * 100).round(0).astype(int)
         grouped["WPA"] = 0.0
         grouped["Hard%"] = 38.0
+        grouped["BB%"] = ((grouped["BB"] / pa.replace(0, 1)) * 100).round(1)
+        grouped["K%"] = ((grouped["SO"] / pa.replace(0, 1)) * 100).round(1)
+
+        grouped["_avg_num"] = avg_num
+        grouped["_obp_num"] = obp_num
+        grouped["_slg_num"] = slg_num
+        grouped["_ops_num"] = ops_num
+        grouped["_woba_num"] = woba_num
+        grouped["_iso_num"] = iso_num
 
         return grouped.sort_values(by="OPS", ascending=False)
 
@@ -282,11 +295,26 @@ def fetch_pitching_leaderboard_from_db(season: int = 2024, team_id: Optional[int
 
         # Métricas
         ip_safe = grouped["IP"].replace(0, 0.1)
-        grouped["ERA"] = ((grouped["ER"] * 9.0) / ip_safe).round(2).astype(str)
-        grouped["WHIP"] = ((grouped["H"] + grouped["BB"]) / ip_safe).round(2).astype(str)
-        grouped["FIP"] = (((13 * grouped["HR"]) + (3 * (grouped["BB"])) - (2 * grouped["SO"])) / ip_safe + 3.10).round(2).astype(str)
-        grouped["K/9"] = ((grouped["SO"] * 9.0) / ip_safe).round(1).astype(str)
+        era_f = ((grouped["ER"] * 9.0) / ip_safe).round(2)
+        whip_f = ((grouped["H"] + grouped["BB"]) / ip_safe).round(2)
+        fip_f = (((13 * grouped["HR"]) + (3 * (grouped["BB"])) - (2 * grouped["SO"])) / ip_safe + 3.10).round(2)
+        k9_f = ((grouped["SO"] * 9.0) / ip_safe).round(1)
+        bb9_f = ((grouped["BB"] * 9.0) / ip_safe).round(1)
+        bf_approx = (grouped["IP"] * 3.0) + grouped["H"] + grouped["BB"]
+        k_pct = ((grouped["SO"] / bf_approx.replace(0, 1)) * 100).round(1)
+
+        grouped["ERA"] = era_f.astype(str)
+        grouped["WHIP"] = whip_f.astype(str)
+        grouped["FIP"] = fip_f.astype(str)
+        grouped["K/9"] = k9_f.astype(str)
+        grouped["BB/9"] = bb9_f.astype(str)
+        grouped["K%"] = k_pct
         grouped["WPA"] = 0.0
+
+        grouped["_era_f"] = era_f
+        grouped["_whip_f"] = whip_f
+        grouped["_fip_f"] = fip_f
+        grouped["_ip_f"] = grouped["IP"]
 
         return grouped.sort_values(by="IP", ascending=False)
 
