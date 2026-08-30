@@ -194,26 +194,42 @@ def fetch_standings_from_db(season: int = 2024, game_type: str = "R") -> Optiona
         return None
 
 
+def _fetch_all_from_supabase(table_name: str, select_clause: str, filters: list) -> list:
+    """Recupera todos los registros de una tabla paginando en bloques de 1,000."""
+    client = init_supabase()
+    if not client:
+        return []
+    records = []
+    page = 0
+    page_size = 1000
+    while True:
+        query = client.table(table_name).select(select_clause)
+        for col, val in filters:
+            query = query.eq(col, val)
+        resp = query.range(page * page_size, (page + 1) * page_size - 1).execute()
+        if not resp.data:
+            break
+        records.extend(resp.data)
+        if len(resp.data) < page_size:
+            break
+        page += 1
+    return records
+
+
 @st.cache_data(ttl=1800)
 def fetch_batting_leaderboard_from_db(season: int = 2024, team_id: Optional[int] = None) -> Optional[pd.DataFrame]:
     """Obtiene estadísticas de bateo agrupadas por jugador desde `lidom_batting_stats`."""
-    client = init_supabase()
-    if not client:
-        return None
-
     try:
-        query = client.table("lidom_batting_stats") \
-            .select("*, player:lidom_players!lidom_batting_stats_player_id_fkey(full_name, primary_position), team:lidom_teams!lidom_batting_stats_team_id_fkey(abbrev)") \
-            .eq("season", season)
-
+        filters = [("season", season)]
         if team_id:
-            query = query.eq("team_id", team_id)
+            filters.append(("team_id", team_id))
 
-        resp = query.execute()
-        if not resp.data:
+        select_clause = "*, player:lidom_players!lidom_batting_stats_player_id_fkey(full_name, primary_position), team:lidom_teams!lidom_batting_stats_team_id_fkey(abbrev)"
+        data = _fetch_all_from_supabase("lidom_batting_stats", select_clause, filters)
+        if not data:
             return None
 
-        raw_df = pd.DataFrame(resp.data)
+        raw_df = pd.DataFrame(data)
         raw_df["name"] = raw_df["player"].apply(lambda x: x.get("full_name", "N/D") if isinstance(x, dict) else "N/D")
         raw_df["pos"] = raw_df["player"].apply(lambda x: x.get("primary_position", "UTL") if isinstance(x, dict) else "UTL")
         raw_df["team"] = raw_df["team"].apply(lambda x: x.get("abbrev", "LID") if isinstance(x, dict) else "LID")
@@ -266,23 +282,17 @@ def fetch_batting_leaderboard_from_db(season: int = 2024, team_id: Optional[int]
 @st.cache_data(ttl=1800)
 def fetch_pitching_leaderboard_from_db(season: int = 2024, team_id: Optional[int] = None) -> Optional[pd.DataFrame]:
     """Obtiene estadísticas de pitcheo agrupadas por jugador desde `lidom_pitching_stats`."""
-    client = init_supabase()
-    if not client:
-        return None
-
     try:
-        query = client.table("lidom_pitching_stats") \
-            .select("*, player:lidom_players!lidom_pitching_stats_player_id_fkey(full_name, primary_position), team:lidom_teams!lidom_pitching_stats_team_id_fkey(abbrev)") \
-            .eq("season", season)
-
+        filters = [("season", season)]
         if team_id:
-            query = query.eq("team_id", team_id)
+            filters.append(("team_id", team_id))
 
-        resp = query.execute()
-        if not resp.data:
+        select_clause = "*, player:lidom_players!lidom_pitching_stats_player_id_fkey(full_name, primary_position), team:lidom_teams!lidom_pitching_stats_team_id_fkey(abbrev)"
+        data = _fetch_all_from_supabase("lidom_pitching_stats", select_clause, filters)
+        if not data:
             return None
 
-        raw_df = pd.DataFrame(resp.data)
+        raw_df = pd.DataFrame(data)
         raw_df["name"] = raw_df["player"].apply(lambda x: x.get("full_name", "N/D") if isinstance(x, dict) else "N/D")
         raw_df["role"] = raw_df["role"].fillna("RP")
         raw_df["team"] = raw_df["team"].apply(lambda x: x.get("abbrev", "LID") if isinstance(x, dict) else "LID")
