@@ -11,24 +11,61 @@ logger = logging.getLogger(__name__)
 
 
 def get_supabase_credentials() -> tuple[Optional[str], Optional[str]]:
-    """Obtiene URL y Key de Supabase desde Streamlit secrets o variables de entorno."""
+    """Obtiene URL y Key de Supabase desde Streamlit secrets, variables de entorno o archivo .streamlit/secrets.toml."""
     url = None
     key = None
 
-    # Intentar desde Streamlit secrets
+    # 1. Intentar desde Streamlit secrets
     try:
         url = st.secrets.get("SUPABASE_URL") or st.secrets.get("supabase", {}).get("url")
         key = st.secrets.get("SUPABASE_KEY") or st.secrets.get("SUPABASE_SERVICE_ROLE_KEY") or st.secrets.get("supabase", {}).get("key")
     except Exception:
         pass
 
-    # Fallback a variables de entorno
+    # 2. Fallback a variables de entorno
     if not url:
         url = os.environ.get("SUPABASE_URL")
     if not key:
         key = os.environ.get("SUPABASE_SERVICE_ROLE_KEY") or os.environ.get("SUPABASE_KEY") or os.environ.get("SUPABASE_ANON_KEY")
 
+    # 3. Fallback a archivo .streamlit/secrets.toml local si se ejecuta fuera de Streamlit
+    if not url or not key:
+        try:
+            import tomllib
+            secrets_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), ".streamlit", "secrets.toml")
+            if os.path.exists(secrets_path):
+                with open(secrets_path, "rb") as f:
+                    sec = tomllib.load(f)
+                    url = url or sec.get("SUPABASE_URL") or sec.get("supabase", {}).get("url")
+                    key = key or sec.get("SUPABASE_KEY") or sec.get("SUPABASE_SERVICE_ROLE_KEY") or sec.get("supabase", {}).get("key")
+        except Exception:
+            pass
+
     return url, key
+
+
+def ping_supabase() -> bool:
+    """Envía un ping HTTP autenticado a Supabase para registrar actividad y prevenir el auto-pause (Free Tier)."""
+    import requests
+
+    url, key = get_supabase_credentials()
+    if not url or not key:
+        logger.warning("Credenciales de Supabase no disponibles para el ping Keep-Alive.")
+        return False
+
+    try:
+        headers = {"apikey": key, "Authorization": f"Bearer {key}"}
+        endpoint = f"{url.rstrip('/')}/auth/v1/health"
+        resp = requests.get(endpoint, headers=headers, timeout=10)
+        if resp.status_code == 200:
+            logger.info("✅ Supabase Keep-Alive exitoso: actividad registrada para prevenir auto-pause.")
+            return True
+        else:
+            logger.warning(f"Supabase Keep-Alive retornó código {resp.status_code}: {resp.text[:100]}")
+            return False
+    except Exception as e:
+        logger.warning(f"No se pudo completar el ping Keep-Alive a Supabase: {e}")
+        return False
 
 
 @st.cache_resource

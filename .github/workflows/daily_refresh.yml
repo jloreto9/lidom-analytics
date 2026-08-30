@@ -28,7 +28,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Ejecutar ingesta de datos LIDOM desde MLB Stats API
+      - name: Ejecutar ingesta de datos LIDOM y Keep-Alive Supabase
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+          PYTHONPATH: ${{ github.workspace }}
         run: |
           python refresh_data.py
 

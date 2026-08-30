@@ -6,6 +6,7 @@ import logging
 import argparse
 from core.api_client import MLBLIDOMApiClient
 from core.teams import TEAMS
+from core.supabase_client import ping_supabase
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 logger = logging.getLogger("LIDOM_REFRESH")
@@ -76,3 +77,7 @@ if __name__ == "__main__":
     seasons = [args.season] if args.season else [2024, 2025]
     for s in seasons:
         refresh_season_data(season=s)
+
+    # Keep-Alive ping a Supabase para evitar auto-pause por inactividad
+    logger.info("Enviando ping de salud Keep-Alive a Supabase...")
+    ping_supabase()
