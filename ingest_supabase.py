@@ -319,6 +319,13 @@ class LIDOMSupabaseIngester:
             logger.error(f"No se encontraron juegos para la temporada {season} en MLB Stats API.")
             return
 
+        # Filtrar solo juegos oficiales de las 6 franquicias LIDOM
+        schedule = [
+            g for g in schedule
+            if g.get("teams", {}).get("home", {}).get("team", {}).get("id") in TEAMS
+            and g.get("teams", {}).get("away", {}).get("team", {}).get("id") in TEAMS
+        ]
+
         if limit_games:
             schedule = schedule[:limit_games]
 
@@ -344,6 +351,8 @@ class LIDOMSupabaseIngester:
                     res = future.result()
                     all_games.append(res["game"])
                     for p in res["players"]:
+                        p_team = p.get("team_id")
+                        p["team_id"] = p_team if p_team in TEAMS else None
                         all_players_dict[p["id"]] = p
                     all_batting.extend(res["batting"])
                     all_pitching.extend(res["pitching"])
@@ -355,21 +364,57 @@ class LIDOMSupabaseIngester:
                 except Exception as exc:
                     logger.error(f"Error procesando juego {g_pk}: {exc}")
 
+        # Deduplicar registros
+        dedup_games = list({g["id"]: g for g in all_games if g.get("id")}.values())
+        dedup_batting = list({(b["game_id"], b["player_id"]): b for b in all_batting if b.get("game_id") and b.get("player_id")}.values())
+        dedup_pitching = list({(p["game_id"], p["player_id"]): p for p in all_pitching if p.get("game_id") and p.get("player_id")}.values())
+
+        # Asegurar que cualquier jugador de bateo/pitcheo esté en all_players_dict
+        for b in dedup_batting:
+            pid = b["player_id"]
+            if pid not in all_players_dict:
+                b_team = b.get("team_id")
+                all_players_dict[pid] = {
+                    "id": pid,
+                    "full_name": "Bateador LIDOM",
+                    "team_id": b_team if b_team in TEAMS else None,
+                    "primary_position": b.get("position", "UTL"),
+                    "jersey_number": "",
+                    "headshot_url": f"https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_213,q_auto:best/v1/people/{pid}/headshot/67/current",
+                }
+        for p in dedup_pitching:
+            pid = p["player_id"]
+            if pid not in all_players_dict:
+                p_team = p.get("team_id")
+                all_players_dict[pid] = {
+                    "id": pid,
+                    "full_name": "Lanzador LIDOM",
+                    "team_id": p_team if p_team in TEAMS else None,
+                    "primary_position": p.get("role", "P"),
+                    "jersey_number": "",
+                    "headshot_url": f"https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_213,q_auto:best/v1/people/{pid}/headshot/67/current",
+                }
+
         # Ejecutar Upserts en Supabase por lotes
-        logger.info(f"Totales extraídos ({season}): {len(all_games)} juegos, {len(all_players_dict)} jugadores, {len(all_batting)} registros de bateo, {len(all_pitching)} registros de pitcheo, {len(all_plays)} jugadas.")
+        logger.info(f"Totales extraídos ({season}): {len(dedup_games)} juegos, {len(all_players_dict)} jugadores, {len(dedup_batting)} registros de bateo, {len(dedup_pitching)} registros de pitcheo, {len(all_plays)} jugadas.")
 
         if not self.dry_run and self.client:
             # 1. Games
-            self._batch_upsert("lidom_games", all_games)
+            self._batch_upsert("lidom_games", dedup_games, on_conflict="id")
+
             # 2. Players
-            self._batch_upsert("lidom_players", list(all_players_dict.values()))
+            self._batch_upsert("lidom_players", list(all_players_dict.values()), on_conflict="id")
+
             # 3. Batting Stats
-            self._batch_upsert("lidom_batting_stats", all_batting, on_conflict="game_id,player_id")
+            self._batch_upsert("lidom_batting_stats", dedup_batting, on_conflict="game_id,player_id")
+
             # 4. Pitching Stats
-            self._batch_upsert("lidom_pitching_stats", all_pitching, on_conflict="game_id,player_id")
+            self._batch_upsert("lidom_pitching_stats", dedup_pitching, on_conflict="game_id,player_id")
+
             # 5. Plays
             if all_plays:
-                self._batch_upsert("lidom_plays", all_plays)
+                dedup_plays = list({(pl["game_id"], pl["play_id"]): pl for pl in all_plays if pl.get("game_id") and pl.get("play_id")}.values())
+                self._batch_upsert("lidom_plays", dedup_plays)
 
             logger.info(f"✅ ¡Temporada {season} de LIDOM sincronizada exitosamente en Supabase!")
         else:
