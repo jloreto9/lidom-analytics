@@ -81,6 +81,7 @@ def render_pitching_view(season: int = 2026) -> None:
         }
         active_label = [k for k, v in branch_opts.items() if v == st.session_state["active_branch"]]
         active_label = active_label[0] if active_label else "🇩🇴 LIDOM"
+        prev_branch = st.session_state.get("active_branch")
         sel_branch_label = st.selectbox(
             "Liga / Ámbito:",
             list(branch_opts.keys()),
@@ -88,6 +89,14 @@ def render_pitching_view(season: int = 2026) -> None:
             key="sb_branch_select"
         )
         active_branch = branch_opts[sel_branch_label]
+        if active_branch != prev_branch:
+            st.session_state["active_branch"] = active_branch
+            st.session_state["pitcher_phase"] = "all"
+            st.session_state["selected_game_pk"] = None
+            for k in list(st.session_state.keys()):
+                if k.startswith("select_game_log") or k.startswith("sb_phase_select"):
+                    del st.session_state[k]
+            st.rerun()
         st.session_state["active_branch"] = active_branch
 
     with col_season:
@@ -102,6 +111,13 @@ def render_pitching_view(season: int = 2026) -> None:
             format_func=lambda s: f"Temporada {s}"
         )
         season_int = int(sel_season)
+        if season_int != cur_season:
+            st.session_state["pitcher_season"] = season_int
+            st.session_state["selected_game_pk"] = None
+            for k in list(st.session_state.keys()):
+                if k.startswith("select_game_log"):
+                    del st.session_state[k]
+            st.rerun()
         st.session_state["pitcher_season"] = season_int
 
     with col_phase:
@@ -267,16 +283,17 @@ def render_pitching_view(season: int = 2026) -> None:
                 effective_season = fallback_s
                 game_logs = test_logs
                 fallback_used = True
-                if not (active_branch == "lidom" and season_int == 2026):
-                    st.session_state["pitcher_season"] = fallback_s
                 break
 
-    if fallback_used and active_branch == "lidom" and season_int == 2026:
-        st.info(
-            f"ℹ️ La temporada 2026-2027 de la LIDOM comienza en octubre de 2026 (aún sin salidas disputadas). "
-            f"Mostrando la última actuación en LIDOM (Temporada {effective_season}). "
-            f"Para ver lo que hizo este año 2026 en verano, puedes consultar las ramas de **🇲🇽 México** o **⚾ MLB / MiLB**."
-        )
+    if fallback_used:
+        if active_branch == "lidom" and season_int == 2026:
+            st.info(
+                f"ℹ️ La temporada 2026-2027 de la LIDOM comienza en octubre de 2026 (aún sin salidas disputadas). "
+                f"Mostrando la última actuación en LIDOM (Temporada {effective_season}). "
+                f"Para ver lo que hizo este año 2026 en verano, puedes consultar las ramas de **🇲🇽 México** o **⚾ MLB / MiLB**."
+            )
+        else:
+            st.info(f"ℹ️ No se encontraron salidas registradas en la temporada {season_int} para esta rama. Mostrando la última temporada disponible ({effective_season}).")
 
     # ── Configuración de Modo Temporal ──────────────────────────────────────────
     selected_game_summary = {}
@@ -288,11 +305,16 @@ def render_pitching_view(season: int = 2026) -> None:
                 f"{g.get('date', '')} vs {g.get('opponent', '')} ({g.get('ip', 0)} IP, {g.get('so', 0)} K, {g.get('pitches', 0)} P)": g
                 for g in game_logs
             }
-            selected_label = st.selectbox("Seleccionar Salida:", list(opts_dict.keys()), key="select_game_log")
-            selected_game_summary = opts_dict[selected_label]
+            labels = list(opts_dict.keys())
+            sb_key = f"select_game_log_{active_branch}_{effective_season}_{selected_phase}_{p_id}"
+            if sb_key in st.session_state and st.session_state[sb_key] not in labels:
+                del st.session_state[sb_key]
+            selected_label = st.selectbox("Seleccionar Salida:", labels, key=sb_key)
+            selected_game_summary = opts_dict.get(selected_label, game_logs[0] if game_logs else {})
             current_game_pk = selected_game_summary.get("game_pk")
             st.session_state["selected_game_pk"] = current_game_pk
         else:
+            st.session_state["selected_game_pk"] = None
             st.warning(f"No se encontraron salidas registradas para la temporada {effective_season}.")
     elif time_mode == "range":
         col_d1, col_d2 = st.columns(2)
