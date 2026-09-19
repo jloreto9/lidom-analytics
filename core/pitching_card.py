@@ -319,14 +319,27 @@ def _format_table(df_group: pd.DataFrame) -> pd.DataFrame:
 
 # ── 2. Componentes Visuales del Pitching Summary (Matplotlib) ─────────────────
 
-def _plot_headshot(ax: plt.Axes, photo_url: Optional[str]):
+def _plot_headshot(ax: plt.Axes, photo_url: Optional[str], pitcher_id: Optional[int] = None):
     ax.axis('off')
     img = None
+    if not photo_url and pitcher_id:
+        photo_url = f"https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current/w_213,q_auto:best/v1/people/{pitcher_id}/headshot/67/current"
+
     if photo_url:
         try:
             req = urllib.request.Request(photo_url, headers={"User-Agent": "Mozilla/5.0"})
             with urllib.request.urlopen(req, timeout=5) as resp:
                 img = Image.open(io.BytesIO(resp.read()))
+        except Exception:
+            img = None
+
+    if img is None and pitcher_id:
+        try:
+            fallback_url = f"https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current/w_213,q_auto:best/v1/people/{pitcher_id}/headshot/67/current"
+            if fallback_url != photo_url:
+                req = urllib.request.Request(fallback_url, headers={"User-Agent": "Mozilla/5.0"})
+                with urllib.request.urlopen(req, timeout=5) as resp:
+                    img = Image.open(io.BytesIO(resp.read()))
         except Exception:
             img = None
 
@@ -339,7 +352,20 @@ def _plot_headshot(ax: plt.Axes, photo_url: Optional[str]):
     if img is not None:
         ax.set_xlim(0, 1.0)
         ax.set_ylim(0, 1.0)
-        ax.imshow(img, extent=[0.0, 1.0, 0.0, 1.0], origin='upper')
+        w, h = img.size
+        if h > 0 and w > 0:
+            aspect = w / h
+            if aspect <= 1.0:
+                x0 = (1.0 - aspect) / 2.0
+                x1 = x0 + aspect
+                ax.imshow(img, extent=[x0, x1, 0.0, 1.0], origin='upper')
+            else:
+                y_span = 1.0 / aspect
+                y0 = (1.0 - y_span) / 2.0
+                y1 = y0 + y_span
+                ax.imshow(img, extent=[0.0, 1.0, y0, y1], origin='upper')
+        else:
+            ax.imshow(img, extent=[0.0, 1.0, 0.0, 1.0], origin='upper')
 
 
 def _plot_bio(ax: plt.Axes, pitcher_info: Dict[str, Any], subtitle_line1: str, subtitle_line2: str):
@@ -614,8 +640,8 @@ def build_nestico_pitching_summary(
     ax_footer = fig.add_subplot(gs[6, 1:7])
 
     # 1. Cabecera
-    _plot_headshot(ax_headshot, pitcher_info.get("photo_url"))
-    league_tag = "LIDOM (TrackMan)" if is_lidom else "MLB"
+    _plot_headshot(ax_headshot, pitcher_info.get("photo_url"), pitcher_id=pitcher_info.get("id"))
+    league_tag = "LIDOM" if is_lidom else "MLB"
     team_name = pitcher_info.get("team_name", "")
     team_clean = _clean_team_name(team_name) if team_name else ""
 
@@ -822,7 +848,7 @@ def build_lidom_matplotlib_summary(
         ax_table = fig.add_subplot(gs[5, 1:7])
         ax_footer = fig.add_subplot(gs[6, 1:7])
 
-        _plot_headshot(ax_headshot, pitcher_info.get("photo_url"))
+        _plot_headshot(ax_headshot, pitcher_info.get("photo_url"), pitcher_id=pitcher_info.get("id"))
         _plot_bio(ax_bio, pitcher_info, sub1, sub2)
         _plot_logo(ax_logo)
 
@@ -1011,7 +1037,7 @@ def build_lidom_matplotlib_summary(
     ax_table = fig.add_subplot(gs[5, 1:7])
     ax_footer = fig.add_subplot(gs[6, 1:7])
 
-    _plot_headshot(ax_headshot, pitcher_info.get("photo_url"))
+    _plot_headshot(ax_headshot, pitcher_info.get("photo_url"), pitcher_id=pitcher_info.get("id"))
     _plot_bio(ax_bio, pitcher_info, sub1, sub2)
     _plot_logo(ax_logo)
 

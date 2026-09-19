@@ -227,7 +227,7 @@ def get_pitcher_by_id(pitcher_id: int, *args, **kwargs) -> Optional[Dict[str, An
                 "team_name": display_team,
                 "team_abbr": display_abbr,
                 "mlb_team_name": mlb_team_name,
-                "photo_url": f"https://img.mlbstatic.com/mlb-photos/player/silo/180x180/{p.get('id')}.png",
+                "photo_url": f"https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current/w_213,q_auto:best/v1/people/{p.get('id')}/headshot/67/current",
                 "has_lidom": meta["has_lidom"],
             }
     except Exception:
@@ -290,7 +290,7 @@ def search_pitchers(query: str, sport_ids: str = "1,11,17,23") -> List[Dict[str,
                     "team_name": display_team,
                     "team_abbr": display_abbr,
                     "mlb_team_name": mlb_team_name,
-                    "photo_url": f"https://img.mlbstatic.com/mlb-photos/player/silo/180x180/{p_id}.png",
+                    "photo_url": f"https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current/w_213,q_auto:best/v1/people/{p_id}/headshot/67/current",
                     "has_lidom": meta["has_lidom"],
                 })
                 seen_ids.add(p_id)
@@ -961,7 +961,7 @@ def get_lidom_pitcher_statcast_df(
     start_date: Optional[str] = None,
     end_date: Optional[str] = None,
 ) -> pd.DataFrame:
-    """Extrae lanzamientos con telemetría Statcast/TrackMan para LIDOM directamente desde la API oficial de MLB."""
+    """Extrae lanzamientos con telemetría Statcast para LIDOM directamente desde la API oficial de MLB."""
     cache_name = f"lidom_sc_{pitcher_id}_{season}_{mode}_{phase}"
     if mode == "game" and game_pk:
         cache_name += f"_{game_pk}"

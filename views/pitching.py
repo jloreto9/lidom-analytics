@@ -307,7 +307,7 @@ def render_pitching_view(season: int = 2026) -> None:
     df_statcast_season = pd.DataFrame()
 
     if active_branch == "lidom":
-        with st.spinner("Consultando telemetría TrackMan en LIDOM..."):
+        with st.spinner("Consultando lanzamientos en LIDOM..."):
             df_statcast_season = get_lidom_pitcher_statcast_df(
                 p_id,
                 season=effective_season,
@@ -369,18 +369,18 @@ def render_pitching_view(season: int = 2026) -> None:
 
     if has_lidom_sc:
         st.success(
-            f"📡 **Telemetría Statcast (TrackMan LIDOM) Activa**: {len(df_statcast_season)} pitcheos capturados por radar en Quisqueya, Cibao o Tetelo Vargas."
+            f"📡 **Telemetría Statcast Activa**: {len(df_statcast_season)} pitcheos analizados en Quisqueya, Cibao o Tetelo Vargas."
         )
         card_choice = st.radio(
             "Seleccionar Formato de Tarjeta HD para LIDOM:",
-            ["📡 Resumen Statcast (TrackMan / Nestico)", "📋 Bitácora PBP & Control (Salidas)"],
+            ["📡 Resumen Statcast (Nestico)", "📋 Bitácora PBP & Control (Salidas)"],
             horizontal=True,
             key=f"lidom_card_choice_{p_id}_{effective_season}"
         )
         selected_card_type = "statcast" if "Statcast" in card_choice else "pbp"
     elif active_branch == "lidom":
         st.info(
-            "ℹ️ No se registraron lanzamientos con radar TrackMan en la API pública para esta selección en LIDOM (los estadios Quisqueya, Cibao y Tetelo Vargas cuentan con radar activo). Desplegando **Bitácora PBP & Control**."
+            "ℹ️ No se registraron lanzamientos con radar en la API pública para esta selección en LIDOM. Desplegando **Bitácora PBP & Control**."
         )
         selected_card_type = "pbp"
     elif active_branch == "mlb":
@@ -399,7 +399,7 @@ def render_pitching_view(season: int = 2026) -> None:
 
     with tab_summary:
         if (has_lidom_sc or active_branch == "mlb") and not df_statcast_season.empty:
-            st.markdown("### 📡 Métricas Sabermétricas de Repertorio (Statcast / TrackMan)")
+            st.markdown("### 📡 Métricas Sabermétricas de Repertorio (Statcast)")
             sc_table = pitch_analysis.get("statcast_table", [])
             if sc_table:
                 st.dataframe(pd.DataFrame(sc_table), use_container_width=True, hide_index=True)

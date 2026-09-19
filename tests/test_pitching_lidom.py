@@ -186,7 +186,7 @@ class TestPitchingLIDOM(unittest.TestCase):
         self.assertEqual(im.size, (2400, 2400))
 
     def test_lidom_statcast_card_generation(self):
-        """Verifica que la tarjeta Nestico con telemetría Statcast TrackMan para LIDOM se genere en 2400x2400."""
+        """Verifica que la tarjeta Nestico con telemetría Statcast para LIDOM se genere en 2400x2400."""
         from core.pitching_engine import get_lidom_pitcher_statcast_df
         p_info = get_pitcher_by_id(491624, branch="lidom")
         df_sc = get_lidom_pitcher_statcast_df(491624, season=2024)
