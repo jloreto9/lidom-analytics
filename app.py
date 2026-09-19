@@ -18,6 +18,7 @@ from views.versus import render_versus_view
 from views.lineups import render_lineups_view
 from views.game_center import render_game_center_view
 from views.spray_charts import render_spray_charts_view
+from views.pitching import render_pitching_view
 
 # Aplicar estilos base globales
 apply_custom_css(accent_color="#0055B8")
@@ -48,7 +49,7 @@ with st.sidebar:
     # Selector de Temporada
     season = st.selectbox(
         "📅 Temporada LIDOM:",
-        [2025, 2024, 2023],
+        [2026, 2025, 2024, 2023],
         index=0,
         format_func=lambda s: f"Temporada {s}-{s+1}",
     )
@@ -62,6 +63,7 @@ with st.sidebar:
             "👑 Líderes Individuales",
             "⚔️ Matchup 360 (Versus)",
             "📋 Laboratorio de Lineups",
+            "🔥 Pitching Summary & Telemetría",
             "⚡ Game Center & WPA",
             "🎯 Spray Charts (Dureza BIS)",
         ],
@@ -111,6 +113,8 @@ elif menu == "⚔️ Matchup 360 (Versus)":
     render_versus_view(season=season)
 elif menu == "📋 Laboratorio de Lineups":
     render_lineups_view(season=season)
+elif menu == "🔥 Pitching Summary & Telemetría":
+    render_pitching_view(season=season)
 elif menu == "⚡ Game Center & WPA":
     render_game_center_view(season=season)
 elif menu == "🎯 Spray Charts (Dureza BIS)":
