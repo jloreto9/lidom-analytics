@@ -529,7 +529,7 @@
         "fullName": "Randy Florentino",
         "link": "/api/v1/people/678594"
       },
-      "jerseyNumber": "72",
+      "jerseyNumber": "65",
       "position": {
         "code": "2",
         "name": "Catcher",
@@ -709,7 +709,7 @@
         "fullName": "Carlos Jimenez",
         "link": "/api/v1/people/692039"
       },
-      "jerseyNumber": "40",
+      "jerseyNumber": "50",
       "position": {
         "code": "O",
         "name": "Outfield",
