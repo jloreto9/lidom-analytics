@@ -21436,15 +21436,13 @@
           "runs": 1,
           "hits": 9,
           "errors": 1,
-          "leftOnBase": 10,
-          "isWinner": false
+          "leftOnBase": 10
         },
         "away": {
           "runs": 10,
           "hits": 13,
           "errors": 0,
-          "leftOnBase": 5,
-          "isWinner": true
+          "leftOnBase": 5
         }
       },
       "defense": {
@@ -21530,16 +21528,6 @@
           "id": 665966,
           "fullName": "Carlos Narváez",
           "link": "/api/v1/people/665966"
-        },
-        "second": {
-          "id": 672544,
-          "fullName": "César Izturis Jr.",
-          "link": "/api/v1/people/672544"
-        },
-        "third": {
-          "id": 686996,
-          "fullName": "Juan Teixeira",
-          "link": "/api/v1/people/686996"
         },
         "pitcher": {
           "id": 649955,

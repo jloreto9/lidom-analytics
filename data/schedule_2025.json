@@ -13280,13 +13280,15 @@
           "runs": 12,
           "hits": 11,
           "errors": 1,
-          "leftOnBase": 5
+          "leftOnBase": 5,
+          "isWinner": true
         },
         "away": {
           "runs": 3,
           "hits": 9,
           "errors": 1,
-          "leftOnBase": 9
+          "leftOnBase": 9,
+          "isWinner": false
         }
       },
       "defense": {
@@ -13372,6 +13374,11 @@
           "id": 650391,
           "fullName": "Eloy Jiménez",
           "link": "/api/v1/people/650391"
+        },
+        "first": {
+          "id": 694211,
+          "fullName": "Manuel Pena",
+          "link": "/api/v1/people/694211"
         },
         "pitcher": {
           "id": 665878,
@@ -32128,13 +32135,15 @@
           "runs": 2,
           "hits": 10,
           "errors": 0,
-          "leftOnBase": 7
+          "leftOnBase": 7,
+          "isWinner": false
         },
         "away": {
           "runs": 10,
           "hits": 9,
           "errors": 0,
-          "leftOnBase": 6
+          "leftOnBase": 6,
+          "isWinner": true
         }
       },
       "defense": {
