@@ -47,7 +47,8 @@
       "fullName": "Carlos Castro",
       "link": "/api/v1/people/622603",
       "firstName": "Carlos",
-      "lastName": "Castro"
+      "lastName": "Castro",
+      "nameSlug": "carlos-castro-622603"
     },
     "league": {
       "id": 131,
@@ -116,7 +117,8 @@
       "fullName": "Yefri Pérez",
       "link": "/api/v1/people/570639",
       "firstName": "Yefri",
-      "lastName": "Pérez"
+      "lastName": "Pérez",
+      "nameSlug": "yefri-perez-570639"
     },
     "league": {
       "id": 131,
@@ -185,7 +187,8 @@
       "fullName": "Alex Ramírez",
       "link": "/api/v1/people/691267",
       "firstName": "Alex",
-      "lastName": "Ramírez"
+      "lastName": "Ramírez",
+      "nameSlug": "alex-ramirez-691267"
     },
     "league": {
       "id": 131,
@@ -254,7 +257,8 @@
       "fullName": "Freuddy Batista",
       "link": "/api/v1/people/673945",
       "firstName": "Freuddy",
-      "lastName": "Batista"
+      "lastName": "Batista",
+      "nameSlug": "freuddy-batista-673945"
     },
     "league": {
       "id": 131,
@@ -323,7 +327,8 @@
       "fullName": "Jake Holton",
       "link": "/api/v1/people/687724",
       "firstName": "Jake",
-      "lastName": "Holton"
+      "lastName": "Holton",
+      "nameSlug": "jake-holton-687724"
     },
     "league": {
       "id": 131,
@@ -392,7 +397,8 @@
       "fullName": "Bryan Lavastida",
       "link": "/api/v1/people/681526",
       "firstName": "Bryan",
-      "lastName": "Lavastida"
+      "lastName": "Lavastida",
+      "nameSlug": "bryan-lavastida-681526"
     },
     "league": {
       "id": 131,
@@ -461,7 +467,8 @@
       "fullName": "Yamal Encarnacion",
       "link": "/api/v1/people/699043",
       "firstName": "Yamal",
-      "lastName": "Encarnacion"
+      "lastName": "Encarnacion",
+      "nameSlug": "yamal-encarnacion-699043"
     },
     "league": {
       "id": 131,
@@ -530,7 +537,8 @@
       "fullName": "Ernesto Martinez Jr.",
       "link": "/api/v1/people/667803",
       "firstName": "Ernesto",
-      "lastName": "Martinez "
+      "lastName": "Martinez ",
+      "nameSlug": "ernesto-martinez-667803"
     },
     "league": {
       "id": 131,
@@ -599,7 +607,8 @@
       "fullName": "Ismael Munguia",
       "link": "/api/v1/people/665998",
       "firstName": "Ismael",
-      "lastName": "Munguia"
+      "lastName": "Munguia",
+      "nameSlug": "ismael-munguia-665998"
     },
     "league": {
       "id": 131,
@@ -668,7 +677,8 @@
       "fullName": "Luis García Jr.",
       "link": "/api/v1/people/671277",
       "firstName": "Luis",
-      "lastName": "García"
+      "lastName": "García",
+      "nameSlug": "luis-garcia-671277"
     },
     "league": {
       "id": 131,
@@ -737,7 +747,8 @@
       "fullName": "Raimel Tapia",
       "link": "/api/v1/people/606132",
       "firstName": "Raimel",
-      "lastName": "Tapia"
+      "lastName": "Tapia",
+      "nameSlug": "raimel-tapia-606132"
     },
     "league": {
       "id": 131,
@@ -806,7 +817,8 @@
       "fullName": "Alberto Rodriguez",
       "link": "/api/v1/people/679754",
       "firstName": "Alberto",
-      "lastName": "Rodriguez"
+      "lastName": "Rodriguez",
+      "nameSlug": "alberto-rodriguez-679754"
     },
     "league": {
       "id": 131,
@@ -875,7 +887,8 @@
       "fullName": "Ezequiel Duran",
       "link": "/api/v1/people/677649",
       "firstName": "Ezequiel",
-      "lastName": "Duran"
+      "lastName": "Duran",
+      "nameSlug": "ezequiel-duran-677649"
     },
     "league": {
       "id": 131,
@@ -944,7 +957,8 @@
       "fullName": "Jonatan Clase",
       "link": "/api/v1/people/682729",
       "firstName": "Jonatan",
-      "lastName": "Clase"
+      "lastName": "Clase",
+      "nameSlug": "jonatan-clase-682729"
     },
     "league": {
       "id": 131,
@@ -1013,7 +1027,8 @@
       "fullName": "John Garcia",
       "link": "/api/v1/people/801039",
       "firstName": "John",
-      "lastName": "Garcia"
+      "lastName": "Garcia",
+      "nameSlug": "john-garcia-801039"
     },
     "league": {
       "id": 131,
@@ -1082,7 +1097,8 @@
       "fullName": "Eddys Leonard",
       "link": "/api/v1/people/678760",
       "firstName": "Eddys",
-      "lastName": "Leonard"
+      "lastName": "Leonard",
+      "nameSlug": "eddys-leonard-678760"
     },
     "league": {
       "id": 131,
@@ -1151,7 +1167,8 @@
       "fullName": "Geraldo Perdomo",
       "link": "/api/v1/people/672695",
       "firstName": "Geraldo",
-      "lastName": "Perdomo"
+      "lastName": "Perdomo",
+      "nameSlug": "geraldo-perdomo-672695"
     },
     "league": {
       "id": 131,
@@ -1220,7 +1237,8 @@
       "fullName": "Wendell Rijo",
       "link": "/api/v1/people/620442",
       "firstName": "Wendell",
-      "lastName": "Rijo"
+      "lastName": "Rijo",
+      "nameSlug": "wendell-rijo-620442"
     },
     "league": {
       "id": 131,
@@ -1289,7 +1307,8 @@
       "fullName": "Bryan Torres",
       "link": "/api/v1/people/663494",
       "firstName": "Bryan",
-      "lastName": "Torres"
+      "lastName": "Torres",
+      "nameSlug": "bryan-torres-663494"
     },
     "league": {
       "id": 131,
@@ -1358,7 +1377,8 @@
       "fullName": "Angel Genao",
       "link": "/api/v1/people/694197",
       "firstName": "Angel",
-      "lastName": "Genao"
+      "lastName": "Genao",
+      "nameSlug": "angel-genao-694197"
     },
     "league": {
       "id": 131,
@@ -1427,7 +1447,8 @@
       "fullName": "Rudy Martin Jr.",
       "link": "/api/v1/people/657675",
       "firstName": "Rudy",
-      "lastName": "Martin"
+      "lastName": "Martin",
+      "nameSlug": "rudy-martin-657675"
     },
     "league": {
       "id": 131,
@@ -1496,7 +1517,8 @@
       "fullName": "Samad Taylor",
       "link": "/api/v1/people/669392",
       "firstName": "Samad",
-      "lastName": "Taylor"
+      "lastName": "Taylor",
+      "nameSlug": "samad-taylor-669392"
     },
     "league": {
       "id": 131,
@@ -1565,7 +1587,8 @@
       "fullName": "Luis Liberato",
       "link": "/api/v1/people/642451",
       "firstName": "Luis",
-      "lastName": "Liberato"
+      "lastName": "Liberato",
+      "nameSlug": "luis-liberato-642451"
     },
     "league": {
       "id": 131,
@@ -1634,7 +1657,8 @@
       "fullName": "Yainer Diaz",
       "link": "/api/v1/people/673237",
       "firstName": "Yainer",
-      "lastName": "Diaz"
+      "lastName": "Diaz",
+      "nameSlug": "yainer-diaz-673237"
     },
     "league": {
       "id": 131,
@@ -1703,7 +1727,8 @@
       "fullName": "Gio Urshela",
       "link": "/api/v1/people/570482",
       "firstName": "Gio",
-      "lastName": "Urshela"
+      "lastName": "Urshela",
+      "nameSlug": "gio-urshela-570482"
     },
     "league": {
       "id": 131,
@@ -1772,7 +1797,8 @@
       "fullName": "Gilberto Celestino",
       "link": "/api/v1/people/665482",
       "firstName": "Gilberto",
-      "lastName": "Celestino"
+      "lastName": "Celestino",
+      "nameSlug": "gilberto-celestino-665482"
     },
     "league": {
       "id": 131,
@@ -1841,7 +1867,8 @@
       "fullName": "Miguel Sanó",
       "link": "/api/v1/people/593934",
       "firstName": "Miguel",
-      "lastName": "Sanó"
+      "lastName": "Sanó",
+      "nameSlug": "miguel-sano-593934"
     },
     "league": {
       "id": 131,
@@ -1910,7 +1937,8 @@
       "fullName": "Francisco Mejía",
       "link": "/api/v1/people/642336",
       "firstName": "Francisco",
-      "lastName": "Mejía"
+      "lastName": "Mejía",
+      "nameSlug": "francisco-mejia-642336"
     },
     "league": {
       "id": 131,
@@ -1979,7 +2007,8 @@
       "fullName": "Deyvison De Los Santos",
       "link": "/api/v1/people/691277",
       "firstName": "Deyvison",
-      "lastName": "De Los Santos"
+      "lastName": "De Los Santos",
+      "nameSlug": "deyvison-de-los-santos-691277"
     },
     "league": {
       "id": 131,
@@ -2048,7 +2077,8 @@
       "fullName": "Cristhian Adames",
       "link": "/api/v1/people/542436",
       "firstName": "Cristhian",
-      "lastName": "Adames"
+      "lastName": "Adames",
+      "nameSlug": "cristhian-adames-542436"
     },
     "league": {
       "id": 131,
@@ -2117,7 +2147,8 @@
       "fullName": "Nicholas Torres",
       "link": "/api/v1/people/657051",
       "firstName": "Nicholas",
-      "lastName": "Torres"
+      "lastName": "Torres",
+      "nameSlug": "nicholas-torres-657051"
     },
     "league": {
       "id": 131,
@@ -2186,7 +2217,8 @@
       "fullName": "José Rodríguez",
       "link": "/api/v1/people/679563",
       "firstName": "José",
-      "lastName": "Rodriguez"
+      "lastName": "Rodriguez",
+      "nameSlug": "jose-rodriguez-679563"
     },
     "league": {
       "id": 131,
@@ -2255,7 +2287,8 @@
       "fullName": "Ivan Castillo",
       "link": "/api/v1/people/622668",
       "firstName": "Ivan",
-      "lastName": "Castillo"
+      "lastName": "Castillo",
+      "nameSlug": "ivan-castillo-622668"
     },
     "league": {
       "id": 131,
@@ -2324,7 +2357,8 @@
       "fullName": "Johan Rojas",
       "link": "/api/v1/people/679032",
       "firstName": "Johan",
-      "lastName": "Rojas"
+      "lastName": "Rojas",
+      "nameSlug": "johan-rojas-679032"
     },
     "league": {
       "id": 131,
@@ -2393,7 +2427,8 @@
       "fullName": "Héctor Rodríguez",
       "link": "/api/v1/people/699302",
       "firstName": "Héctor",
-      "lastName": "Rodríguez"
+      "lastName": "Rodríguez",
+      "nameSlug": "hector-rodriguez-699302"
     },
     "league": {
       "id": 131,
@@ -2462,7 +2497,8 @@
       "fullName": "Bryan De La Cruz",
       "link": "/api/v1/people/650559",
       "firstName": "Bryan",
-      "lastName": "De La Cruz"
+      "lastName": "De La Cruz",
+      "nameSlug": "bryan-de-la-cruz-650559"
     },
     "league": {
       "id": 131,
@@ -2531,7 +2567,8 @@
       "fullName": "Francisco Urbaez",
       "link": "/api/v1/people/688005",
       "firstName": "Francisco",
-      "lastName": "Urbaez"
+      "lastName": "Urbaez",
+      "nameSlug": "francisco-urbaez-688005"
     },
     "league": {
       "id": 131,
@@ -2600,7 +2637,8 @@
       "fullName": "Erik González",
       "link": "/api/v1/people/570481",
       "firstName": "Erik",
-      "lastName": "González"
+      "lastName": "González",
+      "nameSlug": "erik-gonzalez-570481"
     },
     "league": {
       "id": 131,
@@ -2669,7 +2707,8 @@
       "fullName": "Rodolfo Durán",
       "link": "/api/v1/people/660710",
       "firstName": "Rodolfo",
-      "lastName": "Durán"
+      "lastName": "Durán",
+      "nameSlug": "rodolfo-duran-660710"
     },
     "league": {
       "id": 131,
@@ -2738,7 +2777,8 @@
       "fullName": "Sócrates Brito",
       "link": "/api/v1/people/593647",
       "firstName": "Sócrates",
-      "lastName": "Brito"
+      "lastName": "Brito",
+      "nameSlug": "socrates-brito-593647"
     },
     "league": {
       "id": 131,
@@ -2807,7 +2847,8 @@
       "fullName": "Raynel Delgado",
       "link": "/api/v1/people/669384",
       "firstName": "Raynel",
-      "lastName": "Delgado"
+      "lastName": "Delgado",
+      "nameSlug": "raynel-delgado-669384"
     },
     "league": {
       "id": 131,
@@ -2876,7 +2917,8 @@
       "fullName": "Marco Hernández",
       "link": "/api/v1/people/593523",
       "firstName": "Marco",
-      "lastName": "Hernández"
+      "lastName": "Hernández",
+      "nameSlug": "marco-hernandez-593523"
     },
     "league": {
       "id": 131,
@@ -2945,7 +2987,8 @@
       "fullName": "Gustavo Nunez",
       "link": "/api/v1/people/516631",
       "firstName": "Gustavo",
-      "lastName": "Nunez"
+      "lastName": "Nunez",
+      "nameSlug": "gustavo-nunez-516631"
     },
     "league": {
       "id": 131,
@@ -3014,7 +3057,8 @@
       "fullName": "Emmanuel Rodriguez",
       "link": "/api/v1/people/691181",
       "firstName": "Emmanuel",
-      "lastName": "Rodriguez"
+      "lastName": "Rodriguez",
+      "nameSlug": "emmanuel-rodriguez-691181"
     },
     "league": {
       "id": 131,
@@ -3083,7 +3127,8 @@
       "fullName": "Wilin Rosario",
       "link": "/api/v1/people/501647",
       "firstName": "Wilin",
-      "lastName": "Rosario"
+      "lastName": "Rosario",
+      "nameSlug": "wilin-rosario-501647"
     },
     "league": {
       "id": 131,
@@ -3152,7 +3197,8 @@
       "fullName": "Carlos Peguero",
       "link": "/api/v1/people/451713",
       "firstName": "Carlos",
-      "lastName": "Peguero"
+      "lastName": "Peguero",
+      "nameSlug": "carlos-peguero-451713"
     },
     "league": {
       "id": 131,
@@ -3221,7 +3267,8 @@
       "fullName": "Cal Stevenson",
       "link": "/api/v1/people/670276",
       "firstName": "Cal",
-      "lastName": "Stevenson"
+      "lastName": "Stevenson",
+      "nameSlug": "cal-stevenson-670276"
     },
     "league": {
       "id": 131,
@@ -3290,7 +3337,8 @@
       "fullName": "Steward Berroa",
       "link": "/api/v1/people/672642",
       "firstName": "Steward",
-      "lastName": "Berroa"
+      "lastName": "Berroa",
+      "nameSlug": "steward-berroa-672642"
     },
     "league": {
       "id": 131,
@@ -3359,7 +3407,8 @@
       "fullName": "Jonathan Guzmán",
       "link": "/api/v1/people/666695",
       "firstName": "Jonathan",
-      "lastName": "Guzmán"
+      "lastName": "Guzmán",
+      "nameSlug": "jonathan-guzman-666695"
     },
     "league": {
       "id": 131,
@@ -3428,7 +3477,8 @@
       "fullName": "Corey Joyce",
       "link": "/api/v1/people/687144",
       "firstName": "Corey",
-      "lastName": "Joyce"
+      "lastName": "Joyce",
+      "nameSlug": "corey-joyce-687144"
     },
     "league": {
       "id": 131,
@@ -3497,7 +3547,8 @@
       "fullName": "Yamaico Navarro",
       "link": "/api/v1/people/501605",
       "firstName": "Yamaico",
-      "lastName": "Navarro"
+      "lastName": "Navarro",
+      "nameSlug": "yamaico-navarro-501605"
     },
     "league": {
       "id": 131,
@@ -3566,7 +3617,8 @@
       "fullName": "Junior Lake",
       "link": "/api/v1/people/516809",
       "firstName": "Junior",
-      "lastName": "Lake"
+      "lastName": "Lake",
+      "nameSlug": "junior-lake-516809"
     },
     "league": {
       "id": 131,
@@ -3635,7 +3687,8 @@
       "fullName": "Yairo Muñoz",
       "link": "/api/v1/people/622168",
       "firstName": "Yairo",
-      "lastName": "Muñoz"
+      "lastName": "Muñoz",
+      "nameSlug": "yairo-munoz-622168"
     },
     "league": {
       "id": 131,
@@ -3704,7 +3757,8 @@
       "fullName": "Leody Taveras",
       "link": "/api/v1/people/665750",
       "firstName": "Leody",
-      "lastName": "Taveras"
+      "lastName": "Taveras",
+      "nameSlug": "leody-taveras-665750"
     },
     "league": {
       "id": 131,
@@ -3773,7 +3827,8 @@
       "fullName": "J.C. Escarra",
       "link": "/api/v1/people/641555",
       "firstName": "J.C.",
-      "lastName": "Escarra"
+      "lastName": "Escarra",
+      "nameSlug": "j-c-escarra-641555"
     },
     "league": {
       "id": 131,
@@ -3842,7 +3897,8 @@
       "fullName": "Ronaldo Hernández",
       "link": "/api/v1/people/660613",
       "firstName": "Ronaldo",
-      "lastName": "Hernández"
+      "lastName": "Hernández",
+      "nameSlug": "ronaldo-hernandez-660613"
     },
     "league": {
       "id": 131,
@@ -3911,7 +3967,8 @@
       "fullName": "Jerar Encarnacion",
       "link": "/api/v1/people/666464",
       "firstName": "Jerar",
-      "lastName": "Encarnacion"
+      "lastName": "Encarnacion",
+      "nameSlug": "jerar-encarnacion-666464"
     },
     "league": {
       "id": 131,
@@ -3980,7 +4037,8 @@
       "fullName": "Rafael Lantigua",
       "link": "/api/v1/people/672463",
       "firstName": "Rafael",
-      "lastName": "Lantigua"
+      "lastName": "Lantigua",
+      "nameSlug": "rafael-lantigua-672463"
     },
     "league": {
       "id": 131,
@@ -4049,7 +4107,8 @@
       "fullName": "José Marmolejos",
       "link": "/api/v1/people/592530",
       "firstName": "José",
-      "lastName": "Marmolejos"
+      "lastName": "Marmolejos",
+      "nameSlug": "jose-marmolejos-592530"
     },
     "league": {
       "id": 131,
@@ -4118,7 +4177,8 @@
       "fullName": "César Prieto",
       "link": "/api/v1/people/693409",
       "firstName": "César",
-      "lastName": "Prieto"
+      "lastName": "Prieto",
+      "nameSlug": "cesar-prieto-693409"
     },
     "league": {
       "id": 131,
@@ -4187,7 +4247,8 @@
       "fullName": "Franchy Cordero",
       "link": "/api/v1/people/614173",
       "firstName": "Franchy",
-      "lastName": "Cordero"
+      "lastName": "Cordero",
+      "nameSlug": "franchy-cordero-614173"
     },
     "league": {
       "id": 131,
@@ -4256,7 +4317,8 @@
       "fullName": "Allan Castro",
       "link": "/api/v1/people/691369",
       "firstName": "Allan",
-      "lastName": "Castro"
+      "lastName": "Castro",
+      "nameSlug": "allan-castro-691369"
     },
     "league": {
       "id": 131,
@@ -4325,7 +4387,8 @@
       "fullName": "Aderlin Rodríguez",
       "link": "/api/v1/people/573669",
       "firstName": "Aderlin",
-      "lastName": "Rodríguez"
+      "lastName": "Rodríguez",
+      "nameSlug": "aderlin-rodriguez-573669"
     },
     "league": {
       "id": 131,
@@ -4394,7 +4457,8 @@
       "fullName": "Elih Marrero",
       "link": "/api/v1/people/663503",
       "firstName": "Elih",
-      "lastName": "Marrero"
+      "lastName": "Marrero",
+      "nameSlug": "elih-marrero-663503"
     },
     "league": {
       "id": 131,
@@ -4463,7 +4527,8 @@
       "fullName": "Euribiel Angeles",
       "link": "/api/v1/people/683494",
       "firstName": "Euribiel",
-      "lastName": "Angeles"
+      "lastName": "Angeles",
+      "nameSlug": "euribiel-angeles-683494"
     },
     "league": {
       "id": 131,
@@ -4532,7 +4597,8 @@
       "fullName": "Webster Rivas",
       "link": "/api/v1/people/593590",
       "firstName": "Webster",
-      "lastName": "Rivas"
+      "lastName": "Rivas",
+      "nameSlug": "webster-rivas-593590"
     },
     "league": {
       "id": 131,
@@ -4601,7 +4667,8 @@
       "fullName": "Aristides Aquino",
       "link": "/api/v1/people/606157",
       "firstName": "Aristides",
-      "lastName": "Aquino"
+      "lastName": "Aquino",
+      "nameSlug": "aristides-aquino-606157"
     },
     "league": {
       "id": 131,
@@ -4670,7 +4737,8 @@
       "fullName": "Welbyn Francisca",
       "link": "/api/v1/people/806988",
       "firstName": "Welbyn",
-      "lastName": "Francisca"
+      "lastName": "Francisca",
+      "nameSlug": "welbyn-francisca-806988"
     },
     "league": {
       "id": 131,
@@ -4739,7 +4807,8 @@
       "fullName": "Mickey Gasper",
       "link": "/api/v1/people/681508",
       "firstName": "Mickey",
-      "lastName": "Gasper"
+      "lastName": "Gasper",
+      "nameSlug": "mickey-gasper-681508"
     },
     "league": {
       "id": 131,
@@ -4808,7 +4877,8 @@
       "fullName": "Alen Hanson",
       "link": "/api/v1/people/593700",
       "firstName": "Alen",
-      "lastName": "Hanson"
+      "lastName": "Hanson",
+      "nameSlug": "alen-hanson-593700"
     },
     "league": {
       "id": 131,
@@ -4877,7 +4947,8 @@
       "fullName": "Cristian Hernández",
       "link": "/api/v1/people/694183",
       "firstName": "Cristian",
-      "lastName": "Hernández"
+      "lastName": "Hernández",
+      "nameSlug": "cristian-hernandez-694183"
     },
     "league": {
       "id": 131,
@@ -4946,7 +5017,8 @@
       "fullName": "Dawel Lugo",
       "link": "/api/v1/people/608475",
       "firstName": "Dawel",
-      "lastName": "Lugo"
+      "lastName": "Lugo",
+      "nameSlug": "dawel-lugo-608475"
     },
     "league": {
       "id": 131,
@@ -5015,7 +5087,8 @@
       "fullName": "Samuel Munoz",
       "link": "/api/v1/people/703153",
       "firstName": "Samuel",
-      "lastName": "Munoz"
+      "lastName": "Munoz",
+      "nameSlug": "samuel-munoz-703153"
     },
     "league": {
       "id": 131,
@@ -5084,7 +5157,8 @@
       "fullName": "Yerald Nin",
       "link": "/api/v1/people/800206",
       "firstName": "Yerald",
-      "lastName": "Nin"
+      "lastName": "Nin",
+      "nameSlug": "yerald-nin-800206"
     },
     "league": {
       "id": 131,
@@ -5153,7 +5227,8 @@
       "fullName": "Fernando Peguero",
       "link": "/api/v1/people/800387",
       "firstName": "Fernando",
-      "lastName": "Peguero"
+      "lastName": "Peguero",
+      "nameSlug": "fernando-peguero-800387"
     },
     "league": {
       "id": 131,
@@ -5222,7 +5297,8 @@
       "fullName": "Eloy Jiménez",
       "link": "/api/v1/people/650391",
       "firstName": "Eloy",
-      "lastName": "Jiménez"
+      "lastName": "Jiménez",
+      "nameSlug": "eloy-jimenez-650391"
     },
     "league": {
       "id": 131,
@@ -5291,7 +5367,8 @@
       "fullName": "Felix Reyes",
       "link": "/api/v1/people/694025",
       "firstName": "Felix",
-      "lastName": "Reyes"
+      "lastName": "Reyes",
+      "nameSlug": "felix-reyes-694025"
     },
     "league": {
       "id": 131,
@@ -5360,7 +5437,8 @@
       "fullName": "Jared Oliva",
       "link": "/api/v1/people/666931",
       "firstName": "Jared",
-      "lastName": "Oliva"
+      "lastName": "Oliva",
+      "nameSlug": "jared-oliva-666931"
     },
     "league": {
       "id": 131,
@@ -5429,7 +5507,8 @@
       "fullName": "José Tena",
       "link": "/api/v1/people/677588",
       "firstName": "José",
-      "lastName": "Tena"
+      "lastName": "Tena",
+      "nameSlug": "jose-tena-677588"
     },
     "league": {
       "id": 131,
@@ -5498,7 +5577,8 @@
       "fullName": "Rodolfo Castro",
       "link": "/api/v1/people/666801",
       "firstName": "Rodolfo",
-      "lastName": "Castro"
+      "lastName": "Castro",
+      "nameSlug": "rodolfo-castro-666801"
     },
     "league": {
       "id": 131,
@@ -5567,7 +5647,8 @@
       "fullName": "Hayden Senger",
       "link": "/api/v1/people/663584",
       "firstName": "Hayden",
-      "lastName": "Senger"
+      "lastName": "Senger",
+      "nameSlug": "hayden-senger-663584"
     },
     "league": {
       "id": 131,
@@ -5636,7 +5717,8 @@
       "fullName": "Armando Alvarez",
       "link": "/api/v1/people/669137",
       "firstName": "Armando",
-      "lastName": "Alvarez"
+      "lastName": "Alvarez",
+      "nameSlug": "armando-alvarez-669137"
     },
     "league": {
       "id": 131,
@@ -5705,7 +5787,8 @@
       "fullName": "Carlos Martínez",
       "link": "/api/v1/people/642751",
       "firstName": "Carlos",
-      "lastName": "Martínez"
+      "lastName": "Martínez",
+      "nameSlug": "carlos-martinez-642751"
     },
     "league": {
       "id": 131,
@@ -5774,7 +5857,8 @@
       "fullName": "David Hensley",
       "link": "/api/v1/people/682073",
       "firstName": "David",
-      "lastName": "Hensley"
+      "lastName": "Hensley",
+      "nameSlug": "david-hensley-682073"
     },
     "league": {
       "id": 131,
@@ -5843,7 +5927,8 @@
       "fullName": "Mel Rojas Jr.",
       "link": "/api/v1/people/592692",
       "firstName": "Mel",
-      "lastName": "Rojas"
+      "lastName": "Rojas",
+      "nameSlug": "mel-rojas-592692"
     },
     "league": {
       "id": 131,
@@ -5912,7 +5997,8 @@
       "fullName": "Josh Lester",
       "link": "/api/v1/people/623507",
       "firstName": "Josh",
-      "lastName": "Lester"
+      "lastName": "Lester",
+      "nameSlug": "josh-lester-623507"
     },
     "league": {
       "id": 131,
@@ -5981,7 +6067,8 @@
       "fullName": "Jorge Mateo",
       "link": "/api/v1/people/622761",
       "firstName": "Jorge",
-      "lastName": "Mateo"
+      "lastName": "Mateo",
+      "nameSlug": "jorge-mateo-622761"
     },
     "league": {
       "id": 131,
@@ -6050,7 +6137,8 @@
       "fullName": "Eddinson Paulino",
       "link": "/api/v1/people/682796",
       "firstName": "Eddinson",
-      "lastName": "Paulino"
+      "lastName": "Paulino",
+      "nameSlug": "eddinson-paulino-682796"
     },
     "league": {
       "id": 131,
@@ -6119,7 +6207,8 @@
       "fullName": "Gary Sánchez",
       "link": "/api/v1/people/596142",
       "firstName": "Gary",
-      "lastName": "Sánchez"
+      "lastName": "Sánchez",
+      "nameSlug": "gary-sanchez-596142"
     },
     "league": {
       "id": 131,
@@ -6188,7 +6277,8 @@
       "fullName": "Rainer Nunez",
       "link": "/api/v1/people/678742",
       "firstName": "Rainer",
-      "lastName": "Nunez"
+      "lastName": "Nunez",
+      "nameSlug": "rainer-nunez-678742"
     },
     "league": {
       "id": 131,
@@ -6257,7 +6347,8 @@
       "fullName": "Nomar Mazara",
       "link": "/api/v1/people/608577",
       "firstName": "Nomar",
-      "lastName": "Mazara"
+      "lastName": "Mazara",
+      "nameSlug": "nomar-mazara-608577"
     },
     "league": {
       "id": 131,
@@ -6326,7 +6417,8 @@
       "fullName": "Juan Lagares",
       "link": "/api/v1/people/501571",
       "firstName": "Juan",
-      "lastName": "Lagares"
+      "lastName": "Lagares",
+      "nameSlug": "juan-lagares-501571"
     },
     "league": {
       "id": 131,
@@ -6395,7 +6487,8 @@
       "fullName": "Michael De La Cruz",
       "link": "/api/v1/people/631222",
       "firstName": "Michael",
-      "lastName": "De La Cruz"
+      "lastName": "De La Cruz",
+      "nameSlug": "michael-de-la-cruz-631222"
     },
     "league": {
       "id": 131,
@@ -6464,7 +6557,8 @@
       "fullName": "Felnin Celesten",
       "link": "/api/v1/people/806958",
       "firstName": "Felnin",
-      "lastName": "Celesten"
+      "lastName": "Celesten",
+      "nameSlug": "felnin-celesten-806958"
     },
     "league": {
       "id": 131,
@@ -6533,7 +6627,8 @@
       "fullName": "Elier Hernandez",
       "link": "/api/v1/people/609274",
       "firstName": "Elier",
-      "lastName": "Hernandez"
+      "lastName": "Hernandez",
+      "nameSlug": "elier-hernandez-609274"
     },
     "league": {
       "id": 131,
@@ -6602,7 +6697,8 @@
       "fullName": "Cooper Johnson",
       "link": "/api/v1/people/666194",
       "firstName": "Cooper",
-      "lastName": "Johnson"
+      "lastName": "Johnson",
+      "nameSlug": "cooper-johnson-666194"
     },
     "league": {
       "id": 131,
@@ -6671,7 +6767,8 @@
       "fullName": "Robert Moore",
       "link": "/api/v1/people/691001",
       "firstName": "Robert",
-      "lastName": "Moore"
+      "lastName": "Moore",
+      "nameSlug": "robert-moore-691001"
     },
     "league": {
       "id": 131,
@@ -6740,7 +6837,8 @@
       "fullName": "Alfredo Reyes",
       "link": "/api/v1/people/602112",
       "firstName": "Alfredo",
-      "lastName": "Reyes"
+      "lastName": "Reyes",
+      "nameSlug": "alfredo-reyes-602112"
     },
     "league": {
       "id": 131,
@@ -6809,7 +6907,8 @@
       "fullName": "Dervy Ventura",
       "link": "/api/v1/people/805319",
       "firstName": "Dervy",
-      "lastName": "Ventura"
+      "lastName": "Ventura",
+      "nameSlug": "dervy-ventura-805319"
     },
     "league": {
       "id": 131,
@@ -6878,7 +6977,8 @@
       "fullName": "Carlos Jorge",
       "link": "/api/v1/people/699115",
       "firstName": "Carlos",
-      "lastName": "Jorge"
+      "lastName": "Jorge",
+      "nameSlug": "carlos-jorge-699115"
     },
     "league": {
       "id": 131,
@@ -6947,7 +7047,8 @@
       "fullName": "Robinson Canó",
       "link": "/api/v1/people/429664",
       "firstName": "Robinson",
-      "lastName": "Canó"
+      "lastName": "Canó",
+      "nameSlug": "robinson-cano-429664"
     },
     "league": {
       "id": 131,
@@ -7016,7 +7117,8 @@
       "fullName": "Martín Maldonado",
       "link": "/api/v1/people/455117",
       "firstName": "Martín",
-      "lastName": "Maldonado"
+      "lastName": "Maldonado",
+      "nameSlug": "martin-maldonado-455117"
     },
     "league": {
       "id": 131,
@@ -7085,7 +7187,8 @@
       "fullName": "Nelson Velázquez",
       "link": "/api/v1/people/676369",
       "firstName": "Nelson",
-      "lastName": "Velázquez"
+      "lastName": "Velázquez",
+      "nameSlug": "nelson-velazquez-676369"
     },
     "league": {
       "id": 131,
@@ -7154,7 +7257,8 @@
       "fullName": "Leury García",
       "link": "/api/v1/people/544725",
       "firstName": "Leury",
-      "lastName": "Garcia"
+      "lastName": "Garcia",
+      "nameSlug": "leury-garcia-544725"
     },
     "league": {
       "id": 131,
@@ -7223,7 +7327,8 @@
       "fullName": "Angel Ortiz",
       "link": "/api/v1/people/691292",
       "firstName": "Angel",
-      "lastName": "Ortiz"
+      "lastName": "Ortiz",
+      "nameSlug": "angel-ortiz-691292"
     },
     "league": {
       "id": 131,
@@ -7292,7 +7397,8 @@
       "fullName": "Vidal Bruján",
       "link": "/api/v1/people/660644",
       "firstName": "Vidal",
-      "lastName": "Bruján"
+      "lastName": "Bruján",
+      "nameSlug": "vidal-brujan-660644"
     },
     "league": {
       "id": 131,
@@ -7361,7 +7467,8 @@
       "fullName": "Ronny Mauricio",
       "link": "/api/v1/people/677595",
       "firstName": "Ronny",
-      "lastName": "Mauricio"
+      "lastName": "Mauricio",
+      "nameSlug": "ronny-mauricio-677595"
     },
     "league": {
       "id": 131,
@@ -7430,7 +7537,8 @@
       "fullName": "Jimmy Paredes",
       "link": "/api/v1/people/517370",
       "firstName": "Jimmy",
-      "lastName": "Paredes"
+      "lastName": "Paredes",
+      "nameSlug": "jimmy-paredes-517370"
     },
     "league": {
       "id": 131,
@@ -7499,7 +7607,8 @@
       "fullName": "Manuel Pena",
       "link": "/api/v1/people/694211",
       "firstName": "Manuel",
-      "lastName": "Pena"
+      "lastName": "Pena",
+      "nameSlug": "manuel-pena-694211"
     },
     "league": {
       "id": 131,
@@ -7568,7 +7677,8 @@
       "fullName": "Carter Jensen",
       "link": "/api/v1/people/695600",
       "firstName": "Carter",
-      "lastName": "Jensen"
+      "lastName": "Jensen",
+      "nameSlug": "carter-jensen-695600"
     },
     "league": {
       "id": 131,
@@ -7637,7 +7747,8 @@
       "fullName": "Pedro Severino",
       "link": "/api/v1/people/600474",
       "firstName": "Pedro",
-      "lastName": "Severino"
+      "lastName": "Severino",
+      "nameSlug": "pedro-severino-600474"
     },
     "league": {
       "id": 131,
@@ -7706,7 +7817,8 @@
       "fullName": "Dairon Blanco",
       "link": "/api/v1/people/680118",
       "firstName": "Dairon",
-      "lastName": "Blanco"
+      "lastName": "Blanco",
+      "nameSlug": "dairon-blanco-680118"
     },
     "league": {
       "id": 131,
@@ -7775,7 +7887,8 @@
       "fullName": "Aneury Tavárez",
       "link": "/api/v1/people/606477",
       "firstName": "Aneury",
-      "lastName": "Tavárez"
+      "lastName": "Tavárez",
+      "nameSlug": "aneury-tavarez-606477"
     },
     "league": {
       "id": 131,
@@ -7844,7 +7957,8 @@
       "fullName": "Luis Campusano",
       "link": "/api/v1/people/669134",
       "firstName": "Luis",
-      "lastName": "Campusano"
+      "lastName": "Campusano",
+      "nameSlug": "luis-campusano-669134"
     },
     "league": {
       "id": 131,
@@ -7913,7 +8027,8 @@
       "fullName": "Luis De Los Santos",
       "link": "/api/v1/people/665782",
       "firstName": "Luis",
-      "lastName": "De Los Santos"
+      "lastName": "De Los Santos",
+      "nameSlug": "luis-de-los-santos-665782"
     },
     "league": {
       "id": 131,
@@ -7982,7 +8097,8 @@
       "fullName": "Kelvin Gutiérrez",
       "link": "/api/v1/people/642721",
       "firstName": "Kelvin",
-      "lastName": "Gutiérrez"
+      "lastName": "Gutiérrez",
+      "nameSlug": "kelvin-gutierrez-642721"
     },
     "league": {
       "id": 131,
@@ -8051,7 +8167,8 @@
       "fullName": "Ronald Guzmán",
       "link": "/api/v1/people/608597",
       "firstName": "Ronald",
-      "lastName": "Guzmán"
+      "lastName": "Guzmán",
+      "nameSlug": "ronald-guzman-608597"
     },
     "league": {
       "id": 131,
@@ -8120,7 +8237,8 @@
       "fullName": "Junior Perez",
       "link": "/api/v1/people/678577",
       "firstName": "Junior",
-      "lastName": "Perez"
+      "lastName": "Perez",
+      "nameSlug": "junior-perez-678577"
     },
     "league": {
       "id": 131,
@@ -8189,7 +8307,8 @@
       "fullName": "Julio E. Rodriguez",
       "link": "/api/v1/people/667372",
       "firstName": "Julio E.",
-      "lastName": "Rodriguez"
+      "lastName": "Rodriguez",
+      "nameSlug": "julio-e-rodriguez-667372"
     },
     "league": {
       "id": 131,
@@ -8258,7 +8377,8 @@
       "fullName": "Kenny Piper",
       "link": "/api/v1/people/700652",
       "firstName": "Kenny",
-      "lastName": "Piper"
+      "lastName": "Piper",
+      "nameSlug": "kenny-piper-700652"
     },
     "league": {
       "id": 131,
@@ -8327,7 +8447,8 @@
       "fullName": "Julio Carreras",
       "link": "/api/v1/people/679734",
       "firstName": "Julio",
-      "lastName": "Carreras"
+      "lastName": "Carreras",
+      "nameSlug": "julio-carreras-679734"
     },
     "league": {
       "id": 131,
@@ -8396,7 +8517,8 @@
       "fullName": "Francisco Peña",
       "link": "/api/v1/people/506747",
       "firstName": "Francisco",
-      "lastName": "Peña"
+      "lastName": "Peña",
+      "nameSlug": "francisco-pena-506747"
     },
     "league": {
       "id": 131,
@@ -8465,7 +8587,8 @@
       "fullName": "Yunior Severino",
       "link": "/api/v1/people/670870",
       "firstName": "Yunior",
-      "lastName": "Severino"
+      "lastName": "Severino",
+      "nameSlug": "yunior-severino-670870"
     },
     "league": {
       "id": 131,
@@ -8534,7 +8657,8 @@
       "fullName": "Jeimer Candelario",
       "link": "/api/v1/people/600869",
       "firstName": "Jeimer",
-      "lastName": "Candelario"
+      "lastName": "Candelario",
+      "nameSlug": "jeimer-candelario-600869"
     },
     "league": {
       "id": 131,
@@ -8603,7 +8727,8 @@
       "fullName": "Griffin Conine",
       "link": "/api/v1/people/665052",
       "firstName": "Griffin",
-      "lastName": "Conine"
+      "lastName": "Conine",
+      "nameSlug": "griffin-conine-665052"
     },
     "league": {
       "id": 131,
@@ -8672,7 +8797,8 @@
       "fullName": "Pablo Reyes",
       "link": "/api/v1/people/622569",
       "firstName": "Pablo",
-      "lastName": "Reyes"
+      "lastName": "Reyes",
+      "nameSlug": "pablo-reyes-622569"
     },
     "league": {
       "id": 131,
@@ -8741,7 +8867,8 @@
       "fullName": "Magneuris Sierra",
       "link": "/api/v1/people/642423",
       "firstName": "Magneuris",
-      "lastName": "Sierra"
+      "lastName": "Sierra",
+      "nameSlug": "magneuris-sierra-642423"
     },
     "league": {
       "id": 131,
@@ -8810,7 +8937,8 @@
       "fullName": "Alexander Canario",
       "link": "/api/v1/people/672744",
       "firstName": "Alexander",
-      "lastName": "Canario"
+      "lastName": "Canario",
+      "nameSlug": "alexander-canario-672744"
     },
     "league": {
       "id": 131,
@@ -8879,7 +9007,8 @@
       "fullName": "Eguy Rosario",
       "link": "/api/v1/people/666703",
       "firstName": "Eguy",
-      "lastName": "Rosario"
+      "lastName": "Rosario",
+      "nameSlug": "eguy-rosario-666703"
     },
     "league": {
       "id": 131,
@@ -8948,7 +9077,8 @@
       "fullName": "Hanser Alberto",
       "link": "/api/v1/people/593643",
       "firstName": "Hanser",
-      "lastName": "Alberto"
+      "lastName": "Alberto",
+      "nameSlug": "hanser-alberto-593643"
     },
     "league": {
       "id": 131,
@@ -9017,7 +9147,8 @@
       "fullName": "Jasson Domínguez",
       "link": "/api/v1/people/691176",
       "firstName": "Jasson",
-      "lastName": "Domínguez"
+      "lastName": "Domínguez",
+      "nameSlug": "jasson-dominguez-691176"
     },
     "league": {
       "id": 131,
@@ -9086,7 +9217,8 @@
       "fullName": "Adael Amador",
       "link": "/api/v1/people/691182",
       "firstName": "Adael",
-      "lastName": "Amador"
+      "lastName": "Amador",
+      "nameSlug": "adael-amador-691182"
     },
     "league": {
       "id": 131,
@@ -9155,7 +9287,8 @@
       "fullName": "Domingo Leyba",
       "link": "/api/v1/people/642736",
       "firstName": "Domingo",
-      "lastName": "Leyba"
+      "lastName": "Leyba",
+      "nameSlug": "domingo-leyba-642736"
     },
     "league": {
       "id": 131,
@@ -9224,7 +9357,8 @@
       "fullName": "Melvin Mercedes",
       "link": "/api/v1/people/621034",
       "firstName": "Melvin",
-      "lastName": "Mercedes"
+      "lastName": "Mercedes",
+      "nameSlug": "melvin-mercedes-621034"
     },
     "league": {
       "id": 131,
@@ -9293,7 +9427,8 @@
       "fullName": "Wilfred Veras",
       "link": "/api/v1/people/691442",
       "firstName": "Wilfred",
-      "lastName": "Veras"
+      "lastName": "Veras",
+      "nameSlug": "wilfred-veras-691442"
     },
     "league": {
       "id": 131,
@@ -9362,7 +9497,8 @@
       "fullName": "Liover Peguero",
       "link": "/api/v1/people/678894",
       "firstName": "Liover",
-      "lastName": "Peguero"
+      "lastName": "Peguero",
+      "nameSlug": "liover-peguero-678894"
     },
     "league": {
       "id": 131,
@@ -9431,7 +9567,8 @@
       "fullName": "Sandber Pimentel",
       "link": "/api/v1/people/622698",
       "firstName": "Sandber",
-      "lastName": "Pimentel"
+      "lastName": "Pimentel",
+      "nameSlug": "sandber-pimentel-622698"
     },
     "league": {
       "id": 131,
@@ -9500,7 +9637,8 @@
       "fullName": "Luis Barrera",
       "link": "/api/v1/people/642456",
       "firstName": "Luis",
-      "lastName": "Barrera"
+      "lastName": "Barrera",
+      "nameSlug": "luis-barrera-642456"
     },
     "league": {
       "id": 131,
@@ -9569,7 +9707,8 @@
       "fullName": "Carlos Franco",
       "link": "/api/v1/people/554238",
       "firstName": "Carlos",
-      "lastName": "Franco"
+      "lastName": "Franco",
+      "nameSlug": "carlos-franco-554238"
     },
     "league": {
       "id": 131,
@@ -9638,7 +9777,8 @@
       "fullName": "Abraham Almonte",
       "link": "/api/v1/people/501659",
       "firstName": "Abraham",
-      "lastName": "Almonte"
+      "lastName": "Almonte",
+      "nameSlug": "abraham-almonte-501659"
     },
     "league": {
       "id": 131,
@@ -9707,7 +9847,8 @@
       "fullName": "Juan Brito",
       "link": "/api/v1/people/682877",
       "firstName": "Juan",
-      "lastName": "Brito"
+      "lastName": "Brito",
+      "nameSlug": "juan-brito-682877"
     },
     "league": {
       "id": 131,
@@ -9776,7 +9917,8 @@
       "fullName": "Andretty Cordero",
       "link": "/api/v1/people/650957",
       "firstName": "Andretty",
-      "lastName": "Cordero"
+      "lastName": "Cordero",
+      "nameSlug": "andretty-cordero-650957"
     },
     "league": {
       "id": 131,
@@ -9845,7 +9987,8 @@
       "fullName": "Wilmer Difo",
       "link": "/api/v1/people/594694",
       "firstName": "Wilmer",
-      "lastName": "Difo"
+      "lastName": "Difo",
+      "nameSlug": "wilmer-difo-594694"
     },
     "league": {
       "id": 131,
@@ -9914,7 +10057,8 @@
       "fullName": "Jordan Lawlar",
       "link": "/api/v1/people/691783",
       "firstName": "Jordan",
-      "lastName": "Lawlar"
+      "lastName": "Lawlar",
+      "nameSlug": "jordan-lawlar-691783"
     },
     "league": {
       "id": 131,
@@ -9983,7 +10127,8 @@
       "fullName": "Jose Siri",
       "link": "/api/v1/people/642350",
       "firstName": "Jose",
-      "lastName": "Siri"
+      "lastName": "Siri",
+      "nameSlug": "jose-siri-642350"
     },
     "league": {
       "id": 131,
@@ -10052,7 +10197,8 @@
       "fullName": "Angel Martínez",
       "link": "/api/v1/people/682657",
       "firstName": "Angel",
-      "lastName": "Martínez"
+      "lastName": "Martínez",
+      "nameSlug": "angel-martinez-682657"
     },
     "league": {
       "id": 131,
@@ -10121,7 +10267,8 @@
       "fullName": "Arturo Disla",
       "link": "/api/v1/people/815697",
       "firstName": "Arturo",
-      "lastName": "Disla"
+      "lastName": "Disla",
+      "nameSlug": "arturo-disla-815697"
     },
     "league": {
       "id": 131,
@@ -10190,7 +10337,8 @@
       "fullName": "Coco Montes",
       "link": "/api/v1/people/663796",
       "firstName": "Coco",
-      "lastName": "Montes"
+      "lastName": "Montes",
+      "nameSlug": "coco-montes-663796"
     },
     "league": {
       "id": 131,
@@ -10259,7 +10407,8 @@
       "fullName": "Chadwick Tromp",
       "link": "/api/v1/people/644433",
       "firstName": "Chadwick",
-      "lastName": "Tromp"
+      "lastName": "Tromp",
+      "nameSlug": "chadwick-tromp-644433"
     },
     "league": {
       "id": 131,
@@ -10328,7 +10477,8 @@
       "fullName": "Emilio Bonifácio",
       "link": "/api/v1/people/466988",
       "firstName": "Emilio",
-      "lastName": "Bonifácio"
+      "lastName": "Bonifácio",
+      "nameSlug": "emilio-bonifacio-466988"
     },
     "league": {
       "id": 131,
@@ -10397,7 +10547,8 @@
       "fullName": "Sergio Alcántara",
       "link": "/api/v1/people/642727",
       "firstName": "Sergio",
-      "lastName": "Alcántara"
+      "lastName": "Alcántara",
+      "nameSlug": "sergio-alcantara-642727"
     },
     "league": {
       "id": 131,
@@ -10466,7 +10617,8 @@
       "fullName": "Jordan Diaz",
       "link": "/api/v1/people/672478",
       "firstName": "Jordan",
-      "lastName": "Diaz"
+      "lastName": "Diaz",
+      "nameSlug": "jordan-diaz-672478"
     },
     "league": {
       "id": 131,
@@ -10535,7 +10687,8 @@
       "fullName": "Michael De León",
       "link": "/api/v1/people/650958",
       "firstName": "Michael",
-      "lastName": "De León"
+      "lastName": "De León",
+      "nameSlug": "michael-de-leon-650958"
     },
     "league": {
       "id": 131,
@@ -10604,7 +10757,8 @@
       "fullName": "Ramon Hernandez",
       "link": "/api/v1/people/650346",
       "firstName": "Ramon",
-      "lastName": "Hernandez"
+      "lastName": "Hernandez",
+      "nameSlug": "ramon-hernandez-650346"
     },
     "league": {
       "id": 131,
@@ -10673,7 +10827,8 @@
       "fullName": "Albert Fabian",
       "link": "/api/v1/people/683546",
       "firstName": "Albert",
-      "lastName": "Fabian"
+      "lastName": "Fabian",
+      "nameSlug": "albert-fabian-683546"
     },
     "league": {
       "id": 131,
@@ -10742,7 +10897,8 @@
       "fullName": "Jonathan Araúz",
       "link": "/api/v1/people/660620",
       "firstName": "Jonathan",
-      "lastName": "Araúz"
+      "lastName": "Araúz",
+      "nameSlug": "jonathan-arauz-660620"
     },
     "league": {
       "id": 131,
@@ -10811,7 +10967,8 @@
       "fullName": "Tres Barrera",
       "link": "/api/v1/people/668663",
       "firstName": "Tres",
-      "lastName": "Barrera"
+      "lastName": "Barrera",
+      "nameSlug": "tres-barrera-668663"
     },
     "league": {
       "id": 131,
@@ -10880,7 +11037,8 @@
       "fullName": "Jorge Bonifacio",
       "link": "/api/v1/people/593528",
       "firstName": "Jorge",
-      "lastName": "Bonifacio"
+      "lastName": "Bonifacio",
+      "nameSlug": "jorge-bonifacio-593528"
     },
     "league": {
       "id": 131,
@@ -10949,7 +11107,8 @@
       "fullName": "Anthony Garcia",
       "link": "/api/v1/people/678803",
       "firstName": "Anthony",
-      "lastName": "Garcia"
+      "lastName": "Garcia",
+      "nameSlug": "anthony-garcia-678803"
     },
     "league": {
       "id": 131,
@@ -11018,7 +11177,8 @@
       "fullName": "Diego Hernandez",
       "link": "/api/v1/people/678746",
       "firstName": "Diego",
-      "lastName": "Hernandez"
+      "lastName": "Hernandez",
+      "nameSlug": "diego-hernandez-678746"
     },
     "league": {
       "id": 131,
@@ -11087,7 +11247,8 @@
       "fullName": "Jhonkensy Noel",
       "link": "/api/v1/people/678877",
       "firstName": "Jhonkensy",
-      "lastName": "Noel"
+      "lastName": "Noel",
+      "nameSlug": "jhonkensy-noel-678877"
     },
     "league": {
       "id": 131,
@@ -11156,7 +11317,8 @@
       "fullName": "Christian Bethancourt",
       "link": "/api/v1/people/542194",
       "firstName": "Christian",
-      "lastName": "Bethancourt"
+      "lastName": "Bethancourt",
+      "nameSlug": "christian-bethancourt-542194"
     },
     "league": {
       "id": 131,
@@ -11225,7 +11387,8 @@
       "fullName": "Victor Labrada",
       "link": "/api/v1/people/700032",
       "firstName": "Victor",
-      "lastName": "Labrada"
+      "lastName": "Labrada",
+      "nameSlug": "victor-labrada-700032"
     },
     "league": {
       "id": 131,
@@ -11294,7 +11457,8 @@
       "fullName": "Denzer Guzman",
       "link": "/api/v1/people/694203",
       "firstName": "Denzer",
-      "lastName": "Guzman"
+      "lastName": "Guzman",
+      "nameSlug": "denzer-guzman-694203"
     },
     "league": {
       "id": 131,
@@ -11363,7 +11527,8 @@
       "fullName": "Ismael Alcantara",
       "link": "/api/v1/people/672882",
       "firstName": "Ismael",
-      "lastName": "Alcantara"
+      "lastName": "Alcantara",
+      "nameSlug": "ismael-alcantara-672882"
     },
     "league": {
       "id": 131,
@@ -11432,7 +11597,8 @@
       "fullName": "Jose Torres",
       "link": "/api/v1/people/686958",
       "firstName": "Jose",
-      "lastName": "Torres"
+      "lastName": "Torres",
+      "nameSlug": "jose-torres-686958"
     },
     "league": {
       "id": 131,
@@ -11501,7 +11667,8 @@
       "fullName": "Gustavo Campero",
       "link": "/api/v1/people/672569",
       "firstName": "Gustavo",
-      "lastName": "Campero"
+      "lastName": "Campero",
+      "nameSlug": "gustavo-campero-672569"
     },
     "league": {
       "id": 131,
@@ -11570,7 +11737,8 @@
       "fullName": "Anthony Seigler",
       "link": "/api/v1/people/678011",
       "firstName": "Anthony",
-      "lastName": "Seigler"
+      "lastName": "Seigler",
+      "nameSlug": "anthony-seigler-678011"
     },
     "league": {
       "id": 131,
@@ -11639,7 +11807,8 @@
       "fullName": "Esteury Ruiz",
       "link": "/api/v1/people/665923",
       "firstName": "Esteury",
-      "lastName": "Ruiz"
+      "lastName": "Ruiz",
+      "nameSlug": "esteury-ruiz-665923"
     },
     "league": {
       "id": 131,
@@ -11708,7 +11877,8 @@
       "fullName": "Frank Rodriguez",
       "link": "/api/v1/people/684491",
       "firstName": "Frank",
-      "lastName": "Rodriguez"
+      "lastName": "Rodriguez",
+      "nameSlug": "frank-rodriguez-684491"
     },
     "league": {
       "id": 131,
@@ -11777,7 +11947,8 @@
       "fullName": "Jeison Guzmán",
       "link": "/api/v1/people/665834",
       "firstName": "Jeison",
-      "lastName": "Guzmán"
+      "lastName": "Guzmán",
+      "nameSlug": "jeison-guzman-665834"
     },
     "league": {
       "id": 131,
@@ -11846,7 +12017,8 @@
       "fullName": "Marco Luciano",
       "link": "/api/v1/people/682617",
       "firstName": "Marco",
-      "lastName": "Luciano"
+      "lastName": "Luciano",
+      "nameSlug": "marco-luciano-682617"
     },
     "league": {
       "id": 131,
@@ -11915,7 +12087,8 @@
       "fullName": "Onil Perez",
       "link": "/api/v1/people/692366",
       "firstName": "Onil",
-      "lastName": "Perez"
+      "lastName": "Perez",
+      "nameSlug": "onil-perez-692366"
     },
     "league": {
       "id": 131,
@@ -11984,7 +12157,8 @@
       "fullName": "Zoilo Almonte",
       "link": "/api/v1/people/501660",
       "firstName": "Zoilo",
-      "lastName": "Almonte"
+      "lastName": "Almonte",
+      "nameSlug": "zoilo-almonte-501660"
     },
     "league": {
       "id": 131,
@@ -12053,7 +12227,8 @@
       "fullName": "Enmanuel Valdez",
       "link": "/api/v1/people/665839",
       "firstName": "Enmanuel",
-      "lastName": "Valdez"
+      "lastName": "Valdez",
+      "nameSlug": "enmanuel-valdez-665839"
     },
     "league": {
       "id": 131,
@@ -12122,7 +12297,8 @@
       "fullName": "Juan Arnaud",
       "link": "/api/v1/people/699304",
       "firstName": "Juan",
-      "lastName": "Arnaud"
+      "lastName": "Arnaud",
+      "nameSlug": "juan-arnaud-699304"
     },
     "league": {
       "id": 131,
@@ -12191,7 +12367,8 @@
       "fullName": "Abiatal Avelino",
       "link": "/api/v1/people/623214",
       "firstName": "Abiatal",
-      "lastName": "Avelino"
+      "lastName": "Avelino",
+      "nameSlug": "abiatal-avelino-623214"
     },
     "league": {
       "id": 131,
@@ -12260,7 +12437,8 @@
       "fullName": "David Bañuelos",
       "link": "/api/v1/people/675915",
       "firstName": "David",
-      "lastName": "Bañuelos"
+      "lastName": "Bañuelos",
+      "nameSlug": "david-banuelos-675915"
     },
     "league": {
       "id": 131,
@@ -12329,7 +12507,8 @@
       "fullName": "Engel Beltre",
       "link": "/api/v1/people/520976",
       "firstName": "Engel",
-      "lastName": "Beltre"
+      "lastName": "Beltre",
+      "nameSlug": "engel-beltre-520976"
     },
     "league": {
       "id": 131,
@@ -12398,7 +12577,8 @@
       "fullName": "Ricardo Cespedes",
       "link": "/api/v1/people/650701",
       "firstName": "Ricardo",
-      "lastName": "Cespedes"
+      "lastName": "Cespedes",
+      "nameSlug": "ricardo-cespedes-650701"
     },
     "league": {
       "id": 131,
@@ -12467,7 +12647,8 @@
       "fullName": "Juan Corniel",
       "link": "/api/v1/people/691284",
       "firstName": "Juan",
-      "lastName": "Corniel"
+      "lastName": "Corniel",
+      "nameSlug": "juan-corniel-691284"
     },
     "league": {
       "id": 131,
@@ -12536,7 +12717,8 @@
       "fullName": "Omar De Los Santos",
       "link": "/api/v1/people/684519",
       "firstName": "Omar",
-      "lastName": "De Los Santos"
+      "lastName": "De Los Santos",
+      "nameSlug": "omar-de-los-santos-684519"
     },
     "league": {
       "id": 131,
@@ -12605,7 +12787,8 @@
       "fullName": "José Devers",
       "link": "/api/v1/people/672701",
       "firstName": "José",
-      "lastName": "Devers"
+      "lastName": "Devers",
+      "nameSlug": "jose-devers-672701"
     },
     "league": {
       "id": 131,
@@ -12674,7 +12857,8 @@
       "fullName": "Geraldi Diaz",
       "link": "/api/v1/people/673145",
       "firstName": "Geraldi",
-      "lastName": "Diaz"
+      "lastName": "Diaz",
+      "nameSlug": "geraldi-diaz-673145"
     },
     "league": {
       "id": 131,
@@ -12743,7 +12927,8 @@
       "fullName": "Chris Ellis",
       "link": "/api/v1/people/595939",
       "firstName": "Chris",
-      "lastName": "Ellis"
+      "lastName": "Ellis",
+      "nameSlug": "chris-ellis-595939"
     },
     "league": {
       "id": 131,
@@ -12812,7 +12997,8 @@
       "fullName": "Edwin Espinal",
       "link": "/api/v1/people/606340",
       "firstName": "Edwin",
-      "lastName": "Espinal"
+      "lastName": "Espinal",
+      "nameSlug": "edwin-espinal-606340"
     },
     "league": {
       "id": 131,
@@ -12881,7 +13067,8 @@
       "fullName": "Angel Feliz",
       "link": "/api/v1/people/815906",
       "firstName": "Angel",
-      "lastName": "Feliz"
+      "lastName": "Feliz",
+      "nameSlug": "angel-feliz-815906"
     },
     "league": {
       "id": 131,
@@ -12950,7 +13137,8 @@
       "fullName": "Randy Florentino",
       "link": "/api/v1/people/678594",
       "firstName": "Randy",
-      "lastName": "Florentino"
+      "lastName": "Florentino",
+      "nameSlug": "randy-florentino-678594"
     },
     "league": {
       "id": 131,
@@ -13019,7 +13207,8 @@
       "fullName": "Luis García",
       "link": "/api/v1/people/677593",
       "firstName": "Luis",
-      "lastName": "Garcia"
+      "lastName": "Garcia",
+      "nameSlug": "luis-garcia-677593"
     },
     "league": {
       "id": 131,
@@ -13088,7 +13277,8 @@
       "fullName": "Deivy Grullón",
       "link": "/api/v1/people/620453",
       "firstName": "Deivy",
-      "lastName": "Grullón"
+      "lastName": "Grullón",
+      "nameSlug": "deivy-grullon-620453"
     },
     "league": {
       "id": 131,
@@ -13157,7 +13347,8 @@
       "fullName": "Juan Guerrero",
       "link": "/api/v1/people/682648",
       "firstName": "Juan",
-      "lastName": "Guerrero"
+      "lastName": "Guerrero",
+      "nameSlug": "juan-guerrero-682648"
     },
     "league": {
       "id": 131,
@@ -13226,7 +13417,8 @@
       "fullName": "Raylin Heredia",
       "link": "/api/v1/people/699712",
       "firstName": "Raylin",
-      "lastName": "Heredia"
+      "lastName": "Heredia",
+      "nameSlug": "raylin-heredia-699712"
     },
     "league": {
       "id": 131,
@@ -13295,7 +13487,8 @@
       "fullName": "Jommer Hernandez",
       "link": "/api/v1/people/678912",
       "firstName": "Jommer",
-      "lastName": "Hernandez"
+      "lastName": "Hernandez",
+      "nameSlug": "jommer-hernandez-678912"
     },
     "league": {
       "id": 131,
@@ -13364,7 +13557,8 @@
       "fullName": "Carlos Jimenez",
       "link": "/api/v1/people/692039",
       "firstName": "Carlos",
-      "lastName": "Jimenez"
+      "lastName": "Jimenez",
+      "nameSlug": "carlos-jimenez-692039"
     },
     "league": {
       "id": 131,
@@ -13433,7 +13627,8 @@
       "fullName": "Alfredo Marte",
       "link": "/api/v1/people/501245",
       "firstName": "Alfredo",
-      "lastName": "Marte"
+      "lastName": "Marte",
+      "nameSlug": "alfredo-marte-501245"
     },
     "league": {
       "id": 131,
@@ -13502,7 +13697,8 @@
       "fullName": "Enmanuel Mejia",
       "link": "/api/v1/people/684871",
       "firstName": "Enmanuel",
-      "lastName": "Mejia"
+      "lastName": "Mejia",
+      "nameSlug": "enmanuel-mejia-684871"
     },
     "league": {
       "id": 131,
@@ -13571,7 +13767,8 @@
       "fullName": "Cristopher Molina",
       "link": "/api/v1/people/650654",
       "firstName": "Cristopher",
-      "lastName": "Molina"
+      "lastName": "Molina",
+      "nameSlug": "cristopher-molina-650654"
     },
     "league": {
       "id": 131,
@@ -13640,7 +13837,8 @@
       "fullName": "Jorgelys Mota",
       "link": "/api/v1/people/800195",
       "firstName": "Jorgelys",
-      "lastName": "Mota"
+      "lastName": "Mota",
+      "nameSlug": "jorgelys-mota-800195"
     },
     "league": {
       "id": 131,
@@ -13709,7 +13907,8 @@
       "fullName": "Jhon Nuñez",
       "link": "/api/v1/people/642344",
       "firstName": "Jhon",
-      "lastName": "Nuñez"
+      "lastName": "Nuñez",
+      "nameSlug": "jhon-nunez-642344"
     },
     "league": {
       "id": 131,
@@ -13778,7 +13977,8 @@
       "fullName": "Inohan Paniagua",
       "link": "/api/v1/people/681644",
       "firstName": "Inohan",
-      "lastName": "Paniagua"
+      "lastName": "Paniagua",
+      "nameSlug": "inohan-paniagua-681644"
     },
     "league": {
       "id": 131,
@@ -13847,7 +14047,8 @@
       "fullName": "Bladimir Restituyo",
       "link": "/api/v1/people/678837",
       "firstName": "Bladimir",
-      "lastName": "Restituyo"
+      "lastName": "Restituyo",
+      "nameSlug": "bladimir-restituyo-678837"
     },
     "league": {
       "id": 131,
@@ -13916,7 +14117,8 @@
       "fullName": "Hansel Robles",
       "link": "/api/v1/people/570663",
       "firstName": "Hansel",
-      "lastName": "Robles"
+      "lastName": "Robles",
+      "nameSlug": "hansel-robles-570663"
     },
     "league": {
       "id": 131,
@@ -13985,7 +14187,8 @@
       "fullName": "Joseph Rosa",
       "link": "/api/v1/people/660563",
       "firstName": "Joseph",
-      "lastName": "Rosa"
+      "lastName": "Rosa",
+      "nameSlug": "joseph-rosa-660563"
     },
     "league": {
       "id": 131,
@@ -14054,7 +14257,8 @@
       "fullName": "Rubén Tejada",
       "link": "/api/v1/people/514913",
       "firstName": "Rubén",
-      "lastName": "Tejada"
+      "lastName": "Tejada",
+      "nameSlug": "ruben-tejada-514913"
     },
     "league": {
       "id": 131,
@@ -14123,7 +14327,8 @@
       "fullName": "Ramón Torres",
       "link": "/api/v1/people/593527",
       "firstName": "Ramón",
-      "lastName": "Torres"
+      "lastName": "Torres",
+      "nameSlug": "ramon-torres-593527"
     },
     "league": {
       "id": 131,
@@ -14192,7 +14397,8 @@
       "fullName": "Luis Valdez",
       "link": "/api/v1/people/687667",
       "firstName": "Luis",
-      "lastName": "Valdez"
+      "lastName": "Valdez",
+      "nameSlug": "luis-valdez-687667"
     },
     "league": {
       "id": 131,
